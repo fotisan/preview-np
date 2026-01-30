@@ -820,3 +820,119 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* =========================
+   Services: Desktop pyramid + Mobile accordion
+   ========================= */
+
+/* Mobile-first: show accordion, hide grid */
+#services .services-grid--desktop{
+  display: none;
+}
+#services .services-accordion-list{
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* Accordion styling (no + icon, opens via "Δείτε περισσότερα") */
+.service-accordion{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.66);
+  overflow: hidden;
+}
+
+.service-accordion summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 14px 14px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.service-accordion summary::-webkit-details-marker{ display:none; }
+
+.service-sum{
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 12px;
+  align-items: start;
+  min-width: 0;
+}
+
+.service-sum .icon{
+  margin: 0;
+}
+
+.service-sum-text{
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.service-sum-title{
+  font-weight: 900;
+  letter-spacing: -.12px;
+  color: rgba(31,29,26,.94);
+  line-height: 1.2;
+}
+
+.service-sum-desc{
+  color: rgba(31,29,26,.72);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.service-more{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(222,211,196,.85);
+  background: rgba(255,255,255,.48);
+  color: rgba(31,29,26,.62);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .01em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.70);
+  white-space: nowrap;
+}
+
+.service-more .more-open{ display:none; }
+.service-accordion[open] .service-more .more-closed{ display:none; }
+.service-accordion[open] .service-more .more-open{ display:inline; }
+
+.service-body{
+  padding: 0 16px 16px;
+}
+
+.service-body .p{
+  margin-top: 0;
+}
+
+/* Desktop: show pyramid grid (2,3,2) */
+@media (min-width: 860px){
+  #services .services-accordion-list{ display:none; }
+  #services .services-grid--desktop{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+
+  /* Force the services cards into a pyramid layout: 2 / 3 / 2 */
+  #services .services-grid--desktop > .card{ grid-column: 1 / -1; }
+
+  #services .services-grid--desktop > .card:nth-child(1){ grid-column: 2 / span 5; }
+  #services .services-grid--desktop > .card:nth-child(2){ grid-column: 7 / span 5; }
+
+  #services .services-grid--desktop > .card:nth-child(3){ grid-column: 1 / span 4; }
+  #services .services-grid--desktop > .card:nth-child(4){ grid-column: 5 / span 4; }
+  #services .services-grid--desktop > .card:nth-child(5){ grid-column: 9 / span 4; }
+
+  #services .services-grid--desktop > .card:nth-child(6){ grid-column: 2 / span 5; }
+  #services .services-grid--desktop > .card:nth-child(7){ grid-column: 7 / span 5; }
+}

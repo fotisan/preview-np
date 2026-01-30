@@ -1,157 +1,76 @@
-<!doctype html>
-<html lang="el">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Νικολέτα Πλατή | Ψυχολόγος στη Ρόδο & Online</title>
-  <meta name="description" content="Ιδιωτικές συνεδρίες στη Ρόδο και Online. Αφηγηματική Ψυχοθεραπεία, διαχείριση άγχους, συμβουλευτική γονέων και προσωπική ανάπτυξη." />
+/* Επαναφορά της στιβαρής δομής σου */
+:root {
+  --bg: #f6f1ea; --bg-2:#f1ebe3; --ink:#1f1d1a; --line:#e6ddd1; --accent:#c8a57b;
+  --radius-lg: 26px; --shadow-soft: 0 12px 34px rgba(31,29,26,.08);
+  --space-7: 72px;
+}
 
-  <link rel="icon" href="logo.jpg" type="image/jpeg" />
-  <link rel="apple-touch-icon" href="logo.jpg" />
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); }
 
-  <style>
-    /* Εδώ κρατάμε το δικό σου Critical CSS για να μην "κλοτσάει" το φόρτωμα */
-    @font-face{ font-family: "Inter"; src: url("Inter-roman.var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
-    :root{
-      --bg: #f6f1ea; --bg-2:#f1ebe3; --ink:#1f1d1a; --line:#e6ddd1; --accent:#c8a57b;
-      --radius-lg: 26px; --shadow-soft: 0 12px 34px rgba(31,29,26,.08);
-      --container: 1120px; --font-sans: "Inter", system-ui, sans-serif; --font-serif: "Playfair Display", serif;
-    }
-    body{ margin: 0; font-family: var(--font-sans); color: var(--ink); background: var(--bg); line-height: 1.55; }
-    .container{ width: min(var(--container), calc(100% - 40px)); margin-inline: auto; }
-    .site-header{ position: sticky; top: 0; z-index: 50; background: rgba(246,241,234,.55); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-    .header-inner{ display:flex; align-items:center; justify-content: space-between; padding: 12px 0; }
-    .brand{ display:flex; align-items:center; gap: 12px; text-decoration: none; }
-    .brand-mark img{ width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
-    .brand-name{ font-family: var(--font-serif); font-weight: 700; }
-    .nav{ display:none; gap: 8px; align-items:center; }
-    @media (min-width: 860px){ .nav{ display:flex; } }
-  </style>
-  <link rel="stylesheet" href="styles.css?v=4" />
-</head>
+.section { padding: var(--space-7) 0; clear: both; }
 
-<body id="top">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top">
-        <span class="brand-mark"><img src="logo.jpg" alt="Logo"></span>
-        <span class="brand-text">
-          <span class="brand-name">Νικολέτα Πλατή</span>
-          <span class="brand-sub">Ρόδος & Online</span>
-        </span>
-      </a>
+/* Header Upgrade - Σωστό padding για να μην στριμώχνονται */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(246, 241, 234, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
 
-      <nav class="nav">
-        <a href="#services" class="btn btn--sm btn--outline">Πώς βοηθώ</a>
-        <a href="#about" class="btn btn--sm btn--outline">Η Προσέγγιση</a>
-        <a href="#education" class="btn btn--sm btn--outline">Βιογραφικό</a>
-        <a href="#contact" class="btn btn--sm btn--primary">Συνεδρία</a>
-      </nav>
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-      </button>
-    </div>
-  </header>
+/* Hero Fix */
+.hero-grid {
+  display: grid; gap: 48px; align-items: center;
+}
+@media (min-width: 860px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; } }
 
-  <main>
-    <section class="section hero fade-in-section">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Ατομική & Ομαδική Υποστήριξη</p>
-          <h1 class="h1">Δημιουργώντας χώρο για τη δική σας ιστορία.</h1>
-          <p class="lead">
-            Όταν οι ιστορίες που λέμε για τον εαυτό μας γίνονται βάρος, υπάρχει τρόπος να τις αλλάξουμε. Μαζί εξερευνούμε νέες οπτικές για το άγχος, τις σχέσεις και τις μεταβάσεις σας.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
-            <a class="btn btn--outline" href="#services">Τι δουλεύουμε μαζί;</a>
-          </div>
-          <div class="trust-row">
-            <div class="trust"><span class="dot"></span> Δια ζώσης</div>
-            <div class="trust"><span class="dot dot--soft"></span> Online</div>
-            <div class="trust"><span class="dot"></span> Κατ' οίκον</div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-photo"><img src="Hero-section.webp" alt="Office"></div>
-          <div class="visual-card">
-            <div class="pill">BSc Hons Psychology</div>
-            <div class="pill">Αφηγηματική Ψυχοθεραπεία</div>
-          </div>
-        </div>
-      </div>
-    </section>
+.h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 56px); line-height: 1.1; margin: 0 0 24px; }
 
-    <section class="section fade-in-section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Υπηρεσίες</h2>
-          <p class="sub">Πέρα από τις ταμπέλες, εστιάζουμε στην ουσία της εμπειρίας σας.</p>
-        </div>
-        <div class="cards-grid">
-          <article class="card">
-            <div class="icon">💬</div>
-            <h3 class="h3">Ψυχοθεραπεία</h3>
-            <p>Ατομικές συνεδρίες για ενήλικες, εφήβους και παιδιά (παιγνιοθεραπεία). Διαχείριση άγχους, burnout και τραύματος.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🌿</div>
-            <h3 class="h3">Προσωπική Ανάπτυξη</h3>
-            <p>Αυτοεκτίμηση, όρια, συναισθηματική ρύθμιση και λήψη αποφάσεων για τις μεταβάσεις της ζωής σας.</p>
-          </article>
-          <article class="card">
-            <div class="icon">👪</div>
-            <h3 class="h3">Γονεϊκή Υποστήριξη</h3>
-            <p>Συμβουλευτική γονέων και υποστήριξη σε θέματα ΔΕΠΥ / Αυτισμού με πρακτικές στρατηγικές.</p>
-          </article>
-          <article class="card">
-            <div class="icon">✨</div>
-            <h3 class="h3">Ομαδικές Δράσεις</h3>
-            <p>Ομάδες αυτογνωσίας, workshops και θεματικά challenges για άγχος και αυτοφροντίδα.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+/* Buttons - Διατήρηση του design σου */
+.btn {
+  display: inline-flex; align-items: center; padding: 12px 24px; border-radius: 999px;
+  text-decoration: none; font-weight: 700; transition: 0.25s;
+}
+.btn--primary { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(200,165,123,0.2); }
+.btn--outline { border: 1px solid var(--line); background: white; }
 
-    <section class="section fade-in-section" id="education">
-      <div class="container">
-        <h2 class="h2">Εκπαίδευση</h2>
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="educationTrack">
-            <div class="carousel-card">
-              <h3 class="h3">BSc Hons Psychology</h3>
-              <p>Canterbury Christ Church University</p>
-            </div>
-            <div class="carousel-card">
-              <h3 class="h3">Αφηγηματική Ψυχοθεραπεία</h3>
-              <p>ΕΚΠΑ - Μετανεωτερικές Προσεγγίσεις</p>
-            </div>
-            <div class="carousel-card">
-              <h3 class="h3">Συμβουλευτική Ψυχολογία</h3>
-              <p>Πανεπιστήμιο Pearson</p>
-            </div>
-            <div class="carousel-card">
-              <h3 class="h3">Εκπαιδευτική Ψυχολογία</h3>
-              <p>Ανοιχτό Ίδρυμα Εκπαίδευσης</p>
-            </div>
-          </div>
-          <div class="carousel-dots" id="carouselDots"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+/* Cards Grid */
+.cards-grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: white; padding: 24px; border-radius: var(--radius-lg);
+  border: 1px solid var(--line); box-shadow: var(--shadow-soft);
+  transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card:hover { transform: translateY(-8px); border-color: var(--accent); }
 
-  <div class="floating-stack">
-    <a class="floating-btn floating-btn--viber" href="viber://chat?number=%2B306949626413">V</a>
-    <a class="floating-btn floating-btn--whatsapp" href="https://wa.me/306949626413">W</a>
-    <a class="floating-btn floating-btn--phone" href="tel:+306949626413">P</a>
-  </div>
+/* Carousel Styles */
+.carousel-wrapper { position: relative; width: 100%; margin-top: 40px; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none;
+  scroll-snap-type: x mandatory; padding-bottom: 20px;
+}
+.carousel-card {
+  flex: 0 0 85%; scroll-snap-align: start;
+  background: white; padding: 24px; border-radius: 20px; border: 1px solid var(--line);
+}
+@media (min-width: 860px) { .carousel-card { flex: 0 0 calc(33.33% - 12px); } }
 
-  <script>
-    /* Εδώ μπαίνει όλο το JS σου (Carousel, Fade-in, Nav) */
-    // (Το JS σου είναι άψογο, απλά αντέγραψέ το από το αρχικό αρχείο)
-  </script>
-</body>
-</html>
+/* Floating Buttons */
+.floating-stack { position: fixed; bottom: 20px; right: 20px; display: grid; gap: 10px; z-index: 1001; }
+.floating-btn {
+  width: 50px; height: 50px; border-radius: 50%;
+  display: grid; place-items: center; text-decoration: none;
+  font-weight: 900; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.floating-btn--viber { background: #7360f2; }
+.floating-btn--whatsapp { background: #25d366; }
+.floating-btn--phone { background: var(--accent); }
+
+/* Fade-in Animation Classes */
+.fade-in-section { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }

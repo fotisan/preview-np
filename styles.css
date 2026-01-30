@@ -187,6 +187,25 @@
 }
 
 
+@media (max-width: 859px){
+  .svc-accordion summary{
+    position: relative;
+    padding-bottom: 58px;
+  }
+  .svc-accordion .svc-sum{
+    display: block;
+  }
+  .svc-accordion .svc-more{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
 /* CAROUSEL / EDUCATION STYLES */
 .carousel-wrapper {
   position: relative;

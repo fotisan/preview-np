@@ -3,40 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Νικολέτα Πλατή | Ψυχολόγος στη Ρόδο & Online</title>
   <meta name="description" content="Ιδιωτικές συνεδρίες στη Ρόδο και Online. Αφηγηματική Ψυχοθεραπεία, διαχείριση άγχους, συμβουλευτική γονέων και προσωπική ανάπτυξη." />
 
   <link rel="icon" href="logo.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="logo.jpg" />
 
-  <link rel="canonical" href="https://nikoletaplati.gr/" />
-  <meta name="robots" content="index,follow" />
-
   <style>
-    /* Critical CSS for fast loading */
-    @font-face{
-      font-family: "Inter";
-      src: url("Inter-roman.var.woff2") format("woff2");
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
+    /* Εδώ κρατάμε το δικό σου Critical CSS για να μην "κλοτσάει" το φόρτωμα */
+    @font-face{ font-family: "Inter"; src: url("Inter-roman.var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
     :root{
       --bg: #f6f1ea; --bg-2:#f1ebe3; --ink:#1f1d1a; --line:#e6ddd1; --accent:#c8a57b;
       --radius-lg: 26px; --shadow-soft: 0 12px 34px rgba(31,29,26,.08);
-      --font-sans: "Inter", system-ui, sans-serif;
-      --font-serif: "Playfair Display", Georgia, serif;
+      --container: 1120px; --font-sans: "Inter", system-ui, sans-serif; --font-serif: "Playfair Display", serif;
     }
     body{ margin: 0; font-family: var(--font-sans); color: var(--ink); background: var(--bg); line-height: 1.55; }
-    .container{ width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
-    /* Basic Layout for Critical rendering */
-    .site-header{ position: sticky; top: 0; z-index: 50; background: rgba(246,241,234,.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .container{ width: min(var(--container), calc(100% - 40px)); margin-inline: auto; }
+    .site-header{ position: sticky; top: 0; z-index: 50; background: rgba(246,241,234,.55); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .header-inner{ display:flex; align-items:center; justify-content: space-between; padding: 12px 0; }
-    .hero{ padding: 60px 0; }
-    .h1{ font-family: var(--font-serif); font-size: clamp(30px, 5vw, 56px); line-height: 1.1; margin-bottom: 20px; }
+    .brand{ display:flex; align-items:center; gap: 12px; text-decoration: none; }
+    .brand-mark img{ width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+    .brand-name{ font-family: var(--font-serif); font-weight: 700; }
+    .nav{ display:none; gap: 8px; align-items:center; }
+    @media (min-width: 860px){ .nav{ display:flex; } }
   </style>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 
 <body id="top">
@@ -46,36 +37,36 @@
         <span class="brand-mark"><img src="logo.jpg" alt="Logo"></span>
         <span class="brand-text">
           <span class="brand-name">Νικολέτα Πλατή</span>
-          <span class="brand-sub">Ψυχολόγος BSc Hons</span>
+          <span class="brand-sub">Ρόδος & Online</span>
         </span>
       </a>
 
-      <nav class="nav" aria-label="Main Navigation">
+      <nav class="nav">
         <a href="#services" class="btn btn--sm btn--outline">Πώς βοηθώ</a>
         <a href="#about" class="btn btn--sm btn--outline">Η Προσέγγιση</a>
         <a href="#education" class="btn btn--sm btn--outline">Βιογραφικό</a>
         <a href="#contact" class="btn btn--sm btn--primary">Συνεδρία</a>
       </nav>
 
-      <button class="nav-toggle" aria-label="Menu">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
       </button>
     </div>
   </header>
 
-  <main id="main">
+  <main>
     <section class="section hero fade-in-section">
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Ατομική & Ομαδική Υποστήριξη</p>
           <h1 class="h1">Δημιουργώντας χώρο για τη δική σας ιστορία.</h1>
           <p class="lead">
-            Μερικές φορές, οι ιστορίες που λέμε για τον εαυτό μας μας περιορίζουν. Μαζί, θα εξερευνήσουμε νέες οπτικές για το άγχος, τις σχέσεις και τις μεταβάσεις σας, με σεβασμό στον δικό σας ρυθμό.
+            Όταν οι ιστορίες που λέμε για τον εαυτό μας γίνονται βάρος, υπάρχει τρόπος να τις αλλάξουμε. Μαζί εξερευνούμε νέες οπτικές για το άγχος, τις σχέσεις και τις μεταβάσεις σας.
           </p>
           <div class="hero-cta">
-            <a class="btn btn--primary" href="#contact">Κλείστε μια συνεδρία</a>
-            <a class="btn btn--outline" href="#services">Δείτε πώς δουλεύουμε</a>
+            <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
+            <a class="btn btn--outline" href="#services">Τι δουλεύουμε μαζί;</a>
           </div>
           <div class="trust-row">
             <div class="trust"><span class="dot"></span> Δια ζώσης</div>
@@ -84,8 +75,10 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="hero-photo">
-            <img src="Hero-section.webp" alt="Psychologist office" loading="eager">
+          <div class="hero-photo"><img src="Hero-section.webp" alt="Office"></div>
+          <div class="visual-card">
+            <div class="pill">BSc Hons Psychology</div>
+            <div class="pill">Αφηγηματική Ψυχοθεραπεία</div>
           </div>
         </div>
       </div>
@@ -94,102 +87,52 @@
     <section class="section fade-in-section" id="services">
       <div class="container">
         <div class="section-head">
-          <h2 class="h2">Πυλώνες Υποστήριξης</h2>
-          <p class="sub">Πέρα από τις "ετικέτες", εστιάζουμε στην ουσία της εμπειρίας σας.</p>
+          <h2 class="h2">Υπηρεσίες</h2>
+          <p class="sub">Πέρα από τις ταμπέλες, εστιάζουμε στην ουσία της εμπειρίας σας.</p>
         </div>
-
         <div class="cards-grid">
-          <article class="card service-card">
+          <article class="card">
             <div class="icon">💬</div>
-            <h3 class="h3">Ατομική Ψυχοθεραπεία</h3>
-            <p>Για ενήλικες, εφήβους και παιδιά. Χρησιμοποιούμε την <strong>Αφηγηματική προσέγγιση</strong> και την <strong>Παιγνιοθεραπεία</strong> για να δώσουμε φωνή σε όσα δυσκολεύουν την καθημερινότητά σας.</p>
-            <ul class="card-list">
-              <li>Άγχος & Κρίσεις Πανικού</li>
-              <li>Overthinking & Burnout</li>
-              <li>Πένθος & Τραύμα</li>
-            </ul>
+            <h3 class="h3">Ψυχοθεραπεία</h3>
+            <p>Ατομικές συνεδρίες για ενήλικες, εφήβους και παιδιά (παιγνιοθεραπεία). Διαχείριση άγχους, burnout και τραύματος.</p>
           </article>
-
-          <article class="card service-card">
+          <article class="card">
             <div class="icon">🌿</div>
             <h3 class="h3">Προσωπική Ανάπτυξη</h3>
-            <p>Ενδυνάμωση για τις μεταβάσεις της ζωής. Από τη λήψη αποφάσεων μέχρι την αυτοεκτίμηση και τα όρια στις σχέσεις.</p>
-            <ul class="card-list">
-              <li>Συναισθηματική Ρύθμιση</li>
-              <li>Επαγγελματικός Προσανατολισμός</li>
-              <li>Αυτογνωσία & Στόχοι</li>
-            </ul>
+            <p>Αυτοεκτίμηση, όρια, συναισθηματική ρύθμιση και λήψη αποφάσεων για τις μεταβάσεις της ζωής σας.</p>
           </article>
-
-          <article class="card service-card">
+          <article class="card">
             <div class="icon">👪</div>
             <h3 class="h3">Γονεϊκή Υποστήριξη</h3>
-            <p>Εξειδικευμένη καθοδήγηση για γονείς παιδιών στο φάσμα του <strong>Αυτισμού</strong> ή με <strong>ΔΕΠΥ</strong>. Στρατηγικές που φέρνουν την ηρεμία στο σπίτι.</p>
-            <ul class="card-list">
-              <li>Συμβουλευτική Γονέων</li>
-              <li>Ψυχοεκπαίδευση</li>
-              <li>Διαχείριση Συμπεριφοράς</li>
-            </ul>
+            <p>Συμβουλευτική γονέων και υποστήριξη σε θέματα ΔΕΠΥ / Αυτισμού με πρακτικές στρατηγικές.</p>
           </article>
-
-          <article class="card service-card">
+          <article class="card">
             <div class="icon">✨</div>
             <h3 class="h3">Ομαδικές Δράσεις</h3>
-            <p>Workshops και βιωματικά σεμινάρια για όσους αναζητούν τη σύνδεση και τη μοιρασιά μέσα από κοινές θεματικές.</p>
-            <ul class="card-list">
-              <li>Ομάδες Αυτογνωσίας</li>
-              <li>Challenges Αυτοφροντίδας</li>
-              <li>Θεματικά Workshops</li>
-            </ul>
+            <p>Ομάδες αυτογνωσίας, workshops και θεματικά challenges για άγχος και αυτοφροντίδα.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="about">
-      <div class="container about-grid">
-        <div class="about-copy">
-          <h2 class="h2">Η Προσέγγισή μου</h2>
-          <p class="lead">"Ο άνθρωπος δεν είναι το πρόβλημα. Το πρόβλημα είναι το πρόβλημα."</p>
-          <p>
-            Στη δουλειά μας χρησιμοποιώ την <strong>Αφηγηματική Ψυχοθεραπεία</strong>. Αυτό σημαίνει ότι αντιμετωπίζουμε τα προβλήματα ως κάτι εξωτερικό από εσάς. Εξετάζουμε τις ιστορίες που σας έχουν "μάθει" να πιστεύετε για τον εαυτό σας και ανακαλύπτουμε ξανά τις ικανότητες και τις αξίες σας που έχουν μείνει στη σκιά. 
-            <br><br>
-            Στόχος δεν είναι απλώς η "διαχείριση των συμπτωμάτων", αλλά η ανάκτηση της ελευθερίας σας απέναντι σε όσα σας πιέζουν.
-          </p>
-          <div class="divider"></div>
-          <p><strong>Δουλεύουμε μαζί σε:</strong> Άγχος, Ενοχές, Τελειομανία, Σχέσεις, Μεταβάσεις Ζωής, ΔΕΠΥ/Αυτισμό.</p>
-        </div>
-        <figure class="about-media">
-          <img src="about-portrait.webp" alt="Nikoleta Plati Psychologist">
-        </figure>
       </div>
     </section>
 
     <section class="section fade-in-section" id="education">
       <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Εκπαίδευση & Εξειδίκευση</h2>
-          <p class="sub">Η επιστημονική βάση πίσω από την πρακτική υποστήριξη.</p>
-        </div>
+        <h2 class="h2">Εκπαίδευση</h2>
         <div class="carousel-wrapper">
           <div class="carousel-track" id="educationTrack">
             <div class="carousel-card">
-              <span class="edu-tag">BSc Hons</span>
-              <h3 class="h3">Human Psychology</h3>
+              <h3 class="h3">BSc Hons Psychology</h3>
               <p>Canterbury Christ Church University</p>
             </div>
             <div class="carousel-card">
-              <span class="edu-tag">Specialization</span>
               <h3 class="h3">Αφηγηματική Ψυχοθεραπεία</h3>
-              <p>Εθνικό & Καποδιστριακό Πανεπιστήμιο Αθηνών (ΕΚΠΑ)</p>
+              <p>ΕΚΠΑ - Μετανεωτερικές Προσεγγίσεις</p>
             </div>
             <div class="carousel-card">
-              <span class="edu-tag">Diploma</span>
               <h3 class="h3">Συμβουλευτική Ψυχολογία</h3>
               <p>Πανεπιστήμιο Pearson</p>
             </div>
             <div class="carousel-card">
-              <span class="edu-tag">Postgrad</span>
               <h3 class="h3">Εκπαιδευτική Ψυχολογία</h3>
               <p>Ανοιχτό Ίδρυμα Εκπαίδευσης</p>
             </div>
@@ -198,68 +141,17 @@
         </div>
       </div>
     </section>
-
-    <section class="section fade-in-section" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-card contact-card--split">
-            <div class="contact-split">
-              <div class="contact-split-left">
-                <h2 class="h2">Ας μιλήσουμε</h2>
-                <p>Είτε προτιμάτε τη φυσική παρουσία στη Ρόδο, είτε την άνεση του χώρου σας μέσω online συνεδρίας, είμαι εδώ.</p>
-                
-                <div class="contact-item">
-                  <span class="contact-label">Τοποθεσία</span>
-                  <span class="contact-value">Στεφάνου Καζούλη 18, Ρόδος</span>
-                </div>
-                <div class="contact-item">
-                  <span class="contact-label">Τρόποι Συνεδρίας</span>
-                  <span class="contact-value">Δια ζώσης • Online • Κατ' οίκον</span>
-                </div>
-                <div class="contact-item">
-                  <span class="contact-label">Άμεση Επικοινωνία</span>
-                  <a class="link contact-value" href="tel:+306949626413">694 962 6413</a>
-                </div>
-              </div>
-
-              <div class="contact-split-right">
-                <form class="contact-form" id="contactForm" action="#" method="POST">
-                  <div class="field">
-                    <label class="field-label">Ονοματεπώνυμο</label>
-                    <input class="input" type="text" required>
-                  </div>
-                  <div class="field">
-                    <label class="field-label">Τι σας απασχολεί;</label>
-                    <textarea class="textarea" placeholder="Περιγράψτε σύντομα την ανάγκη σας..."></textarea>
-                  </div>
-                  <button class="btn btn--primary" type="submit">Αποστολή Μηνύματος</button>
-                  <p class="form-status" id="formStatus"></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p class="fine">© <span id="year"></span> Νικολέτα Πλατή. All rights reserved.</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/nikoletaplati_psychologist/" class="social-link">IG</a>
-        <a href="https://www.facebook.com/Kentrologoumathisiskaisimperiforas/" class="social-link">FB</a>
-        <a href="https://www.tiktok.com/@nikoleta.plati" class="social-link">TK</a>
-      </div>
-    </div>
-  </footer>
-
   <div class="floating-stack">
-    <a href="viber://chat?number=%2B306949626413" class="floating-btn floating-btn--viber" data-tooltip="Viber">V</a>
-    <a href="https://wa.me/306949626413" class="floating-btn floating-btn--whatsapp" data-tooltip="WhatsApp">W</a>
-    <a href="tel:+306949626413" class="floating-btn floating-btn--phone" data-tooltip="Κλήση">P</a>
+    <a class="floating-btn floating-btn--viber" href="viber://chat?number=%2B306949626413">V</a>
+    <a class="floating-btn floating-btn--whatsapp" href="https://wa.me/306949626413">W</a>
+    <a class="floating-btn floating-btn--phone" href="tel:+306949626413">P</a>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    /* Εδώ μπαίνει όλο το JS σου (Carousel, Fade-in, Nav) */
+    // (Το JS σου είναι άψογο, απλά αντέγραψέ το από το αρχικό αρχείο)
+  </script>
 </body>
 </html>

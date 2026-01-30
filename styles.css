@@ -282,11 +282,10 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding-bottom: 24px; /* Space for shadow */
+  padding-bottom: 24px;
   margin-bottom: -24px;
-  /* Hide Scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding-left: 2px;
   padding-right: 2px;
 }
@@ -296,9 +295,9 @@
 }
 
 .carousel-card {
-  flex: 0 0 85%; /* Mobile width */
+  flex: 0 0 85%;
   scroll-snap-align: start;
-  
+
   background: rgba(255,255,255,.84);
   border: 1px solid rgba(222,211,196,.95);
   border-radius: var(--radius-lg);
@@ -332,11 +331,10 @@
   position: relative;
 }
 
-/* Hit area */
 .carousel-dot::after {
   content: '';
   position: absolute;
-  inset: -8px; 
+  inset: -8px;
 }
 
 .carousel-dot.is-active {
@@ -434,6 +432,21 @@
 }
 .faq[open] .faq-body{
   padding: 0 16px 16px;
+}
+
+/* Subtle open/close feel for FAQ (details) */
+.faq-body{
+  overflow: hidden;
+}
+.faq[open] .faq-body{
+  animation: faqIn .18s ease both;
+}
+.faq[open] summary{
+  background: rgba(255,255,255,.42);
+}
+@keyframes faqIn{
+  from{ opacity: 0; transform: translateY(-4px); }
+  to{ opacity: 1; transform: translateY(0); }
 }
 
 /* FAQ layout + media */
@@ -717,7 +730,6 @@
   transform: translateY(-50%) translateX(0);
 }
 
-/* Στις touch συσκευές εμφανίζεται όταν μπει class από JS */
 .floating-btn.is-tooltip-open::after{
   opacity: 1;
   transform: translateY(-50%) translateX(0);
@@ -881,181 +893,6 @@
   background: rgba(200,165,123,.16);
 }
 
-/* =========================
-   SERVICES (PYRAMID + MOBILE TOGGLE)
-   ========================= */
-
-.services-pyramid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-.services-pyramid .services-callout{ margin-top: 0; }
-
-.service-card{
-  background: rgba(255,255,255,.84);
-  border: 1px solid rgba(222,211,196,.95);
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.service-desc{
-  margin-bottom: 10px;
-}
-
-.service-list{
-  margin: 0;
-  padding-left: 18px;
-  display: none; /* mobile default */
-  color: rgba(31,29,26,.80);
-  line-height: 1.7;
-}
-
-.service-card.is-open .service-list{
-  display: block;
-}
-
-.service-toggle{
-  margin-top: 14px;
-  align-self: flex-start;
-  border: 0;
-  background: transparent;
-  padding: 8px 0 0;
-  font: inherit;
-  font-weight: 800;
-  color: rgba(31,29,26,.88);
-  cursor: pointer;
-  border-bottom: 1px solid rgba(222,211,196,.95);
-  transition: border-color .2s ease, color .2s ease;
-}
-.service-toggle:hover{
-  border-bottom-color: rgba(200,165,123,.85);
-  color: rgba(31,29,26,.94);
-}
-.service-toggle:focus-visible{
-  outline: none;
-  border-bottom-color: rgba(200,165,123,.85);
-  box-shadow: 0 0 0 6px rgba(200,165,123,.16);
-  border-radius: 10px;
-}
-
-@media (min-width: 860px){
-  .services-pyramid{
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .service-span-2{ grid-column: span 2; }
-  .service-span-3{ grid-column: span 3; }
-  .service-span-6{ grid-column: 1 / -1; }
-
-  .service-list{ display: block; }
-  .service-toggle{ display: none; }
-}
-
-/* =========================
-   PROCESS (MODES + TOPICS ACCORDIONS)
-   ========================= */
-
-.modes-grid{
-  display: grid;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.mode-card{
-  border-radius: 24px;
-}
-
-.mode-emoji{
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 12px;
-
-  background: rgba(31,29,26,.06);
-  border: 1px solid rgba(222,211,196,.95);
-  box-shadow:
-    0 14px 34px rgba(31,29,26,.10),
-    inset 0 1px 0 rgba(255,255,255,.70);
-
-  font-size: 24px;
-  line-height: 1;
-}
-
-.topics-grid{
-  display: grid;
-  gap: 12px;
-}
-
-.topic{
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(222,211,196,.95);
-  background: rgba(255,255,255,.66);
-  overflow: hidden;
-}
-
-.topic summary{
-  list-style: none;
-  cursor: pointer;
-  padding: 16px 44px 16px 16px;
-  font-weight: 780;
-  color: rgba(31,29,26,.94);
-  position: relative;
-}
-.topic summary::-webkit-details-marker{ display:none; }
-
-.topic summary::after{
-  content:"+";
-  position:absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(200,165,123,.98);
-  font-weight: 900;
-}
-
-.topic[open] summary::after{ content:"–"; }
-
-.topic-body{
-  padding: 0 16px 0;
-}
-
-.topic[open] .topic-body{
-  padding: 0 16px 16px;
-}
-
-.topic-list{
-  margin: 0;
-  padding-left: 18px;
-  display: grid;
-  gap: 10px;
-  color: rgba(31,29,26,.78);
-  font-size: 14.5px;
-  line-height: 1.7;
-}
-
-@media (min-width: 860px){
-  .modes-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-bottom: 18px;
-  }
-
-  .topics-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-}
-
 /* Responsive */
 @media (min-width: 860px){
   /* Hide floating buttons on desktop */
@@ -1063,7 +900,7 @@
     display: none;
   }
 
-  /* Carousel Desktop - show 3 items (calc: (100% - 2 gaps)/3) */
+  /* Carousel Desktop - show 3 items */
   .carousel-card {
     flex: 0 0 calc((100% - 32px) / 3);
   }
@@ -1137,8 +974,7 @@
     gap: 16px;
     align-items: stretch;
   }
-  
-  /* About Media: Height significantly larger than text on Desktop */
+
   .about-media {
     min-height: 600px;
     height: auto;
@@ -1167,7 +1003,7 @@
 }
 
 /* Keep Services cards 2 per row on desktop (only in services section) */
-@media (min-width: 900px){
+@media (min-width: 860px){
   #services .cards-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

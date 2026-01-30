@@ -97,6 +97,7 @@
 
     .brand{
       display:flex;
+      min-width: 0;
       align-items:center;
       gap: 10px;
       text-decoration:none;
@@ -119,8 +120,9 @@
     }
     .brand-name{
       display:flex;
+      min-width: 0;
       flex-direction:column;
-      line-height: 1.05;
+      line-height: 1.15;
     }
     .brand-name strong{
       font-family: var(--font-serif);
@@ -131,6 +133,9 @@
     .brand-name span{
       font-size: 12px;
       color: rgba(31,29,26,.64);
+      line-height: 1.25;
+      margin-top: 2px;
+      white-space: normal;
     }
 
     .nav{
@@ -149,6 +154,36 @@
       place-items:center;
       padding: 0;
     }
+
+    .nav-toggle{
+      color: rgba(31,29,26,.92);
+      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .burger{
+      width: 22px;
+      height: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .burger span{
+      height: 2px;
+      width: 100%;
+      border-radius: 999px;
+      background: currentColor;
+      transform-origin: center;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .nav-toggle.is-active .burger span:nth-child(1){
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.is-active .burger span:nth-child(2){
+      opacity: 0;
+    }
+    .nav-toggle.is-active .burger span:nth-child(3){
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     .nav-toggle:focus-visible{
       outline: none;
       box-shadow: 0 0 0 6px rgba(200,165,123,.16), var(--shadow-soft);
@@ -464,9 +499,7 @@
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="siteNav">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
-          <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
     </div>
 
@@ -1549,6 +1582,7 @@
       if(navToggle && siteNav){
         navToggle.addEventListener("click", () => {
           const open = siteNav.classList.toggle("is-open");
+          navToggle.classList.toggle("is-active", open);
           navToggle.setAttribute("aria-expanded", open ? "true" : "false");
           siteNav.setAttribute("aria-hidden", open ? "false" : "true");
         });
@@ -1556,6 +1590,7 @@
         siteNav.querySelectorAll("a").forEach(a => {
           a.addEventListener("click", () => {
             siteNav.classList.remove("is-open");
+            navToggle.classList.remove("is-active");
             navToggle.setAttribute("aria-expanded", "false");
             siteNav.setAttribute("aria-hidden", "true");
           });

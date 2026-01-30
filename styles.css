@@ -75,6 +75,118 @@
 #services .card:nth-child(6)::before{ content:"06"; }
 #services .card:nth-child(7)::before{ content:"07"; }
 
+
+/* Services: Desktop pyramid (2,3,2) + Mobile accordion */
+#services .services-accordion{
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+@media (max-width: 859px){
+  #services .services-grid--desktop{ display: none; }
+}
+@media (min-width: 860px){
+  #services .services-accordion{ display: none; }
+
+  /* Pyramid layout only for Services cards */
+  #services .cards-grid{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  #services .cards-grid > .card{
+    grid-column: span 2;
+  }
+  #services .cards-grid > .card:nth-child(1){ grid-column: 2 / span 2; }
+  #services .cards-grid > .card:nth-child(2){ grid-column: 4 / span 2; }
+
+  #services .cards-grid > .card:nth-child(3){ grid-column: 1 / span 2; }
+  #services .cards-grid > .card:nth-child(4){ grid-column: 3 / span 2; }
+  #services .cards-grid > .card:nth-child(5){ grid-column: 5 / span 2; }
+
+  #services .cards-grid > .card:nth-child(6){ grid-column: 2 / span 2; }
+  #services .cards-grid > .card:nth-child(7){ grid-column: 4 / span 2; }
+}
+
+/* Mobile accordion styling (no +, opens via “Δείτε περισσότερα”) */
+.svc-accordion{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.66);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.svc-accordion summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  outline: none;
+}
+.svc-accordion summary::-webkit-details-marker{ display: none; }
+.svc-sum{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.svc-left{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+.svc-icon{
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(200,165,123,.18);
+  border: 1px solid rgba(200,165,123,.24);
+  color: rgba(31,29,26,.90);
+}
+.svc-icon svg{ width: 22px; height: 22px; }
+.svc-text{ min-width: 0; }
+.svc-title{
+  display: block;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  color: rgba(31,29,26,.96);
+}
+.svc-sub{
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: rgba(31,29,26,.68);
+}
+.svc-more{
+  flex: 0 0 auto;
+  font-weight: 800;
+  font-size: 13px;
+  border-radius: 999px;
+  padding: 8px 10px;
+  color: rgba(31,29,26,.62);
+  background: rgba(31,29,26,.04);
+  border: 1px solid rgba(222,211,196,.95);
+  white-space: nowrap;
+}
+.svc-accordion[open] .svc-more{
+  color: rgba(31,29,26,.82);
+  background: rgba(200,165,123,.16);
+  border-color: rgba(200,165,123,.34);
+}
+.more-close{ display: none; }
+.svc-accordion[open] .more-open{ display: none; }
+.svc-accordion[open] .more-close{ display: inline; }
+
+.svc-body{
+  padding: 0 16px 14px;
+}
+.svc-body .mini-list{
+  margin-top: 0;
+}
+
+
 /* CAROUSEL / EDUCATION STYLES */
 .carousel-wrapper {
   position: relative;
@@ -819,120 +931,4 @@
   .space-side{
     grid-template-columns: 1fr 1fr;
   }
-}
-
-/* =========================
-   Services: Desktop pyramid + Mobile accordion
-   ========================= */
-
-/* Mobile-first: show accordion, hide grid */
-#services .services-grid--desktop{
-  display: none;
-}
-#services .services-accordion-list{
-  display: grid;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-/* Accordion styling (no + icon, opens via "Δείτε περισσότερα") */
-.service-accordion{
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(222,211,196,.95);
-  background: rgba(255,255,255,.66);
-  overflow: hidden;
-}
-
-.service-accordion summary{
-  list-style: none;
-  cursor: pointer;
-  padding: 14px 14px 14px 14px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-}
-
-.service-accordion summary::-webkit-details-marker{ display:none; }
-
-.service-sum{
-  display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 12px;
-  align-items: start;
-  min-width: 0;
-}
-
-.service-sum .icon{
-  margin: 0;
-}
-
-.service-sum-text{
-  display: grid;
-  gap: 3px;
-  min-width: 0;
-}
-
-.service-sum-title{
-  font-weight: 900;
-  letter-spacing: -.12px;
-  color: rgba(31,29,26,.94);
-  line-height: 1.2;
-}
-
-.service-sum-desc{
-  color: rgba(31,29,26,.72);
-  font-size: 13.5px;
-  line-height: 1.45;
-}
-
-.service-more{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(222,211,196,.85);
-  background: rgba(255,255,255,.48);
-  color: rgba(31,29,26,.62);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: .01em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.70);
-  white-space: nowrap;
-}
-
-.service-more .more-open{ display:none; }
-.service-accordion[open] .service-more .more-closed{ display:none; }
-.service-accordion[open] .service-more .more-open{ display:inline; }
-
-.service-body{
-  padding: 0 16px 16px;
-}
-
-.service-body .p{
-  margin-top: 0;
-}
-
-/* Desktop: show pyramid grid (2,3,2) */
-@media (min-width: 860px){
-  #services .services-accordion-list{ display:none; }
-  #services .services-grid--desktop{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
-  }
-
-  /* Force the services cards into a pyramid layout: 2 / 3 / 2 */
-  #services .services-grid--desktop > .card{ grid-column: 1 / -1; }
-
-  #services .services-grid--desktop > .card:nth-child(1){ grid-column: 2 / span 5; }
-  #services .services-grid--desktop > .card:nth-child(2){ grid-column: 7 / span 5; }
-
-  #services .services-grid--desktop > .card:nth-child(3){ grid-column: 1 / span 4; }
-  #services .services-grid--desktop > .card:nth-child(4){ grid-column: 5 / span 4; }
-  #services .services-grid--desktop > .card:nth-child(5){ grid-column: 9 / span 4; }
-
-  #services .services-grid--desktop > .card:nth-child(6){ grid-column: 2 / span 5; }
-  #services .services-grid--desktop > .card:nth-child(7){ grid-column: 7 / span 5; }
 }

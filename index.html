@@ -1,1479 +1,1048 @@
-<!doctype html>
-<html lang="el">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+/* styles.css (NON-CRITICAL)
+   Το Critical CSS (Header + Hero + base typography/buttons + background canvas/reset)
+   μεταφέρθηκε inline στο <head> του HTML.
+*/
 
-  <title>Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή</title>
-  <meta name="description" content="Ιδιωτικές συνεδρίες στη Ρόδο. Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα και σεβασμό στον ρυθμό σας." />
+/* =========================
+   LOCAL FONTS (NO GOOGLE)
+   ========================= */
+@font-face{
+  font-family: "Inter";
+  src: url("Inter-roman.var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Inter";
+  src: url("Inter-italic-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
-  <link rel="icon" href="logo.jpg" type="image/jpeg" />
-  <link rel="apple-touch-icon" href="logo.jpg" />
+/* =========================
+   NAV UPGRADE (more design)
+   ========================= */
 
-  <link rel="canonical" href="https://nikoletaplati.gr/" />
-  <meta name="robots" content="index,follow" />
+/* Small button size (used in nav + other places) */
+.btn--sm{
+  font-size: 13px;
+  padding: 10px 14px;
+}
 
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="el_GR" />
-  <meta property="og:title" content="Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή" />
-  <meta property="og:description" content="Ένας ασφαλής, ήρεμος χώρος για να μιλήσετε όπως είστε. Χωρίς πίεση, με καθαρά βήματα." />
-  <meta property="og:image" content="Hero-section.webp" />
+/* Desktop nav items: styled “pills”, even if links look plain */
+.site-header .nav > a:not(.btn--primary){
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 780;
+  letter-spacing: .1px;
+  padding: 10px 14px;
+  border-radius: 999px;
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "Psychologist"],
-    "name": "Νικολέτα Πλατή",
-    "image": "https://nikoletaplati.gr/Hero-section.webp",
-    "url": "https://nikoletaplati.gr/",
-    "telephone": "+306949626413",
-    "email": "nicoletaplath@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Στεφάνου Καζούλη 18",
-      "addressLocality": "Ρόδος",
-      "addressCountry": "GR"
-    },
-    "areaServed": "Ρόδος",
-    "sameAs": [
-      "https://www.instagram.com/nikoletaplati_psychologist/",
-      "https://www.facebook.com/Kentrologoumathisiskaisimperiforas/",
-      "https://www.tiktok.com/@nikoleta.plati"
-    ]
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.62);
+  box-shadow:
+    0 10px 22px rgba(31,29,26,.06),
+    inset 0 1px 0 rgba(255,255,255,.60);
+
+  color: rgba(31,29,26,.90);
+  transition: transform .18s ease, box-shadow .25s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.site-header .nav > a:not(.btn--primary):hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.92);
+  border-color: rgba(200,165,123,.55);
+  box-shadow:
+    0 14px 30px rgba(31,29,26,.10),
+    inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+.site-header .nav > a:not(.btn--primary):active{
+  transform: translateY(1px);
+}
+
+.site-header .nav > a:not(.btn--primary):focus-visible{
+  outline: none;
+  border-color: rgba(200,165,123,.70);
+  box-shadow:
+    0 0 0 6px rgba(200,165,123,.16),
+    0 14px 30px rgba(31,29,26,.10);
+}
+
+/* Prevent default underline if anything slips through */
+.site-header .nav a{
+  text-decoration: none;
+}
+
+/* Social links styling (Nav + Mobile + Footer) */
+.social,
+.mobile-social{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.social-link{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.62);
+  box-shadow:
+    0 10px 22px rgba(31,29,26,.06),
+    inset 0 1px 0 rgba(255,255,255,.60);
+
+  color: rgba(31,29,26,.78);
+  transition: transform .18s ease, box-shadow .25s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.social-link svg{
+  width: 18px;
+  height: 18px;
+}
+
+.social-link:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.92);
+  border-color: rgba(200,165,123,.55);
+  color: rgba(31,29,26,.92);
+  box-shadow:
+    0 14px 30px rgba(31,29,26,.10),
+    inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+.social-link:active{
+  transform: translateY(1px);
+}
+
+.social-link:focus-visible{
+  outline: none;
+  border-color: rgba(200,165,123,.70);
+  box-shadow:
+    0 0 0 6px rgba(200,165,123,.16),
+    0 14px 30px rgba(31,29,26,.10);
+}
+
+/* Cards */
+.cards-grid{ display:grid; gap: 14px; }
+
+.card{
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(222,211,196,.95);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+}
+
+/* Services icons */
+.icon{
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+
+  background: rgba(31,29,26,.06);
+  border: 1px solid rgba(222,211,196,.95);
+  box-shadow:
+    0 14px 34px rgba(31,29,26,.10),
+    inset 0 1px 0 rgba(255,255,255,.70);
+
+  color: rgba(31,29,26,.74);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.icon::after{
+  content:"";
+  position:absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  pointer-events:none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+  opacity: .65;
+}
+
+#services .icon svg{
+  width: 24px;
+  height: 24px;
+}
+#services .icon path{
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.85;
+}
+#services .icon:hover{
+  transform: translateY(-2px);
+  background: rgba(31,29,26,.045);
+  border-color: rgba(200,165,123,.70);
+  color: rgba(31,29,26,.90);
+  box-shadow:
+    0 18px 44px rgba(31,29,26,.12),
+    inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+/* Services hover */
+#services .card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: rgba(255,255,255,.86);
+  transition: transform .38s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow .38s cubic-bezier(0.165, 0.84, 0.44, 1),
+              border-color .25s ease;
+}
+#services .card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: rgba(200,165,123,.35);
+}
+
+/* Fix numbers so they are visible and not “covered” */
+#services .card::before{
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  opacity: .12;
+  color: rgba(31,29,26,1);
+  pointer-events: none;
+}
+#services .card:nth-child(1)::before{ content:"01"; }
+#services .card:nth-child(2)::before{ content:"02"; }
+#services .card:nth-child(3)::before{ content:"03"; }
+#services .card:nth-child(4)::before{ content:"04"; }
+
+/* Services “help” upgrade */
+.services-callout{
+  margin-top: 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background:
+    radial-gradient(900px 280px at 12% 0%, rgba(230,193,177,.18), transparent 60%),
+    radial-gradient(900px 320px at 95% 90%, rgba(127,174,160,.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.68));
+  box-shadow: var(--shadow-soft);
+  padding: 16px;
+  display:flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.services-callout__icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  border: 1px solid rgba(200,165,123,.35);
+  background: rgba(200,165,123,.16);
+  color: rgba(31,29,26,.86);
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+.services-callout__title{
+  margin: 0 0 6px;
+  font-weight: 820;
+  letter-spacing: -.1px;
+  color: rgba(31,29,26,.92);
+}
+.services-callout__text{
+  margin: 0 0 12px;
+  color: rgba(31,29,26,.78);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.services-callout__actions{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* CAROUSEL / EDUCATION STYLES */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 24px; /* Space for shadow */
+  margin-bottom: -24px;
+  /* Hide Scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 85%; /* Mobile width */
+  scroll-snap-align: start;
+  
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(222,211,196,.95);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+/* Dots styling improvement */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-bottom: 4px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(31, 29, 26, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+/* Hit area */
+.carousel-dot::after {
+  content: '';
+  position: absolute;
+  inset: -8px; 
+}
+
+.carousel-dot.is-active {
+  background: rgba(200,165,123, 1);
+  transform: scale(1.3);
+  box-shadow: 0 2px 6px rgba(200,165,123, 0.4);
+}
+
+.carousel-dot:hover:not(.is-active) {
+  background: rgba(31, 29, 26, 0.4);
+  transform: scale(1.1);
+}
+
+/* About with image */
+.about-grid{
+  display:grid;
+  gap: 14px;
+  align-items: start;
+}
+.about-copy .section-head{
+  margin-bottom: 0;
+}
+.about-media{
+  margin: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.70);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  min-height: 260px;
+}
+.about-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Space */
+.space-grid{ display:grid; gap: 14px; }
+.space-main, .space-tile{
+  margin: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.70);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+.space-main img, .space-tile img{ width: 100%; height: 100%; object-fit: cover; display:block; }
+.space-main{ min-height: 280px; }
+.space-side{ display:grid; gap: 14px; }
+.space-tile{ min-height: 160px; }
+.space-notes{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.70);
+  box-shadow: var(--shadow-soft);
+  padding: 16px;
+}
+.space-bullets{ margin: 0; padding: 0; list-style: none; display:grid; gap: 10px; color: rgba(31,29,26,.80); font-size: 14px; }
+.space-bullets li{ display:flex; align-items:center; gap: 10px; }
+#space .space-cta{ margin-top: 14px; }
+#space .space-cta .btn{ font-size: 13px; padding: 10px 14px; }
+
+/* FAQ */
+.faq{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.66);
+  overflow: hidden;
+}
+.faq summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 44px 16px 16px;
+  font-weight: 780;
+  color: rgba(31,29,26,.94);
+  position: relative;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"+";
+  position:absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(200,165,123,.98);
+  font-weight: 900;
+}
+.faq[open] summary::after{ content:"–"; }
+
+.faq-body{
+  padding: 0 16px 0;
+  border-top: 0;
+}
+.faq[open] .faq-body{
+  padding: 0 16px 16px;
+}
+
+/* FAQ layout + media */
+.faq-wrap{
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+.faq-list{
+  display: grid;
+  gap: 12px;
+}
+.faq-media{
+  margin: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.70);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  min-height: 260px;
+}
+.faq-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contact */
+.contact-grid{ display:grid; gap: 14px; }
+.contact-card, .map-card{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.84);
+  box-shadow: var(--shadow-soft);
+}
+.contact-card{ padding: 18px; }
+.map-card{ overflow:hidden; min-height: 320px; }
+.map-card iframe{
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+  display:block;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.contact-cover{
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.60);
+  box-shadow: 0 14px 34px rgba(31,29,26,.08);
+  margin-bottom: 14px;
+  height: 180px;
+}
+.contact-cover img{ width: 100%; height: 100%; object-fit: cover; display:block; }
+
+.contact-item{
+  display:grid;
+  gap: 6px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(222,211,196,.75);
+}
+.contact-item:first-of-type{ border-top: 0; padding-top: 6px; }
+.contact-label{
+  color: rgba(31,29,26,.64);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+.contact-value{ color: rgba(31,29,26,.92); font-size: 15px; }
+
+.link{ text-decoration: none; border-bottom: 1px solid rgba(222,211,196,.95); width: fit-content; }
+.link:hover{ border-bottom-color: rgba(200,165,123,.85); }
+
+.divider{ height: 1px; background: rgba(222,211,196,.75); margin: 16px 0; }
+
+.contact-form{ display:grid; gap: 12px; margin-top: 10px; }
+.field{ display:grid; gap: 6px; }
+.field-label{
+  font-size: 12px;
+  color: rgba(31,29,26,.72);
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+.input, .textarea{
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.82);
+  padding: 12px 12px;
+  font: inherit;
+  color: rgba(31,29,26,.92);
+  outline: none;
+}
+.input:focus, .textarea:focus{
+  border-color: rgba(200,165,123,.70);
+  box-shadow: 0 0 0 6px rgba(200,165,123,.16);
+}
+.textarea{ resize: vertical; min-height: 120px; }
+.form-actions{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.form-note{
+  margin: 6px 0 0;
+  color: rgba(31,29,26,.62);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* status line */
+.form-status{
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: rgba(31,29,26,.70);
+  min-height: 18px;
+}
+
+/* Social row inside contact card */
+.contact-social{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Contact card split (desktop) + map below */
+.contact-card--split{ padding: 18px; }
+
+/* mobile: φυσικά “stack” */
+.contact-split{ display:block; }
+
+/* Footer */
+.footer{
+  margin-top: var(--space-6);
+  padding: 26px 0;
+  border-top: 1px solid rgba(230,221,209,.85);
+  background: transparent;
+}
+.footer-inner{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fine{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(31,29,26,.66);
+}
+
+/* Footer social uses .social-link */
+.footer-social{
+  display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  gap: 10px;
+}
+
+/* Fade-in sections */
+.fade-in-section{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+#services .card.fade-in-section:nth-child(1){ transition-delay: .10s; }
+#services .card.fade-in-section:nth-child(2){ transition-delay: .20s; }
+#services .card.fade-in-section:nth-child(3){ transition-delay: .30s; }
+
+/* Back-to-top button */
+.back-to-top{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 12px 28px rgba(31,29,26,.12);
+  color: rgba(31,29,26,.86);
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 60;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .18s ease, transform .18s ease, background .2s ease, border-color .2s ease;
+}
+.back-to-top:hover{
+  background: rgba(255,255,255,.95);
+  border-color: rgba(200,165,123,.55);
+}
+.back-to-top.is-visible{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Floating buttons */
+.floating-stack{
+  position: fixed;
+  right: 18px;
+  bottom: 76px;
+  display: grid;
+  gap: 10px;
+  z-index: 61;
+}
+.floating-btn{
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 12px 28px rgba(31,29,26,.12);
+  text-decoration: none;
+  transition: transform .18s ease, background .2s ease, border-color .2s ease;
+}
+.floating-btn svg{
+  width: 20px;
+  height: 20px;
+  opacity: .9;
+}
+.floating-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.95);
+  border-color: rgba(200,165,123,.55);
+}
+
+.floating-btn--viber{
+  background: rgba(162,115,255,.16);
+  border-color: rgba(162,115,255,.28);
+}
+
+.floating-btn--whatsapp{
+  background: rgba(127,174,160,.20);
+  border-color: rgba(127,174,160,.35);
+}
+.floating-btn--phone{
+  background: rgba(200,165,123,.18);
+  border-color: rgba(200,165,123,.35);
+}
+
+/* Tooltips */
+.floating-btn[data-tooltip]{
+  position: relative;
+}
+.floating-btn[data-tooltip]::after{
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  opacity: 0;
+  pointer-events: none;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: rgba(31,29,26,.88);
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 14px 30px rgba(31,29,26,.14);
+
+  transition: opacity .16s ease, transform .16s ease;
+  white-space: nowrap;
+}
+.floating-btn[data-tooltip]:hover::after,
+.floating-btn[data-tooltip]:focus-visible::after{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Στις touch συσκευές εμφανίζεται όταν μπει class από JS */
+.floating-btn.is-tooltip-open::after{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Call options modal */
+.contact-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: none;
+}
+.contact-modal.is-open{
+  display: block;
+}
+.contact-modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 15, 14, .42);
+  backdrop-filter: blur(7px);
+}
+.contact-modal__dialog{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(.98);
+  width: min(520px, calc(100% - 32px));
+  border-radius: calc(var(--radius-lg) + 6px);
+  border: 1px solid rgba(222,211,196,.95);
+  background:
+    radial-gradient(900px 260px at 12% 0%, rgba(230,193,177,.18), transparent 60%),
+    radial-gradient(900px 320px at 95% 90%, rgba(127,174,160,.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  box-shadow: 0 26px 70px rgba(16,15,14,.35);
+  padding: 18px;
+  opacity: 0;
+}
+.contact-modal.is-open .contact-modal__dialog{
+  animation: modalIn .22s ease forwards;
+}
+
+@keyframes modalIn{
+  from{ opacity: 0; transform: translate(-50%, -48%) scale(.98); }
+  to{ opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.contact-modal__close{
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 12px 28px rgba(31,29,26,.10);
+  color: rgba(31,29,26,.84);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform .16s ease, background .2s ease, border-color .2s ease;
+}
+.contact-modal__close:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.92);
+  border-color: rgba(200,165,123,.55);
+}
+
+.contact-modal__title{
+  margin: 0 0 4px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -.3px;
+  color: rgba(31,29,26,.92);
+}
+.contact-modal__desc{
+  margin: 0 0 14px;
+  color: rgba(31,29,26,.75);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.contact-modal__actions{
+  display: grid;
+  gap: 10px;
+}
+
+.contact-choice{
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 14px 34px rgba(31,29,26,.10);
+  color: rgba(31,29,26,.90);
+  transition: transform .16s ease, background .2s ease, border-color .2s ease;
+}
+.contact-choice:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.92);
+  border-color: rgba(200,165,123,.55);
+}
+.contact-choice__icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(222,211,196,.95);
+  background: rgba(255,255,255,.80);
+  overflow: hidden;
+}
+.contact-choice__icon svg{
+  width: 22px;
+  height: 22px;
+  opacity: .92;
+  transform: translateY(6px) scale(.92);
+  opacity: 0;
+}
+.contact-modal.is-open .contact-choice__icon svg{
+  animation: iconPop .38s cubic-bezier(.2,.9,.2,1) forwards;
+}
+.contact-choice:nth-child(2) .contact-choice__icon svg{
+  animation-delay: .04s;
+}
+.contact-choice:nth-child(3) .contact-choice__icon svg{
+  animation-delay: .08s;
+}
+@keyframes iconPop{
+  from{ opacity: 0; transform: translateY(10px) scale(.88); }
+  to{ opacity: .95; transform: translateY(0) scale(1); }
+}
+
+.contact-choice__label{
+  display: block;
+  font-weight: 850;
+  letter-spacing: -.1px;
+}
+.contact-choice__meta{
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  color: rgba(31,29,26,.70);
+}
+
+.contact-choice--viber .contact-choice__icon{
+  border-color: rgba(162,115,255,.32);
+  background: rgba(162,115,255,.16);
+}
+.contact-choice--whatsapp .contact-choice__icon{
+  border-color: rgba(127,174,160,.38);
+  background: rgba(127,174,160,.18);
+}
+.contact-choice--phone .contact-choice__icon{
+  border-color: rgba(200,165,123,.38);
+  background: rgba(200,165,123,.16);
+}
+
+/* Responsive */
+@media (min-width: 860px){
+  /* Hide floating buttons on desktop */
+  .floating-stack {
+    display: none;
   }
-  </script>
 
-  <link rel="preload" href="Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="Inter-italic-var.woff2" as="font" type="font/woff2" crossorigin>
-
-  <style>
-    @font-face{
-      font-family: "Inter";
-      src: url("Inter-roman.var.woff2") format("woff2");
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face{
-      font-family: "Inter";
-      src: url("Inter-italic-var.woff2") format("woff2");
-      font-weight: 100 900;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    :root{
-      --bg: #f6f1ea;
-      --bg-2:#f1ebe3;
-
-      --ink:#1f1d1a;
-
-      --line:#e6ddd1;
-      --line-2:#ded3c4;
-
-      --accent:#c8a57b;
-      --accent-2:#7faea0;
-      --accent-3:#e6c1b1;
-
-      --radius-lg: 26px;
-      --radius-md: 18px;
-
-      --shadow: 0 18px 50px rgba(31,29,26,.10);
-      --shadow-soft: 0 12px 34px rgba(31,29,26,.08);
-
-      --container: 1120px;
-
-      --h1: clamp(30px, 4.6vw, 56px);
-      --h2: clamp(22px, 3.0vw, 34px);
-      --h3: 18px;
-      --lead: clamp(16px, 2.05vw, 20px);
-
-      --space-4: 24px;
-      --space-5: 34px;
-      --space-6: 48px;
-      --space-7: 72px;
-
-      --space-m-hero: 44px;
-      --space-m: 54px;
-
-      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-    }
-
-    :root::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(1100px 700px at 12% -10%, rgba(200,165,123,.18), transparent 55%),
-        radial-gradient(900px 600px at 92% 5%, rgba(230,193,177,.18), transparent 55%),
-        radial-gradient(1000px 700px at 80% 88%, rgba(127,174,160,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
-    }
-
-    *{ box-sizing: border-box; }
-    html, body{ height: 100%; }
-    html{ scroll-behavior: smooth; }
-
-    body{
-      margin: 0;
-      font-family: var(--font-sans);
-      color: var(--ink);
-      line-height: 1.55;
-      background: transparent;
-    }
-
-    a{ color: inherit; }
-    img{ max-width: 100%; display:block; }
-    svg{ display:block; }
-
-    .container{
-      width: min(var(--container), calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .no-scroll{ overflow: hidden; }
-
-    .skip-link{
-      position: absolute;
-      left: -999px;
-      top: 12px;
-      background: #fff;
-      color: #000;
-      padding: 10px 14px;
-      border-radius: 10px;
-      z-index: 9999;
-    }
-    .skip-link:focus{ left: 12px; }
-
-    /* Header */
-    .site-header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(246,241,234,.55);
-      border-bottom: 1px solid rgba(230,221,209,.85);
-      transition: background .2s ease, backdrop-filter .2s ease;
-    }
-    .site-header.is-scrolled{
-      background: rgba(249, 247, 242, 0.8);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      padding: 12px 0;
-      gap: 12px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      text-decoration: none;
-      min-width: 220px;
-    }
-    .brand-mark{
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid rgba(222,211,196,.9);
-      box-shadow: 0 10px 24px rgba(31,29,26,.08);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(200,165,123,.95), rgba(200,165,123,.18) 55%, transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(127,174,160,.55), transparent 55%),
-        radial-gradient(circle at 70% 20%, rgba(230,193,177,.55), transparent 58%);
-      display: grid;
-      place-items: center;
-    }
-    .brand-mark img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-    }
-    .brand-text{
-      display:flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-    .brand-name{
-      font-family: var(--font-serif);
-      font-weight: 700;
-      letter-spacing: .35px;
-    }
-    .brand-sub{
-      font-size: 12px;
-      color: rgba(31,29,26,.72);
-      margin-top: 2px;
-    }
-
-    .nav{ display:none; gap: 8px; align-items:center; }
-    .nav-toggle{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(222,211,196,.95);
-      background: rgba(255,255,255,.65);
-      cursor: pointer;
-      box-shadow: 0 10px 24px rgba(31,29,26,.06);
-    }
-    .nav-toggle-line{
-      display:block;
-      width: 18px;
-      height: 2px;
-      background: rgba(31,29,26,.78);
-      border-radius: 99px;
-      margin: 2px 0;
-    }
-
-    .mobile-nav{
-      position: fixed;
-      inset: 0;
-      background: rgba(31,29,26,.42);
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s ease;
-    }
-    .mobile-nav.is-open{
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .mobile-nav-inner{
-      width: min(520px, calc(100% - 24px));
-      margin: 84px auto 0;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(222,211,196,.95);
-      background:
-        radial-gradient(900px 380px at 15% 0%, rgba(230,193,177,.20), transparent 60%),
-        radial-gradient(780px 420px at 95% 80%, rgba(127,174,160,.16), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
-      box-shadow: 0 22px 70px rgba(31,29,26,.18);
-      padding: 16px;
-      display:grid;
-      gap: 10px;
-    }
-    .mobile-nav-inner{
-      transform: translateY(-8px) scale(.985);
-      opacity: 0;
-      transition: transform .18s ease, opacity .18s ease;
-      will-change: transform, opacity;
-    }
-    .mobile-nav.is-open .mobile-nav-inner{
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-
-    .mobile-nav-inner a{
-      text-decoration: none;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(222,211,196,.85);
-      background: rgba(255,255,255,.70);
-      color: rgba(31,29,26,.86);
-      font-weight: 700;
-    }
-
-    /* Hero */
-    .section{ padding: var(--space-m) 0; }
-    .hero{ padding-top: var(--space-m-hero); }
-
-    .hero-grid{
-      display:grid;
-      gap: var(--space-6);
-      align-items:start;
-    }
-    .hero-copy{ max-width: 680px; }
-
-    .eyebrow{
-      margin: 0 0 14px;
-      color: rgba(200,165,123,.98);
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-
-    .h1{
-      font-family: var(--font-serif);
-      font-size: var(--h1);
-      line-height: 1.06;
-      margin: 0 0 18px;
-      letter-spacing: -0.8px;
-      max-width: 12.5ch;
-      text-wrap: balance;
-    }
-    .h1-line{ display:block; }
-    .hero .h1{ line-height: 1.02; }
-
-    .lead{
-      font-size: var(--lead);
-      color: rgba(31,29,26,.84);
-      margin: 0 0 var(--space-4);
-      line-height: 1.7;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      text-decoration:none;
-      border: 1px solid transparent;
-      font-weight: 740;
-      letter-spacing: .1px;
-      cursor:pointer;
-      user-select:none;
-      transition: transform .18s ease, box-shadow .25s ease, background .2s ease, border-color .2s ease, color .2s ease;
-    }
-    .btn:hover{ transform: translateY(-2px); }
-    .btn:active{ transform: translateY(1px); }
-
-    .btn--primary{
-      background: rgba(200,165,123,.96);
-      color: #231c12;
-      border-color: rgba(200,165,123,.60);
-      box-shadow: 0 14px 34px rgba(200,165,123,.20);
-    }
-    .btn--primary:hover{ background: rgba(200,165,123,1); }
-
-    .btn--outline{
-      background: rgba(255,255,255,.72);
-      border-color: rgba(222,211,196,.95);
-      color: rgba(31,29,26,.92);
-    }
-    .btn--outline:hover{
-      background: rgba(255,255,255,.95);
-      border-color: rgba(200,165,123,.55);
-    }
-
-    .hero-cta{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: var(--space-4);
-    }
-
-    .trust-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      padding-top: 6px;
-    }
-    .trust{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-size: 13px;
-      color: rgba(31,29,26,.70);
-    }
-    .dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(200,165,123,.95);
-      box-shadow: 0 0 0 6px rgba(200,165,123,.16);
-    }
-    .dot--soft{
-      box-shadow: 0 0 0 6px rgba(127,174,160,.12);
-      background: rgba(127,174,160,.65);
-    }
-
-    .hero-visual{
-      justify-self: end;
-      width: min(540px, 100%);
-      display:grid;
-      gap: 14px;
-    }
-    .hero-photo{
-      height: 220px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid rgba(222,211,196,.95);
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .hero-photo img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-    }
-
-    .visual-card{
-      position: relative;
-      background: transparent;
-      border: 1px solid rgba(222,211,196,.95);
-      border-radius: var(--radius-lg);
-      box-shadow: none;
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .visual-card-top{ display:flex; flex-wrap: wrap; gap: 10px; }
-    .pill{
-      font-size: 12px;
-      color: rgba(31,29,26,.78);
-      background: transparent;
-      border: 1px solid rgba(222,211,196,.95);
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-
-    .visual-card-mid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 18px 0;
-    }
-    .metric{
-      padding: 14px;
-      border-radius: 16px;
-      background: transparent;
-      border: 1px solid rgba(222,211,196,.95);
-    }
-
-    .metric-label{
-      display:block;
-      font-size: 12px;
-      color: rgba(31,29,26,.62);
-      margin-bottom: 6px;
-    }
-    .metric-value{
-      font-weight: 780;
-      letter-spacing: .1px;
-      color: rgba(31,29,26,.92);
-    }
-
-    @media (min-width: 860px){
-      .nav{ display:flex; }
-      .nav-toggle{ display:none; }
-      .mobile-nav{ display:none; }
-
-      .section{ padding: var(--space-7) 0; }
-      .hero{ padding-top: calc(var(--space-7) - 20px); }
-
-      .hero-grid{ grid-template-columns: 1.05fr .95fr; }
-      .visual-card-mid{ grid-template-columns: 1fr 1fr; }
-      .hero-photo{ height: 260px; }
-    }
-  </style>
-
-  <link rel="stylesheet" href="styles.css?v=1" />
-</head>
-
-<body id="top">
-  <a class="skip-link" href="#main">Μετάβαση στο κύριο περιεχόμενο</a>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Αρχική">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="logo.jpg" alt="Λογότυπο" loading="lazy" decoding="async" width="96" height="96">
-        </span>
-
-        <span class="brand-text">
-          <span class="brand-name">Νικολέτα Πλατή</span>
-          <span class="brand-sub">Ρόδος, Ελλάδα</span>
-        </span>
-      </a>
-
-      <button class="nav-toggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="siteNav">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-      </button>
-
-      <nav class="nav" aria-label="Κύρια πλοήγηση">
-        <a href="#services" class="btn btn--sm btn--outline">Υπηρεσίες</a>
-        <a href="#education" class="btn btn--sm btn--outline">Εκπαίδευση</a>
-        <a href="#faq" class="btn btn--sm btn--outline">FAQ</a>
-
-        <a href="#contact" class="btn btn--sm btn--primary">Στείλτε μήνυμα</a>
-
-        <div class="social" aria-label="Social links">
-          <a class="social-link" href="https://www.instagram.com/nikoletaplati_psychologist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4z" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 16a4 4 0 110-8 4 4 0 010 8z" stroke="currentColor" stroke-width="2"/>
-              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.facebook.com/Kentrologoumathisiskaisimperiforas/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1z" fill="currentColor"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.tiktok.com/@nikoleta.plati" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 3v10.2a3.8 3.8 0 11-3-3.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 7c1.1 1.6 2.7 2.6 4.6 2.7V7.2c-1.3-.1-2.5-.8-3.3-1.8-.5-.6-.9-1.5-1-2.4H14z" fill="currentColor" opacity=".92"/>
-            </svg>
-          </a>
-        </div>
-      </nav>
-    </div>
-
-    <div class="mobile-nav" id="siteNav" aria-hidden="true">
-      <div class="mobile-nav-inner">
-        <a href="#top">Αρχική</a>
-        <a href="#services">Υπηρεσίες</a>
-        <a href="#education">Εκπαίδευση</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn--primary">Στείλτε μήνυμα</a>
-
-        <div class="mobile-social" aria-label="Social links">
-          <a class="social-link" href="https://www.instagram.com/nikoletaplati_psychologist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4z" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 16a4 4 0 110-8 4 4 0 010 8z" stroke="currentColor" stroke-width="2"/>
-              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.facebook.com/Kentrologoumathisiskaisimperiforas/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1z" fill="currentColor"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.tiktok.com/@nikoleta.plati" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 3v10.2a3.8 3.8 0 11-3-3.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 7c1.1 1.6 2.7 2.6 4.6 2.7V7.2c-1.3-.1-2.5-.8-3.3-1.8-.5-.6-.9-1.5-1-2.4H14z" fill="currentColor" opacity=".92"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <section class="section hero fade-in-section" aria-label="Hero">
-      <div class="container hero-grid">
-
-        <div class="hero-copy">
-          <p class="eyebrow">ΙΔΙΩΤΙΚΕΣ ΣΥΝΕΔΡΙΕΣ ΣΤΗ ΡΟΔΟ</p>
-
-          <h1 class="h1">
-            <span class="h1-line">Όταν όλα βαραίνουν, δεν χρειάζεται να τα κουβαλάτε μόνοι.</span>
-          </h1>
-
-          <p class="lead">
-            
-            Αν νιώθετε ότι κρατάτε πολλά μέσα σας, ότι κουράζεστε εύκολα, ότι οι σκέψεις δεν σταματούν, εδώ υπάρχει χώρος να μιλήσετε όπως είστε. Χωρίς πίεση, χωρίς «σωστό» και «λάθος». Μαζί βρίσκουμε την άκρη και κάνουμε μικρά, σταθερά βήματα που ταιριάζουν στη δική σας καθημερινότητα.
-          
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
-            <a class="btn btn--outline" href="#services">Πως μπορώ να βοηθήσω</a>
-          </div>
-
-          <div class="trust-row" aria-label="Ενδείξεις εμπιστοσύνης">
-            <div class="trust"><span class="dot"></span> Εχεμύθεια</div>
-            <div class="trust"><span class="dot dot--soft"></span> Χωρίς πίεση</div>
-            <div class="trust"><span class="dot"></span> Καθαρά βήματα</div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-photo">
-            <img src="Hero-section.webp" alt="Χώρος συνεδριών" loading="eager" decoding="async" width="1600" height="1067">
-          </div>
-
-          <div class="visual-card">
-            <div class="visual-card-top">
-              <span class="pill">Ρόδος, Ελλάδα</span>
-              <span class="pill">Στεφάνου Καζούλη 18</span>
-            </div>
-
-            <div class="visual-card-mid">
-              <div class="metric">
-                <span class="metric-label">Διάρκεια συνεδρίας</span>
-                <span class="metric-value">60 λεπτά</span>
-              </div>
-              <div class="metric">
-                <span class="metric-label">Πρώτο βήμα</span>
-                <span class="metric-value">Ένα σύντομο μήνυμα</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="services" aria-label="Υπηρεσίες">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Υπηρεσίες</h2>
-          <p class="sub">
-            Δεν χρειάζεται να ταιριάζετε σε μια ετικέτα. Δείτε ενδεικτικά πώς μπορώ να σας υποστηρίξω:
-          </p>
-        </div>
-
-        <div class="cards-grid" role="list">
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6.5 14.5c-1.9-1.4-3-3.1-3-5c0-3.6 3.8-6.5 8.5-6.5s8.5 2.9 8.5 6.5S16.7 16 12 16c-.9 0-1.7-.1-2.5-.3L6 17l.5-2.5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M8.5 9.5h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8.5 12h4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="h3">Ατομικές Συνεδρίες Ενηλίκων</h3>
-            <p class="p">
-              Για άγχος, στρες, σχέσεις, μεταβάσεις ζωής. Ό,τι κι αν περνάτε, βρίσκουμε λόγια, νόημα και έναν τρόπο να αναπνεύσετε ξανά.
-              Διαχείριση άγχους, κρίσεις πανικού, κατάθλιψη, πένθος.
-            </p>
-          </article>
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M7.5 11.2a3.1 3.1 0 1 1 0-6.2a3.1 3.1 0 0 1 0 6.2z" stroke="currentColor" stroke-width="2"/>
-                <path d="M16.8 12.2a2.7 2.7 0 1 1 0-5.4a2.7 2.7 0 0 1 0 5.4z" stroke="currentColor" stroke-width="2" opacity=".95"/>
-                <path d="M3.8 19c.4-3 3.2-5.2 6.5-5.2s6.1 2.2 6.5 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M14.8 15.3c2.6.2 4.7 1.8 5 3.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".95"/>
-                <path d="M10.3 12.4c.9-1 2.1-1.6 3.5-1.6c1.6 0 3.1.9 3.9 2.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="h3">Συμβουλευτική Γονέων</h3>
-            <p class="p">
-              Όταν οι εντάσεις στο σπίτι αυξάνονται, ο γονιός συχνά νιώθει αβοήθητος. Εδώ δουλεύουμε πρακτικά, με στήριξη και καθοδήγηση, χωρίς κριτική.
-            </p>
-          </article>
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 4h4a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v3h-1a2 2 0 0 0-2 2v1h-3a2 2 0 0 1-2-2v-1H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M6.5 17.5h5a2 2 0 0 0 2-2v-1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M6.5 17.5v2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M6.5 20h8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="h3">Θεραπεία Συμπεριφοράς (ΑΒΑ)</h3>
-            <p class="p">
-              Εξατομικευμένη παρέμβαση με στόχο την ανάπτυξη δεξιοτήτων, την αυτονομία και μια πιο ήρεμη καθημερινότητα, για το παιδί και την οικογένεια.
-            </p>
-          </article>
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3c3.3 0 6 2.7 6 6c0 3.8-2.8 7.2-6 7.2S6 12.8 6 9c0-3.3 2.7-6 6-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M10.5 16.2c.3 1.3 1 2 1.5 2s1.2-.7 1.5-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M12 18.2v2.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M10.7 21h2.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M15.8 7.3c-.6-1.3-2-2.3-3.8-2.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
-              </svg>
-            </div>
-            <h3 class="h3">Παιγνιοθεραπεία</h3>
-            <p class="p">
-              Για παιδιά που δεν βρίσκουν εύκολα λόγια. Το παιχνίδι γίνεται γέφυρα, ώστε να ακουστεί αυτό που μέσα τους δυσκολεύεται.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="services-callout" role="note" aria-label="Βοήθεια επιλογής υπηρεσίας">
-          <div class="services-callout__content">
-            <p class="services-callout__title">Δεν ξέρετε από πού να ξεκινήσετε; Είναι φυσιολογικό.</p>
-            <p class="services-callout__text">
-              Γράψτε μου με λίγες λέξεις τι σας απασχολεί. Θα σας προτείνω το πιο ήπιο και σωστό πρώτο βήμα, χωρίς πίεση.
-            </p>
-
-            <div class="services-callout__actions">
-              <a class="btn btn--primary" href="#contact">Στείλτε μήνυμα</a>
-              <a class="btn btn--outline js-call-cta" href="tel:+306949626413">Κλήση</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="about" aria-label="Σχετικά">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-copy">
-            <div class="section-head">
-              <h2 class="h2">Σχετικά</h2>
-
-              <p class="sub">
-                Μερικές φορές δεν είναι ένα «μεγάλο» γεγονός που μας φέρνει εδώ. Είναι η συσσώρευση. Η κούραση που μένει, το σώμα που σφίγγει, οι σκέψεις που γυρίζουν την ίδια διαδρομή.<br><br>
-                Η θεραπεία, για μένα, είναι ένας ασφαλής τόπος. Ένας χώρος όπου μπορείτε να ακουστείτε με σεβασμό, χωρίς να χρειάζεται να αποδείξετε τίποτα. Δουλεύουμε με αυτό που είναι αληθινό για εσάς, και το κάνουμε με τρόπο που να μπορεί να «ζήσει» μέσα στην καθημερινότητα.<br><br>
-                Για τους γονείς, το ζητούμενο δεν είναι η τελειότητα. Είναι η στήριξη, η κατανόηση, και μια σταθερή συνεργασία ώστε το σπίτι να γίνει πιο ήρεμο, πιο προβλέψιμο, πιο ανθρώπινο.
-              </p>
-            </div>
-          </div>
-
-          <figure class="about-media">
-            <img src="about-portrait.webp" alt="Η Νικολέτα Πλατή στον χώρο συνεδριών" loading="lazy" decoding="async" width="1200" height="1500">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="space" aria-label="Ο χώρος">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Ο χώρος</h2>
-          <p class="sub">Ένα ήρεμο περιβάλλον, ώστε να νιώσετε ασφάλεια από την πρώτη στιγμή.</p>
-        </div>
-
-        <div class="space-grid">
-          <figure class="space-main">
-            <img src="Image1-section4.webp" alt="Ο κύριος χώρος συνεδρίας" loading="lazy" decoding="async" width="1600" height="1200">
-          </figure>
-
-          <div class="space-side">
-            <figure class="space-tile">
-              <img src="Image2-section4.webp" alt="Λεπτομέρεια χώρου" loading="lazy" decoding="async" width="1600" height="1200">
-            </figure>
-
-            <figure class="space-tile">
-              <img src="Image3-section4.webp" alt="Ατμόσφαιρα γραφείου" loading="lazy" decoding="async" width="1600" height="1200">
-            </figure>
-
-            <div class="space-notes">
-              <ul class="space-bullets">
-                <li><span class="dot" aria-hidden="true"></span> Ζεστό φως και ήρεμες υφές</li>
-                <li><span class="dot dot--soft" aria-hidden="true"></span> Διακριτικότητα στον χώρο</li>
-                <li><span class="dot" aria-hidden="true"></span> Άνεση, χωρίς βιασύνη</li>
-              </ul>
-
-              <div class="space-cta">
-                <a class="btn btn--outline btn--sm" href="#contact">Ρωτήστε για διαθεσιμότητα</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="process" aria-label="Πώς δουλεύουμε">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Πώς δουλεύουμε</h2>
-          <p class="sub">Μια απλή ροή, ώστε να ξέρετε τι να περιμένετε και να νιώθετε ασφάλεια.</p>
-        </div>
-
-        <div class="cards-grid" role="list">
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                <path d="M7 11c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5-2.7 5.5-6 5.5c-.8 0-1.6-.1-2.3-.3L7 18l.7-2.6C7.3 14.6 7 13.8 7 11z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M10 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M10 13.5h3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="h3">Μια πρώτη κουβέντα</h3>
-            <p class="p">Μιλάμε για αυτό που σας έφερε εδώ. Αργά, καθαρά, χωρίς να χρειάζεται να τα πείτε «σωστά».</p>
-          </article>
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                <path d="M9 4h8a2 2 0 0 1 2 2v14H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M7 7H5a2 2 0 0 0-2 2v11h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-                <path d="M11 8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M11 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M11 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="h3">Ορίζουμε τη διαδρομή μας</h3>
-            <p class="p">Βάζουμε στόχους που βγάζουν νόημα για εσάς, και έναν τρόπο δουλειάς που ταιριάζει στον ρυθμό σας.</p>
-          </article>
-
-          <article class="card fade-in-section" role="listitem">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                <path d="M4.5 17.5c2.7-6.2 6.5-9.3 11.6-9.3H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M16.7 5.9L20 8.2l-3.3 2.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6.5 19.5l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
-              </svg>
-            </div>
-            <h3 class="h3">Μικρά βήματα, σταθερά</h3>
-            <p class="p">Χτίζουμε μαζί αλλαγές που κρατάνε. Όχι με ένταση, με συνέπεια και πραγματική φροντίδα.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="education" aria-label="Εκπαίδευση">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Εκπαίδευση</h2>
-          <p class="sub">Η εκπαίδευση είναι το υπόβαθρο. Η σχέση είναι αυτό που κάνει τη δουλειά να «πιάνει».</p>
-        </div>
-
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="educationTrack">
-            
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">Human Psychology</h3>
-              <p class="p">University of Canterbury</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">Εκπαιδευτική Ψυχολογία</h3>
-              <p class="p">Ανοικτό Ίδρυμα Εκπαίδευσης</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">Εφαρμογή Παιγνιοθεραπείας σε Παιδιά και Εφήβους</h3>
-              <p class="p">Διεπιστημονικό Κέντρο Ηπείρου</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">Επαγγελματικός Προσανατολισμός, Συμβουλευτική</h3>
-              <p class="p">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">Εφαρμοσμένη Συμβουλευτική</h3>
-              <p class="p">Κέντρο Εφαρμοσμένης Ψυχοθεραπείας και Συμβουλευτικής</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">ABA Therapist, RBT Trained</h3>
-              <p class="p">Μονορόδι Καλλιθέα</p>
-            </div>
-
-            <div class="carousel-card">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-                  <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M6 10.5V15c0 2.5 3 4.5 6 4.5s6-2 6-4.5v-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M22 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
-                </svg>
-              </div>
-              <h3 class="h3">WISC-V</h3>
-              <p class="p">ΔΙ.ΚΕ.ΨΥ</p>
-            </div>
-
-          </div>
-
-          <div class="carousel-dots" id="carouselDots" aria-hidden="true">
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--soft fade-in-section" id="faq" aria-label="Συχνές ερωτήσεις">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">FAQ</h2>
-          <p class="sub">Μικρές απαντήσεις, για να νιώθετε πιο σίγουροι πριν κάνετε το πρώτο βήμα.</p>
-        </div>
-
-        <div class="faq-wrap">
-          <div class="faq-list" aria-label="Λίστα συχνών ερωτήσεων">
-            <details class="faq">
-              <summary>Πόση είναι η διάρκεια των συνεδριών;</summary>
-              <div class="faq-body"><p class="p">Η τυπική διάρκεια είναι 60 λεπτά. Αυτός ο χρόνος είναι αποκλειστικά δικός σας, για να μιλήσουμε χωρίς βιασύνη.</p></div>
-            </details>
-
-            <details class="faq">
-              <summary>Πώς ξέρω τι υπηρεσία χρειάζομαι;</summary>
-              <div class="faq-body"><p class="p">Δεν χρειάζεται να το ξέρετε από πριν. Περιγράψτε μου τι σας απασχολεί και θα σας καθοδηγήσω στο κατάλληλο ξεκίνημα.</p></div>
-            </details>
-
-            <details class="faq">
-              <summary>Πού βρίσκεται ο χώρος;</summary>
-              <div class="faq-body"><p class="p">Στεφάνου Καζούλη 18, Ρόδος, Ελλάδα.</p></div>
-            </details>
-
-            <details class="faq">
-              <summary>Ποια είναι η περιοχή εξυπηρέτησης;</summary>
-              <div class="faq-body"><p class="p">Ρόδος.</p></div>
-            </details>
-          </div>
-
-          <figure class="faq-media" aria-label="Εικόνα ενότητας FAQ">
-            <img src="faq-image.webp" alt="Ήρεμη λεπτομέρεια του χώρου συνεδριών" loading="lazy" decoding="async" width="1600" height="1200">
-          </figure>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section fade-in-section" id="contact" aria-label="Επικοινωνία">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Επικοινωνία</h2>
-          <p class="sub">Αν δυσκολεύεστε να το γράψετε, γράψτε απλά «χρειάζομαι βοήθεια». Από εκεί ξεκινάμε.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card contact-card--split">
-            <div class="contact-split">
-
-              <div class="contact-split-left">
-                <div class="contact-cover">
-                  <img src="Image-contact.webp" alt="Χώρος" loading="lazy" decoding="async" width="1600" height="1067">
-                </div>
-
-                <div class="contact-item">
-                  <span class="contact-label">Διεύθυνση</span>
-                  <span class="contact-value">Στεφάνου Καζούλη 18, Ρόδος, Ελλάδα</span>
-                </div>
-
-                <div class="contact-item">
-                  <span class="contact-label">Κινητό</span>
-                  <a class="link contact-value" href="tel:+306949626413">694 962 6413</a>
-                </div>
-
-                <div class="contact-item">
-                  <span class="contact-label">Email</span>
-                  <a class="link contact-value" href="mailto:nicoletaplath@gmail.com">nicoletaplath@gmail.com</a>
-                </div>
-
-                <div class="contact-item">
-                  <span class="contact-label">Περιοχή</span>
-                  <span class="contact-value">Ρόδος</span>
-                </div>
-
-                <div class="contact-item">
-                  <span class="contact-label">Social</span>
-                  <div class="contact-social">
-                    <a class="btn btn--outline btn--sm" href="https://www.instagram.com/nikoletaplati_psychologist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-                    <a class="btn btn--outline btn--sm" href="https://www.facebook.com/Kentrologoumathisiskaisimperiforas/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-                    <a class="btn btn--outline btn--sm" href="https://www.tiktok.com/@nikoleta.plati" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="contact-split-right">
-                <div class="divider"></div>
-
-                <form
-                  class="contact-form"
-                  id="contactForm"
-                  action="https://formspree.io/f/your-form-id"
-                  method="POST"
-                >
-                  <div class="field">
-                    <label class="field-label" for="name">Το όνομά σας</label>
-                    <input class="input" id="name" name="name" autocomplete="name" required>
-                  </div>
-
-                  <div class="field">
-                    <label class="field-label" for="phone">Τηλέφωνο</label>
-                    <input
-                      class="input"
-                      id="phone"
-                      name="phone"
-                      autocomplete="tel"
-                      inputmode="tel"
-                      required
-                      pattern="^[0-9+\\s().-]{8,}$"
-                      title="Παρακαλώ γράψτε ένα έγκυρο τηλέφωνο (τουλάχιστον 8 χαρακτήρες)."
-                    >
-                  </div>
-
-                  <div class="field">
-                    <label class="field-label" for="service">Υπηρεσία</label>
-                    <input class="input" id="service" name="service" list="servicesList" placeholder="π.χ. Ατομικές Συνεδρίες Ενηλίκων" required>
-                    <datalist id="servicesList">
-                      <option value="Ατομικές Συνεδρίες Ενηλίκων"></option>
-                      <option value="Συμβουλευτική Γονέων"></option>
-                      <option value="Θεραπεία Συμπεριφοράς (ΑΒΑ)"></option>
-                      <option value="Παιγνιοθεραπεία"></option>
-                    </datalist>
-                  </div>
-
-                  <div class="field">
-                    <label class="field-label" for="msg">Μήνυμα</label>
-                    <textarea class="textarea" id="msg" name="message" required></textarea>
-                  </div>
-
-                  <div class="form-actions">
-                    <button class="btn btn--primary" type="submit">Αποστολή</button>
-                    <a class="btn btn--outline js-call-cta" href="tel:+306949626413">Κλήση</a>
-                  </div>
-
-                  <p class="form-note">
-                    Αν θέλετε, γράψτε τι σας απασχολεί και ποια υπηρεσία σκέφτεστε. Αν δεν ξέρετε, γράψτε απλά δύο προτάσεις. Αυτό αρκεί.
-                  </p>
-
-                  <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-                </form>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="map-card" aria-label="Χάρτης">
-            <iframe
-              title="Χάρτης"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=%CE%A3%CF%84%CE%B5%CF%86%CE%AC%CE%BD%CE%BF%CF%85%20%CE%9A%CE%B1%CE%B6%CE%BF%CF%8D%CE%BB%CE%B7%2018%2C%20%CE%A1%CF%8C%CE%B4%CE%BF%CF%82%2C%20%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&output=embed">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <p class="fine">
-          © <span id="year"></span> Νικολέτα Πλατή <br>
-          <span style="opacity: 0.7; font-size: 0.9em;">
-            Digital Experience by <a href="https://evidastudio.com?utm_source=nikoleta_site&utm_medium=footer_link" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Evida Studio</a>
-          </span>
-        </p>
-
-        <div class="footer-social" aria-label="Social links">
-          <a class="social-link" href="https://www.instagram.com/nikoletaplati_psychologist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4z" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 16a4 4 0 110-8 4 4 0 010 8z" stroke="currentColor" stroke-width="2"/>
-              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.facebook.com/Kentrologoumathisiskaisimperiforas/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1z" fill="currentColor"/>
-            </svg>
-          </a>
-
-          <a class="social-link" href="https://www.tiktok.com/@nikoleta.plati" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 3v10.2a3.8 3.8 0 11-3-3.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 7c1.1 1.6 2.7 2.6 4.6 2.7V7.2c-1.3-.1-2.5-.8-3.3-1.8-.5-.6-.9-1.5-1-2.4H14z" fill="currentColor" opacity=".92"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </footer>
-
-  </main>
-
-  <div class="floating-stack" aria-label="Γρήγορη επικοινωνία">
-    <a class="floating-btn floating-btn--viber" href="viber://chat?number=%2B306949626413" aria-label="Viber" data-tooltip="Viber">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6.5 6.8C7.9 5.3 9.9 4.5 12 4.5c4.1 0 7.5 3 7.5 6.9c0 1.9-.8 3.6-2.1 4.9c-1.6 1.6-3.7 2.5-5.9 2.5c-.9 0-1.8-.1-2.6-.4L5 20l1.2-3.3c-.7-1.1-1.1-2.4-1.1-3.7c0-1.6.5-3.1 1.4-4.2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M9.3 9.2c.2-.4.4-.5.7-.5h.5c.2 0 .5.1.7.5l.5 1.2c.1.3.1.5 0 .7l-.3.5c-.1.2-.2.4 0 .7c.2.4.6 1.1 1.3 1.7c.7.6 1.4 1 1.8 1.1c.3.1.5 0 .7-.2l.5-.6c.2-.2.4-.3.7-.2l1.3.5c.4.1.5.4.5.6v.6c0 .3-.2.7-.6.9c-.4.2-.9.4-1.8.4c-1.1 0-2.3-.4-3.7-1.4c-1.8-1.4-2.9-3.2-3.2-3.8c-.3-.6-.3-1.2-.2-1.6c.1-.4.4-.9.6-1.1z" fill="currentColor" opacity=".92"/>
-      </svg>
-    </a>
-
-    <a class="floating-btn floating-btn--whatsapp" href="https://wa.me/306949626413" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-tooltip="WhatsApp">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M20 11.7c0 4.5-3.8 8.1-8.4 8.1-1.4 0-2.8-.3-4-.9L4 20l1.2-3.3c-.7-1.1-1.1-2.4-1.1-3.7C4.1 8.5 7.9 4.9 12.5 4.9S20 7.2 20 11.7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M9.7 9.2c.2-.4.4-.5.7-.5h.5c.2 0 .5.1.7.5l.6 1.3c.1.3.1.5 0 .7l-.3.5c-.1.2-.2.4 0 .7.2.5.7 1.3 1.5 2 .8.7 1.6 1.1 2.1 1.3.3.1.5 0 .7-.2l.5-.6c.2-.2.4-.3.7-.2l1.4.5c.4.1.5.4.5.6v.7c0 .3-.2.7-.6.9-.4.2-1 .5-2.1.5-1.2 0-2.6-.4-4.2-1.6-2-1.5-3.3-3.5-3.6-4.2-.3-.7-.3-1.3-.2-1.7.1-.4.4-1 .6-1.2z" fill="currentColor" opacity=".92"/>
-      </svg>
-    </a>
-
-    <a class="floating-btn floating-btn--phone js-call-cta" href="tel:+306949626413" aria-label="Κλήση" data-tooltip="Τηλέφωνο">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M8.5 5.8l1.2 2.6c.2.4.1.9-.2 1.2l-1 1c1.1 2 2.8 3.7 4.8 4.8l1-1c.3-.3.8-.4 1.2-.2l2.6 1.2c.5.2.7.7.6 1.2l-.5 2c-.1.5-.6.8-1.1.8C10 20 4 14 4 6.4c0-.5.3-1 .8-1.1l2-.5c.5-.1 1 .1 1.2.6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
-    </a>
-  </div>
-
-  <div class="contact-modal" id="contactModal" aria-hidden="true">
-    <div class="contact-modal__backdrop" data-close="true" aria-hidden="true"></div>
-
-    <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" aria-describedby="contactModalDesc">
-      <button class="contact-modal__close" type="button" aria-label="Κλείσιμο" data-close="true">×</button>
-
-      <h2 class="contact-modal__title" id="contactModalTitle">Επικοινωνία</h2>
-      <p class="contact-modal__desc" id="contactModalDesc">Διαλέξτε ό,τι σας είναι πιο εύκολο αυτή τη στιγμή.</p>
-
-      <div class="contact-modal__actions" role="list">
-        <a class="contact-choice contact-choice--viber" role="listitem" href="viber://chat?number=%2B306949626413" aria-label="Viber">
-          <span class="contact-choice__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6.5 6.8C7.9 5.3 9.9 4.5 12 4.5c4.1 0 7.5 3 7.5 6.9c0 1.9-.8 3.6-2.1 4.9c-1.6 1.6-3.7 2.5-5.9 2.5c-.9 0-1.8-.1-2.6-.4L5 20l1.2-3.3c-.7-1.1-1.1-2.4-1.1-3.7c0-1.6.5-3.1 1.4-4.2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M9.3 9.2c.2-.4.4-.5.7-.5h.5c.2 0 .5.1.7.5l.5 1.2c.1.3.1.5 0 .7l-.3.5c-.1.2-.2.4 0 .7c.2.4.6 1.1 1.3 1.7c.7.6 1.4 1 1.8 1.1c.3.1.5 0 .7-.2l.5-.6c.2-.2.4-.3.7-.2l1.3.5c.4.1.5.4.5.6v.6c0 .3-.2.7-.6.9c-.4.2-.9.4-1.8.4c-1.1 0-2.3-.4-3.7-1.4c-1.8-1.4-2.9-3.2-3.2-3.8c-.3-.6-.3-1.2-.2-1.6c.1-.4.4-.9.6-1.1z" fill="currentColor" opacity=".92"/>
-            </svg>
-          </span>
-          <span class="contact-choice__text">
-            <span class="contact-choice__label">Viber</span>
-            <span class="contact-choice__meta">Στείλτε μήνυμα</span>
-          </span>
-        </a>
-
-        <a class="contact-choice contact-choice--whatsapp" role="listitem" href="https://wa.me/306949626413" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <span class="contact-choice__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 11.7c0 4.5-3.8 8.1-8.4 8.1-1.4 0-2.8-.3-4-.9L4 20l1.2-3.3c-.7-1.1-1.1-2.4-1.1-3.7C4.1 8.5 7.9 4.9 12.5 4.9S20 7.2 20 11.7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M9.7 9.2c.2-.4.4-.5.7-.5h.5c.2 0 .5.1.7.5l.6 1.3c.1.3.1.5 0 .7l-.3.5c-.1.2-.2.4 0 .7.2.5.7 1.3 1.5 2 .8.7 1.6 1.1 2.1 1.3.3.1.5 0 .7-.2l.5-.6c.2-.2.4-.3.7-.2l1.4.5c.4.1.5.4.5.6v.7c0 .3-.2.7-.6.9-.4.2-1 .5-2.1.5-1.2 0-2.6-.4-4.2-1.6-2-1.5-3.3-3.5-3.6-4.2-.3-.7-.3-1.3-.2-1.7.1-.4.4-1 .6-1.2z" fill="currentColor" opacity=".92"/>
-            </svg>
-          </span>
-          <span class="contact-choice__text">
-            <span class="contact-choice__label">WhatsApp</span>
-            <span class="contact-choice__meta">Στείλτε μήνυμα</span>
-          </span>
-        </a>
-
-        <a class="contact-choice contact-choice--phone" role="listitem" href="tel:+306949626413" aria-label="Τηλέφωνο">
-          <span class="contact-choice__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M8.5 5.8l1.2 2.6c.2.4.1.9-.2 1.2l-1 1c1.1 2 2.8 3.7 4.8 4.8l1-1c.3-.3.8-.4 1.2-.2l2.6 1.2c.5.2.7.7.6 1.2l-.5 2c-.1.5-.6.8-1.1.8C10 20 4 14 4 6.4c0-.5.3-1 .8-1.1l2-.5c.5-.1 1 .1 1.2.6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="contact-choice__text">
-            <span class="contact-choice__label">Τηλέφωνο</span>
-            <span class="contact-choice__meta">Άμεση κλήση</span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <button class="back-to-top" type="button" aria-label="Πάνω" title="Πάνω">
-    ↑
-  </button>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const toggle = document.querySelector(".nav-toggle");
-    const mobileNav = document.querySelector(".mobile-nav");
-    const body = document.body;
-
-    function closeMenu(){
-      toggle.setAttribute("aria-expanded", "false");
-      mobileNav.classList.remove("is-open");
-      mobileNav.setAttribute("aria-hidden", "true");
-      body.classList.remove("no-scroll");
-    }
-    function openMenu(){
-      toggle.setAttribute("aria-expanded", "true");
-      mobileNav.classList.add("is-open");
-      mobileNav.setAttribute("aria-hidden", "false");
-      body.classList.add("no-scroll");
-    }
-
-    toggle.addEventListener("click", () => {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      expanded ? closeMenu() : openMenu();
-    });
-
-    mobileNav.addEventListener("click", (e) => {
-      if(e.target === mobileNav) closeMenu();
-    });
-
-    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-    window.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
-
-    (function(){
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReduced) return;
-
-      const els = document.querySelectorAll(".fade-in-section");
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
-
-      els.forEach(el => obs.observe(el));
-    })();
-
-    (function(){
-      const btn = document.querySelector(".back-to-top");
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      function onScroll(){
-        if (window.scrollY > 280) btn.classList.add("is-visible");
-        else btn.classList.remove("is-visible");
-      }
-
-      btn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
-      });
-
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-    })();
-
-    (function(){
-      const form = document.getElementById('contactForm');
-      const statusEl = document.getElementById('formStatus');
-      if(!form) return;
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        if(statusEl) statusEl.textContent = "Αποστολή...";
-
-        try{
-          const formData = new FormData(form);
-
-          const res = await fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: { "Accept": "application/json" }
-          });
-
-          if(res.ok){
-            if(statusEl) statusEl.textContent = "Το μήνυμα στάλθηκε. Θα επικοινωνήσω μαζί σας σύντομα.";
-            form.reset();
-            return;
-          }
-
-          if(statusEl) statusEl.textContent = "Κάτι πήγε στραβά. Δοκιμάστε ξανά ή καλέστε στο 694 962 6413.";
-        }catch(err){
-          if(statusEl) statusEl.textContent = "Δεν ήταν δυνατή η αποστολή. Δοκιμάστε ξανά ή καλέστε στο 694 962 6413.";
-        }
-      });
-    })();
-
-    (function(){
-      const isTouch = window.matchMedia("(hover: none)").matches;
-      if(!isTouch) return;
-
-      const stack = document.querySelector('.floating-stack');
-      const buttons = Array.from(document.querySelectorAll('.floating-btn[data-tooltip]'));
-      if(!buttons.length) return;
-
-      let timer = null;
-
-      function closeAll(){
-        buttons.forEach(b => b.classList.remove('is-tooltip-open'));
-      }
-      function openAll(){
-        buttons.forEach(b => b.classList.add('is-tooltip-open'));
-      }
-      function anyOpen(){
-        return buttons.some(b => b.classList.contains('is-tooltip-open'));
-      }
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          if(!anyOpen()){
-            e.preventDefault();
-            e.stopPropagation();
-            openAll();
-            clearTimeout(timer);
-            timer = setTimeout(closeAll, 2400);
-            return;
-          }
-
-          closeAll();
-          clearTimeout(timer);
-        }, true);
-      });
-
-      document.addEventListener('click', (e) => {
-        if(!stack || !e.target.closest('.floating-stack')) closeAll();
-      }, { passive: true });
-
-      window.addEventListener('scroll', closeAll, { passive: true });
-    })();
-
-    /* CAROUSEL JS - SMART PAGINATION LOGIC (UPDATED) */
-    (function(){
-      const track = document.getElementById('educationTrack');
-      const dotsContainer = document.getElementById('carouselDots');
-      if(!track || !dotsContainer) return;
-
-      let cards = Array.from(track.querySelectorAll('.carousel-card'));
-      
-      function updateDots() {
-        dotsContainer.innerHTML = '';
-        
-        const trackWidth = track.clientWidth;
-        if(cards.length === 0) return;
-        
-        const visibleCards = Math.max(1, Math.floor(trackWidth / (cards[0].offsetWidth)));
-        const totalPages = Math.ceil(cards.length / visibleCards);
-
-        for (let i = 0; i < totalPages; i++) {
-          const dot = document.createElement('button');
-          dot.className = 'carousel-dot';
-          dot.setAttribute('aria-label', `Μετάβαση στη σελίδα ${i + 1}`);
-          if(i === 0) dot.classList.add('is-active');
-          
-          dot.addEventListener('click', () => {
-            const scrollAmount = i * trackWidth; 
-            track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-          });
-          
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      function onScroll() {
-        const scrollLeft = track.scrollLeft;
-        const trackWidth = track.clientWidth;
-        const scrollWidth = track.scrollWidth;
-
-        // Βασικός υπολογισμός σελίδας
-        let index = Math.round(scrollLeft / trackWidth);
-        
-        // --- ΝΕΟΣ ΕΛΕΓΧΟΣ ΓΙΑ ΤΟ ΤΕΛΟΣ ---
-        // Ελέγχουμε αν το scrollLeft + το πλάτος του παραθύρου είναι >= από το συνολικό πλάτος
-        // Βάζουμε μια ανοχή 10px για διαφορές subpixel σε κινητά
-        if (Math.ceil(scrollLeft + trackWidth) >= scrollWidth - 10) {
-           index = dotsContainer.children.length - 1;
-        }
-
-        const dots = Array.from(dotsContainer.children);
-        dots.forEach(d => d.classList.remove('is-active'));
-        
-        // Ασφάλεια: Αν το index υπάρχει, άναψε το. Αλλιώς (fallback) άναψε το τελευταίο.
-        if(dots[index]) {
-          dots[index].classList.add('is-active');
-        } else if (dots.length > 0) {
-          dots[dots.length - 1].classList.add('is-active');
-        }
-      }
-
-      updateDots();
-
-      track.addEventListener('scroll', () => {
-        window.requestAnimationFrame(onScroll);
-      }, { passive: true });
-
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          updateDots();
-          onScroll();
-        }, 100);
-      });
-    })();
-
-    (function(){
-      const modal = document.getElementById('contactModal');
-      if(!modal) return;
-
-      const dialog = modal.querySelector('.contact-modal__dialog');
-      const closeEls = modal.querySelectorAll('[data-close="true"]');
-      const triggers = document.querySelectorAll('.js-call-cta');
-
-      let lastActive = null;
-      let hadNoScroll = false;
-
-      function openModal(){
-        lastActive = document.activeElement;
-        hadNoScroll = document.body.classList.contains('no-scroll');
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('no-scroll');
-
-        const firstAction = modal.querySelector('.contact-choice');
-        if(firstAction) firstAction.focus({ preventScroll: true });
-      }
-
-      function closeModal(){
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        if(!hadNoScroll) document.body.classList.remove('no-scroll');
-
-        if(lastActive && typeof lastActive.focus === 'function'){
-          lastActive.focus({ preventScroll: true });
-        }
-      }
-
-      triggers.forEach(el => {
-        el.addEventListener('click', (e) => {
-          e.preventDefault();
-          openModal();
-        });
-      });
-
-      closeEls.forEach(el => el.addEventListener('click', closeModal));
-
-      modal.addEventListener('click', (e) => {
-        if(e.target === modal) closeModal();
-      });
-
-      window.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-      });
-
-      modal.querySelectorAll('.contact-choice').forEach(a => {
-        a.addEventListener('click', () => closeModal());
-      });
-
-      modal.addEventListener('keydown', (e) => {
-        if(e.key !== 'Tab' || !modal.classList.contains('is-open')) return;
-        const focusables = dialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if(!focusables.length) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        if(e.shiftKey && document.activeElement === first){
-          e.preventDefault();
-          last.focus();
-        }else if(!e.shiftKey && document.activeElement === last){
-          e.preventDefault();
-          first.focus();
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
+  /* Carousel Desktop - show 3 items (calc: (100% - 2 gaps)/3) */
+  .carousel-card {
+    flex: 0 0 calc((100% - 32px) / 3);
+  }
+
+  .nav{ display:flex; }
+  .nav-toggle{ display:none; }
+  .mobile-nav{ display:none; }
+
+  .section{ padding: var(--space-7) 0; }
+  .hero{ padding-top: calc(var(--space-7) - 20px); }
+
+  .hero-grid{ grid-template-columns: 1.05fr .95fr; }
+  .visual-card-mid{ grid-template-columns: 1fr 1fr; }
+
+  .cards-grid{ grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  /* Services callout matches 2-card width (desktop) */
+  .services-callout{
+    max-width: calc((100% - 32px) * 2 / 3 + 16px);
+    margin-inline: auto;
+  }
+
+  .contact-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .contact-card--split{
+    padding: 0;
+    overflow: hidden;
+  }
+  .contact-split{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .contact-split-left,
+  .contact-split-right{
+    padding: 18px;
+  }
+  .contact-split-left{
+    border-right: 1px solid rgba(222,211,196,.75);
+    background: rgba(255,255,255,.84);
+  }
+  .contact-split-right{
+    background:
+      radial-gradient(900px 280px at 12% 0%, rgba(230,193,177,.16), transparent 60%),
+      radial-gradient(900px 320px at 95% 90%, rgba(127,174,160,.12), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+  }
+
+  .contact-split-right .divider{ display:none; }
+
+  .help-grid{ grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .space-grid{
+    grid-template-columns: 1.15fr .85fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .space-main{ min-height: 420px; }
+  .space-tile{ min-height: 190px; }
+  .contact-cover{ height: 210px; }
+
+  .hero-photo{ height: 260px; }
+
+  .footer-inner{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* About layout on desktop */
+  .about-grid{
+    grid-template-columns: 1.15fr .85fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  /* About Media: Height significantly larger than text on Desktop */
+  .about-media {
+    min-height: 600px;
+    height: auto;
+  }
+  .about-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .faq-wrap{
+    grid-template-columns: 1fr .9fr;
+    align-items: stretch;
+  }
+  .faq-media{
+    min-height: 360px;
+    max-height: 520px;
+  }
+
+  .map-card{
+    min-height: 420px;
+  }
+  .map-card iframe{
+    min-height: 420px;
+  }
+}
+
+/* Keep Services cards 2 per row on desktop (only in services section) */
+@media (min-width: 900px){
+  #services .cards-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto !important; transition: none !important; }
+  #services .card, #services .card:hover{ transform: none !important; }
+  .fade-in-section{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .back-to-top{ transform: none !important; }
+}
+
+
+/* Subtle open/close micro-interactions (FAQ / accordions) */
+.faq{
+  transform: translateZ(0);
+  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.faq summary{
+  transition: color .18s ease, transform .12s ease, background .18s ease;
+}
+.faq summary:active{
+  transform: scale(.99);
+}
+.faq[open]{
+  border-color: rgba(200,165,123,.40);
+  box-shadow: 0 16px 40px rgba(31,29,26,.08);
+}
+.faq[open] .faq-body{
+  animation: revealFaq .18s ease both;
+}
+@keyframes revealFaq{
+  from{ opacity: 0; transform: translateY(-4px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Discreet open/close feel on modal backdrop */
+.contact-modal__backdrop{
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.contact-modal.is-open .contact-modal__backdrop{
+  opacity: 1;
+}

@@ -44,7 +44,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: radial-gradient(1100px 680px at 18% 0%, #ffffff 0%, var(--bg) 58%, var(--bg-2) 100%);
+  background: var(--bg); /* unified background (no section splits) */
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,8 +60,7 @@ body::after {
   inset: auto;
   pointer-events: none;
   z-index: 0;
-  filter: blur(0px);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 body::before {
@@ -69,7 +68,7 @@ body::before {
   height: 980px;
   left: -340px;
   top: -360px;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 72%);
 }
 
 body::after {
@@ -77,7 +76,7 @@ body::after {
   height: 860px;
   right: -380px;
   top: 80px;
-  background: radial-gradient(closest-side, rgba(184, 215, 207, 0.22) 0%, rgba(184, 215, 207, 0) 70%);
+  background: radial-gradient(closest-side, rgba(184, 215, 207, 0.22) 0%, rgba(184, 215, 207, 0) 72%);
 }
 
 a {
@@ -93,12 +92,12 @@ img {
 .hero,
 .services,
 .work-with,
-.focus,
+.topics,
 .about,
 .contact {
   position: relative;
   z-index: 1;
-  background: transparent; /* IMPORTANT: no hard section backgrounds */
+  background: transparent;
 }
 
 /* ---------------- HERO ---------------- */
@@ -117,6 +116,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  position: relative;
 }
 
 .brand {
@@ -156,14 +156,35 @@ img {
   margin-top: 3px;
 }
 
+/* NAV */
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.nav__panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
+.nav__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Pills */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -207,17 +228,128 @@ img {
   background: rgba(255, 255, 255, 0.78);
 }
 
-/* Divider becomes “invisible” */
-.divider {
-  height: 1px;
-  margin: 14px 0 18px;
-  background: linear-gradient(
-    90deg,
-    rgba(31, 29, 24, 0),
-    rgba(31, 29, 24, 0.10),
-    rgba(31, 29, 24, 0)
-  );
-  opacity: 0.55;
+/* Hamburger button */
+.nav-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: none;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--line);
+  color: rgba(31, 29, 24, 0.78);
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.nav-toggle__icon {
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  position: relative;
+  transition: transform 220ms ease, background 220ms ease, opacity 220ms ease;
+}
+
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transition: transform 220ms ease, top 220ms ease, opacity 220ms ease;
+}
+
+.nav-toggle__icon::before {
+  top: -6px;
+}
+
+.nav-toggle__icon::after {
+  top: 6px;
+}
+
+/* Mobile nav panel animation + layout */
+@media (max-width: 919px) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  .nav__panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: min(340px, calc(100vw - 32px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    padding: 12px;
+    border-radius: 18px;
+    border: 1px solid rgba(31, 29, 24, 0.10);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 18px 40px rgba(31, 29, 24, 0.10), 0 1px 0 rgba(255, 255, 255, 0.75) inset;
+
+    transform: translateY(-6px);
+    opacity: 0;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: transform 220ms ease, opacity 220ms ease, max-height 260ms ease;
+    z-index: 50;
+  }
+
+  .nav.is-open .nav__panel {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 70vh;
+  }
+
+  .nav__items {
+    display: grid;
+    gap: 10px;
+  }
+
+  .nav__items .pill {
+    width: 100%;
+    height: 44px;
+    justify-content: flex-start;
+    padding-left: 16px;
+    font-size: 14px;
+  }
+
+  .nav__social {
+    padding-top: 10px;
+    border-top: 1px solid rgba(31, 29, 24, 0.10);
+    justify-content: flex-start;
+  }
+
+  /* Burger -> X */
+  .nav.is-open .nav-toggle__icon {
+    background: transparent;
+  }
+
+  .nav.is-open .nav-toggle__icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav.is-open .nav-toggle__icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Optional: prevent accidental horizontal layout shifts */
+  body.nav-open {
+    overflow: hidden;
+  }
 }
 
 /* Main grid */
@@ -492,7 +624,6 @@ img {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 
-  /* “next card looks a bit farther” */
   min-width: calc(100% - 46px);
   transform: scale(0.965);
   opacity: 0.88;
@@ -873,24 +1004,24 @@ img {
   }
 }
 
-/* ---------------- FOCUS (ACCORDION) ---------------- */
-.focus {
+/* ---------------- TOPICS (cards like services) ---------------- */
+.topics {
   padding: 26px 16px 44px;
   position: relative;
   overflow: clip;
 }
 
-.focus__wrap {
+.topics__wrap {
   max-width: var(--wrap);
   margin: 0 auto;
   position: relative;
 }
 
-.focus__head {
+.topics__head {
   margin-bottom: 14px;
 }
 
-.focus__title {
+.topics__title {
   margin: 0;
   font-family: var(--serif);
   font-weight: 800;
@@ -899,7 +1030,7 @@ img {
   line-height: 1.05;
 }
 
-.focus__sub {
+.topics__sub {
   margin: 8px 0 0;
   color: var(--muted);
   font-size: 14px;
@@ -907,121 +1038,33 @@ img {
   max-width: 86ch;
 }
 
-.focus__grid {
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.acc {
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(31, 29, 24, 0.12);
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-  position: relative;
-}
-
-.acc::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(520px 240px at 12% 10%, rgba(202, 167, 122, 0.10) 0%, rgba(202, 167, 122, 0) 62%);
-  pointer-events: none;
-}
-
-.acc__summary {
-  list-style: none;
+/* Mobile carousel same behavior as services */
+.topics__grid {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 14px;
-  padding: 14px 16px;
-  cursor: pointer;
-  user-select: none;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding: 2px 8px 6px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.acc__summary::-webkit-details-marker {
+.topics__grid::-webkit-scrollbar {
   display: none;
 }
 
-.acc__title {
-  font-weight: 900;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  color: rgba(31, 29, 24, 0.92);
-}
-
-.acc__icon {
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  color: rgba(202, 167, 122, 0.95);
-}
-
-.acc__icon::before {
-  content: "–";
-  font-weight: 900;
-  font-size: 18px;
-  line-height: 1;
-  transform: translateY(-1px);
-}
-
-.acc:not([open]) .acc__icon::before {
-  content: "+";
-}
-
-.acc__content {
-  padding: 0 16px 14px;
-}
-
-.acc__list {
-  margin: 0;
-  padding: 2px 0 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.acc__list li {
-  position: relative;
-  padding-left: 18px;
-  color: rgba(31, 29, 24, 0.68);
-  font-size: 13.5px;
-  line-height: 1.55;
-}
-
-.acc__list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(202, 167, 122, 0.86);
-  box-shadow: 0 0 0 3px rgba(202, 167, 122, 0.16);
-}
-
 @media (min-width: 920px) {
-  .focus {
+  .topics {
     padding: 34px 24px 56px;
   }
 
-  .focus__grid {
+  .topics__grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-  }
-
-  .acc__summary {
-    padding: 16px 18px;
-  }
-
-  .acc__content {
-    padding: 0 18px 16px;
+    overflow: visible;
+    padding: 0;
   }
 }
 

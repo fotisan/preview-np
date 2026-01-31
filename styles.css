@@ -294,10 +294,15 @@ img {
   background: var(--cta-bg-hover);
 }
 
+/* ✅ Ghost buttons: WHITE interior (Πώς μπορώ να βοηθήσω; + Κλήση) */
 .btn--ghost {
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  border-color: var(--cta-border);
+  background: rgba(255, 255, 255, 0.82);
+  color: rgba(31, 29, 24, 0.88);
+  border-color: rgba(31, 29, 24, 0.14);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .trust {
@@ -540,38 +545,55 @@ details[open] .svc__chev {
   }
 
   .services__grid {
+    --peek: 54px; /* how much of the next card peeks */
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 14px;
-    padding: 10px 14px 10px;
+
+    padding: 10px calc(var(--peek) / 2) 10px;
+    scroll-padding-inline: calc(var(--peek) / 2);
+
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .services__grid::-webkit-scrollbar { display: none; }
 
   .svc {
-    min-width: calc(100% - 54px);
-    scroll-snap-align: start;
+    min-width: calc(100% - var(--peek));
+    scroll-snap-align: center;
     scroll-snap-stop: always;
 
     text-align: center;
     padding: 18px 16px;
     border-radius: 24px;
 
+    border-color: rgba(31, 29, 24, 0.10);
     box-shadow:
       0 18px 40px rgba(31, 29, 24, 0.09),
       0 1px 0 rgba(255, 255, 255, 0.75) inset;
-    border-color: rgba(31, 29, 24, 0.10);
 
-    transform: scale(0.965);
-    opacity: 0.90;
+    transform: translateY(6px) scale(0.94);
+    opacity: 0.82;
+
+    transition: transform 260ms ease, opacity 220ms ease, box-shadow 260ms ease;
   }
 
-  .svc:focus-within,
-  .svc:active {
-    transform: scale(1);
+  .svc.is-active {
+    transform: translateY(0) scale(1);
     opacity: 1;
+    box-shadow:
+      0 26px 58px rgba(31, 29, 24, 0.14),
+      0 1px 0 rgba(255, 255, 255, 0.78) inset;
+  }
+
+  .svc:active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .svc { transition: none; }
   }
 
   .svc__top {
@@ -629,6 +651,39 @@ details[open] .svc__chev {
   .hero__title { font-size: 44px; }
 
   .services { padding: 22px 24px 34px; }
+
+  /* Desktop section shell (matches your screenshot) */
+  .services__wrap {
+    border-radius: 34px;
+    border: 1px solid rgba(31, 29, 24, 0.10);
+    background: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 24px 64px rgba(31, 29, 24, 0.07), 0 1px 0 rgba(255, 255, 255, 0.72) inset;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services__wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(760px 280px at 10% 10%, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0) 62%);
+    pointer-events: none;
+  }
+
+  .services__wrap > * { position: relative; z-index: 1; }
+
+  .services__title {
+    font-size: 46px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .services__sub {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 78ch;
+  }
 
   /* ✅ Desktop pyramid layout: 2,3,2 */
   .services__grid {
@@ -756,13 +811,43 @@ details[open] .svc__chev {
 
 @media (min-width: 920px) {
   .work-with { padding: 10px 24px 34px; }
+
+  /* Desktop section shell (matches your screenshot) */
+  .work-with__wrap {
+    border-radius: 34px;
+    border: 1px solid rgba(31, 29, 24, 0.10);
+    background: rgba(255, 255, 255, 0.34);
+    box-shadow: 0 24px 64px rgba(31, 29, 24, 0.07), 0 1px 0 rgba(255, 255, 255, 0.72) inset;
+    padding: 22px 24px 26px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-with__wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(760px 280px at 12% 10%, rgba(184, 215, 207, 0.18) 0%, rgba(184, 215, 207, 0) 62%);
+    pointer-events: none;
+  }
+  .work-with__wrap > * { position: relative; z-index: 1; }
+
   .soft-banner {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
   }
+
+  /* In the screenshot, actions stay on the left */
   .soft-banner__actions {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
+
+  .work-with__title {
+    font-size: 44px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
   .modes {
     grid-template-columns: repeat(3, 1fr);
   }

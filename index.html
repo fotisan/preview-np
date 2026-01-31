@@ -35,71 +35,88 @@
             </span>
           </a>
 
-          <!-- Mobile hamburger (desktop nav stays the same visually) -->
-          <div class="navwrap">
-            <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-hidden="true" />
+          <nav class="nav" aria-label="Κύρια πλοήγηση">
+            <a class="pill" href="#services">Υπηρεσίες</a>
+            <a class="pill" href="#focus">Πώς δουλεύουμε</a>
+            <a class="pill" href="#work-together">Θέματα</a>
+            <a class="pill" href="#about">Σχετικά</a>
+            <a class="pill pill--primary" href="#contact">Στείλτε μήνυμα</a>
 
-            <label class="burger" for="nav-toggle" aria-label="Άνοιγμα μενού" title="Μενού">
-              <span class="burger__lines" aria-hidden="true"></span>
-            </label>
+            <a class="icon-btn" href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path
+                  d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </a>
 
-            <label class="nav-overlay" for="nav-toggle" aria-hidden="true"></label>
+            <a class="icon-btn" href="#" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path
+                  d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z"
+                  fill="currentColor"
+                  opacity=".7"
+                />
+              </svg>
+            </a>
 
-            <nav class="nav" aria-label="Κύρια πλοήγηση">
-              <div class="nav__panel" id="nav-panel">
-                <div class="nav__links">
-                  <a class="pill" href="#services">Υπηρεσίες</a>
-                  <a class="pill" href="#focus">Πώς δουλεύουμε</a>
-                  <a class="pill" href="#work-together">Θέματα</a>
-                  <a class="pill" href="#about">Σχετικά</a>
-                  <a class="pill pill--primary" href="#contact">Στείλτε μήνυμα</a>
-                </div>
+            <a class="icon-btn" href="#" aria-label="TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path
+                  d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z"
+                  fill="currentColor"
+                  opacity=".7"
+                />
+              </svg>
+            </a>
+          </nav>
 
-                <div class="nav__social" aria-label="Social">
-                  <a class="icon-btn" href="#" aria-label="Instagram" title="Instagram">
-                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                      <path
-                        d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                      />
-                      <path
-                        d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                      />
-                      <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                    </svg>
-                  </a>
-
-                  <a class="icon-btn" href="#" aria-label="Facebook" title="Facebook">
-                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                      <path
-                        d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z"
-                        fill="currentColor"
-                        opacity=".7"
-                      />
-                    </svg>
-                  </a>
-
-                  <a class="icon-btn" href="#" aria-label="TikTok" title="TikTok">
-                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                      <path
-                        d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z"
-                        fill="currentColor"
-                        opacity=".7"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </nav>
-          </div>
+          <button class="nav-toggle" type="button" aria-label="Μενού" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="nav-toggle__lines" aria-hidden="true"></span>
+          </button>
         </header>
 
-        <!-- removed divider to keep one-section feel -->
+        <div class="mnav" id="mobile-menu" hidden>
+          <a class="mnav__link" href="#services">Υπηρεσίες</a>
+          <a class="mnav__link" href="#focus">Πώς δουλεύουμε</a>
+          <a class="mnav__link" href="#work-together">Θέματα</a>
+          <a class="mnav__link" href="#about">Σχετικά</a>
+          <a class="mnav__link mnav__link--primary" href="#contact">Στείλτε μήνυμα</a>
+
+          <div class="mnav__social" aria-label="Social">
+            <a class="icon-btn" href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+            <a class="icon-btn" href="#" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z" fill="currentColor" opacity=".7"/>
+              </svg>
+            </a>
+
+            <a class="icon-btn" href="#" aria-label="TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z" fill="currentColor" opacity=".7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
 
         <div class="hero__grid">
           <div class="hero__copy">
@@ -213,8 +230,7 @@
             <h3 class="svc__title">Ατομική Ψυχοθεραπεία</h3>
             <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στην ασφάλεια και στη σχέση.</p>
 
-            <!-- closed by default; mobile opens only one at a time -->
-            <details class="svc__more">
+            <details class="svc__more" open>
               <summary class="svc__summary">
                 <span>Διαβάστε περισσότερα</span>
                 <span class="svc__chev" aria-hidden="true"></span>
@@ -543,9 +559,7 @@
           </p>
         </header>
 
-        <div class="focus__grid" aria-label="Θεματικές κάρτες">
-          <!-- Desktop unchanged (still works as accordion grid).
-               On mobile: becomes cards like Services with horizontal snap/peek. -->
+        <div class="focus__grid">
           <details class="acc" open>
             <summary class="acc__summary">
               <span class="acc__title">Άγχος, στρες και κρίσεις πανικού</span>
@@ -554,7 +568,7 @@
             <div class="acc__content">
               <ul class="acc__list">
                 <li>Σωματικά συμπτώματα, ένταση, δυσκολία ύπνου</li>
-                <li>Ανησυχία που δεν “κλείνει”</li>
+                <li>Ανησυχία του δεν “κλείνει”</li>
                 <li>Πρακτικά εργαλεία γείωσης και ρύθμισης</li>
               </ul>
             </div>
@@ -712,7 +726,6 @@
           <p class="contact__sub">Γράψτε μου λίγες γραμμές. Θα απαντήσω όσο πιο σύντομα γίνεται.</p>
         </header>
 
-        <!-- Contact layout refined (single “premium shell” like modern UI) -->
         <div class="contact-shell">
           <div class="contact__grid">
             <form class="form" action="#" method="post" aria-label="Φόρμα επικοινωνίας">
@@ -732,7 +745,6 @@
               </label>
 
               <button class="btn btn--primary" type="submit">Αποστολή</button>
-              <p class="form__note">Με σεβασμό στην εχεμύθεια. Απαντώ συνήθως εντός 24 ωρών.</p>
             </form>
 
             <aside class="contact-card" aria-label="Στοιχεία">
@@ -740,52 +752,73 @@
                 <div class="contact-card__k">Τηλέφωνο</div>
                 <a class="contact-card__v" href="tel:+302241000000">+30 2241 000000</a>
               </div>
-
               <div class="contact-card__row">
-                <div class="contact-card__k">Email</div>
-                <a class="contact-card__v" href="mailto:hello@example.com">hello@example.com</a>
+                <div class="contact-card__k">Τοποθεσία</div>
+                <div class="contact-card__v">Ρόδος, Ελλάδα</div>
               </div>
-
               <div class="contact-card__row">
                 <div class="contact-card__k">Διεύθυνση</div>
-                <div class="contact-card__v">Στεφάνου Καζούλη 18, Ρόδος</div>
+                <div class="contact-card__v">Στεφάνου Καζούλη 18</div>
               </div>
 
-              <div class="contact-actions">
-                <a class="btn btn--ghost" href="tel:+302241000000">Κλήση</a>
-                <a class="btn btn--ghost" href="#services">Δείτε υπηρεσίες</a>
+              <div class="contact-card__row">
+                <div class="contact-card__k">Social</div>
+                <div class="contact-card__social">
+                  <a class="icon-btn" href="#" aria-label="Instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </a>
+                  <a class="icon-btn" href="#" aria-label="Facebook" title="Facebook">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                      <path d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z" fill="currentColor" opacity=".7"/>
+                    </svg>
+                  </a>
+                  <a class="icon-btn" href="#" aria-label="TikTok" title="TikTok">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                      <path d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z" fill="currentColor" opacity=".7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </aside>
           </div>
 
-          <!-- MAP CARD -->
-          <div class="map-card" aria-label="Χάρτης διεύθυνσης">
-            <div class="map-card__top">
-              <div class="map-card__title">Χάρτης</div>
-              <a
-                class="map-card__link"
-                href="https://www.google.com/maps?q=%CE%A3%CF%84%CE%B5%CF%86%CE%AC%CE%BD%CE%BF%CF%85+%CE%9A%CE%B1%CE%B6%CE%BF%CF%8D%CE%BB%CE%B7+18,+%CE%A1%CF%8C%CE%B4%CE%BF%CF%82"
-                target="_blank"
-                rel="noopener"
-              >
-                Άνοιγμα στους Χάρτες
-              </a>
-            </div>
+          <aside class="contact-note" aria-label="Σημείωση">
+            <div class="contact-note__k">Μικρή σημείωση</div>
+            <div class="contact-note__v">Αν είναι η πρώτη σας φορά, αρκεί ένα σύντομο μήνυμα με το τι σας απασχολεί και αν προτιμάτε δια ζώσης ή online.</div>
+          </aside>
+        </div>
 
-            <div class="map-card__meta">Στεφάνου Καζούλη 18, Ρόδος</div>
+        <!-- MAP CARD -->
+        <div class="map-card" aria-label="Χάρτης διεύθυνσης">
+          <div class="map-card__top">
+            <div class="map-card__title">Διεύθυνση</div>
+            <a
+              class="map-card__link"
+              href="https://www.google.com/maps?q=%CE%A3%CF%84%CE%B5%CF%86%CE%AC%CE%BD%CE%BF%CF%85+%CE%9A%CE%B1%CE%B6%CE%BF%CF%8D%CE%BB%CE%B7+18,+%CE%A1%CF%8C%CE%B4%CE%BF%CF%82"
+              target="_blank"
+              rel="noopener"
+            >
+              Άνοιγμα στους Χάρτες
+            </a>
+          </div>
 
-            <div class="map-card__frame" aria-hidden="true">
-              <iframe
-                title="Χάρτης - Στεφάνου Καζούλη 18, Ρόδος"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=%CE%A3%CF%84%CE%B5%CF%86%CE%AC%CE%BD%CE%BF%CF%85%20%CE%9A%CE%B1%CE%B6%CE%BF%CF%8D%CE%BB%CE%B7%2018%2C%20%CE%A1%CF%8C%CE%B4%CE%BF%CF%82&output=embed"
-                width="100%"
-                height="320"
-                style="border: 0"
-                allowfullscreen=""
-              ></iframe>
-            </div>
+          <div class="map-card__meta">Στεφάνου Καζούλη 18, Ρόδος</div>
+
+          <div class="map-card__frame" aria-hidden="true">
+            <iframe
+              title="Χάρτης - Στεφάνου Καζούλη 18, Ρόδος"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%CE%A3%CF%84%CE%B5%CF%86%CE%AC%CE%BD%CE%BF%CF%85%20%CE%9A%CE%B1%CE%B6%CE%BF%CF%8D%CE%BB%CE%B7%2018%2C%20%CE%A1%CF%8C%CE%B4%CE%BF%CF%82&output=embed"
+              width="100%"
+              height="320"
+              style="border: 0"
+              allowfullscreen=""
+            ></iframe>
           </div>
         </div>
       </div>
@@ -794,163 +827,133 @@
     <!-- SITE FOOTER -->
     <footer class="site-footer" aria-label="Footer">
       <div class="site-footer__wrap">
-        <div class="site-footer__grid">
-          <div class="foot brandfoot">
-            <div class="brandfoot__top">
-              <span class="brand__avatar" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                  <path
-                    d="M12 2a6.5 6.5 0 0 1 6.5 6.5c0 4.5-4.2 9.3-6 11.2a.7.7 0 0 1-1 0c-1.8-1.9-6-6.7-6-11.2A6.5 6.5 0 0 1 12 2Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M12 12.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"
-                    fill="currentColor"
-                    opacity=".18"
-                  />
-                </svg>
-              </span>
-              <div class="brandfoot__text">
-                <div class="brandfoot__name">Νικολέτα Πλατή</div>
-                <div class="brandfoot__meta">Ιδιωτικές συνεδρίες στη Ρόδο</div>
-              </div>
-            </div>
+        <div class="site-footer__brand">
+          <div class="site-footer__name">Νικολέτα Πλατή</div>
+          <div class="site-footer__meta">Ψυχολογική υποστήριξη στη Ρόδο • Online συνεδρίες</div>
+        </div>
 
-            <p class="brandfoot__desc">
-              Ένας ήρεμος χώρος για να μιλήσετε όπως είστε. Με εχεμύθεια, χωρίς πίεση, με καθαρά βήματα.
-            </p>
+        <div class="site-footer__cols">
+          <div class="site-footer__col">
+            <div class="site-footer__k">Πλοήγηση</div>
+            <a class="site-footer__link" href="#services">Υπηρεσίες</a>
+            <a class="site-footer__link" href="#focus">Πώς δουλεύουμε</a>
+            <a class="site-footer__link" href="#work-together">Θέματα</a>
+            <a class="site-footer__link" href="#about">Σχετικά</a>
+            <a class="site-footer__link" href="#contact">Επικοινωνία</a>
+          </div>
 
-            <div class="foot-social" aria-label="Social links">
+          <div class="site-footer__col">
+            <div class="site-footer__k">Στοιχεία</div>
+            <div class="site-footer__text">Στεφάνου Καζούλη 18, Ρόδος</div>
+            <a class="site-footer__link" href="tel:+302241000000">+30 2241 000000</a>
+            <a class="site-footer__link" href="mailto:hello@example.com">hello@example.com</a>
+          </div>
+
+          <div class="site-footer__col">
+            <div class="site-footer__k">Social</div>
+            <div class="site-footer__social">
               <a class="icon-btn" href="#" aria-label="Instagram" title="Instagram">
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                  <path
-                    d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                  />
-                  <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                  <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M17.4 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                 </svg>
               </a>
-
               <a class="icon-btn" href="#" aria-label="Facebook" title="Facebook">
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                  <path
-                    d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z"
-                    fill="currentColor"
-                    opacity=".7"
-                  />
+                  <path d="M14 8.5V7.2c0-.9.6-1.2 1-1.2h1.8V3.2H14.6c-2.6 0-4 1.9-4 4.1v1.2H8.8v2.9h1.8V21h3.4v-9.6h2.5l.4-2.9H14Z" fill="currentColor" opacity=".7"/>
                 </svg>
               </a>
-
               <a class="icon-btn" href="#" aria-label="TikTok" title="TikTok">
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                  <path
-                    d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z"
-                    fill="currentColor"
-                    opacity=".7"
-                  />
+                  <path d="M15 3c.6 2.8 2.4 4.6 5 5v3c-2-.1-3.6-.7-5-1.8v7.2a6.4 6.4 0 1 1-5.6-6.3v3.3a3.2 3.2 0 1 0 2.2 3V3h3.4Z" fill="currentColor" opacity=".7"/>
                 </svg>
               </a>
             </div>
-          </div>
-
-          <div class="foot">
-            <div class="foot__title">Πλοήγηση</div>
-            <a class="foot__link" href="#services">Υπηρεσίες</a>
-            <a class="foot__link" href="#work-together">Θεματικές</a>
-            <a class="foot__link" href="#about">Σχετικά</a>
-            <a class="foot__link" href="#contact">Επικοινωνία</a>
-          </div>
-
-          <div class="foot">
-            <div class="foot__title">Στοιχεία</div>
-            <div class="foot__text">Ρόδος, Ελλάδα</div>
-            <div class="foot__text">Στεφάνου Καζούλη 18</div>
-            <a class="foot__link" href="tel:+302241000000">+30 2241 000000</a>
-            <a class="foot__link" href="mailto:hello@example.com">hello@example.com</a>
-          </div>
-
-          <div class="foot">
-            <div class="foot__title">Νομικά</div>
-            <a class="foot__link" href="#">Πολιτική Απορρήτου</a>
-            <a class="foot__link" href="#">Όροι Χρήσης</a>
-            <a class="foot__link" href="#">Cookies</a>
-            <a class="pill pill--primary foot__cta" href="#contact">Στείλτε μήνυμα</a>
           </div>
         </div>
 
         <div class="site-footer__bottom">
-          <span>© <span id="year">2026</span> Νικολέτα Πλατή. Όλα τα δικαιώματα διατηρούνται.</span>
-          <span class="site-footer__mini">Designed for clarity • Mobile-first</span>
+          <span>© <span id="year">2026</span> Νικολέτα Πλατή</span>
+          <span class="site-footer__dot" aria-hidden="true">•</span>
+          <a class="site-footer__legal" href="#">Πολιτική Απορρήτου</a>
+          <span class="site-footer__dot" aria-hidden="true">•</span>
+          <a class="site-footer__legal" href="#">Όροι Χρήσης</a>
         </div>
       </div>
+    </footer>
 
-      <script>
-        (function () {
-          // Year
-          const y = document.getElementById("year");
-          if (y) y.textContent = String(new Date().getFullYear());
+    <script>
+      (function () {
+        const y = document.getElementById("year");
+        if (y) y.textContent = String(new Date().getFullYear());
 
-          // Close mobile nav when clicking a link (keeps desktop untouched)
-          const navToggle = document.getElementById("nav-toggle");
-          const navPanel = document.getElementById("nav-panel");
-          if (navToggle && navPanel) {
-            navPanel.addEventListener("click", (e) => {
-              const a = e.target.closest("a");
-              if (!a) return;
-              if (window.matchMedia("(max-width: 919px)").matches) navToggle.checked = false;
+        const btn = document.querySelector(".nav-toggle");
+        const panel = document.getElementById("mobile-menu");
+
+        const mq = window.matchMedia("(max-width: 919px)");
+
+        function closePanel() {
+          if (!btn || !panel) return;
+          btn.setAttribute("aria-expanded", "false");
+          panel.classList.remove("is-open");
+          panel.setAttribute("hidden", "");
+        }
+
+        function openPanel() {
+          if (!btn || !panel) return;
+          panel.removeAttribute("hidden");
+          requestAnimationFrame(() => {
+            panel.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+          });
+        }
+
+        if (btn && panel) {
+          btn.addEventListener("click", () => {
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            if (expanded) closePanel();
+            else openPanel();
+          });
+
+          panel.addEventListener("click", (e) => {
+            const a = e.target.closest("a");
+            if (a) closePanel();
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closePanel();
+          });
+
+          mq.addEventListener("change", (e) => {
+            if (!e.matches) {
+              closePanel();
+              return;
+            }
+            document.querySelectorAll(".services details.svc__more, .focus details.acc").forEach((d) => (d.open = false));
+            closePanel();
+          });
+        }
+
+        function setupExclusiveDetails(selector) {
+          const items = Array.from(document.querySelectorAll(selector));
+          if (mq.matches) items.forEach((d) => (d.open = false));
+
+          function onToggle(e) {
+            if (!mq.matches) return;
+            const current = e.target;
+            if (!current.open) return;
+            items.forEach((other) => {
+              if (other !== current) other.open = false;
             });
           }
 
-          // Mobile: Services "read more" -> only one open at a time, and all closed on load
-          function exclusiveDetails(rootSel, detailsSel) {
-            const root = document.querySelector(rootSel);
-            if (!root) return;
+          items.forEach((d) => d.addEventListener("toggle", onToggle));
+        }
 
-            const mq = window.matchMedia("(max-width: 919px)");
-            const getDetails = () => Array.from(root.querySelectorAll(detailsSel));
-
-            const closeAll = () => {
-              if (!mq.matches) return;
-              getDetails().forEach((d) => d.removeAttribute("open"));
-            };
-
-            closeAll();
-
-            root.addEventListener(
-              "toggle",
-              (e) => {
-                if (!mq.matches) return;
-                const t = e.target;
-                if (!(t instanceof HTMLDetailsElement)) return;
-                if (!t.matches(detailsSel)) return;
-                if (t.open) {
-                  getDetails().forEach((d) => {
-                    if (d !== t) d.removeAttribute("open");
-                  });
-                }
-              },
-              true
-            );
-
-            // On resize to mobile: close all to match requirement
-            mq.addEventListener?.("change", () => closeAll());
-          }
-
-          exclusiveDetails("#services", "details.svc__more");
-          // Mobile: focus questions become cards like Services + single-open
-          exclusiveDetails("#work-together", "details.acc");
-        })();
-      </script>
-    </footer>
+        setupExclusiveDetails(".services details.svc__more");
+        setupExclusiveDetails(".focus details.acc");
+      })();
+    </script>
   </body>
 </html>

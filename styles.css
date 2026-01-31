@@ -13,6 +13,16 @@
   --warm: #caa77a;
   --mint: #b8d7cf;
 
+  /* ✅ CTA palette (same feel as nav primary pill) */
+  --cta-bg: rgba(202, 167, 122, 0.72);
+  --cta-bg-hover: rgba(202, 167, 122, 0.82);
+  --cta-border: rgba(202, 167, 122, 0.85);
+  --cta-text: rgba(31, 29, 24, 0.92);
+
+  /* ✅ Services alternating backgrounds (2 shades) */
+  --svc-a: rgba(255, 255, 255, 0.62);
+  --svc-b: rgba(255, 255, 255, 0.74);
+
   /* radii */
   --r-lg: 22px;
   --r-md: 18px;
@@ -251,6 +261,7 @@ img {
   margin-bottom: 14px;
 }
 
+/* ✅ Buttons: same palette as nav CTA (mobile + desktop) */
 .btn {
   height: 44px;
   padding: 0 16px;
@@ -260,29 +271,33 @@ img {
   justify-content: center;
   font-weight: 900;
   font-size: 13px;
-  border: 1px solid rgba(31, 29, 24, 0.12);
-  background: rgba(255, 255, 255, 0.62);
+
+  border: 1px solid var(--cta-border);
+  background: var(--cta-bg);
+  color: var(--cta-text);
+
   transition: transform 200ms ease, background 200ms ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--cta-bg-hover);
 }
 
-/* CTA colors are consistent across all sizes (no mobile override) */
 .btn--primary {
-  background: rgba(31, 29, 24, 0.88);
-  color: rgba(255, 255, 255, 0.95);
-  border-color: rgba(31, 29, 24, 0.25);
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  border-color: var(--cta-border);
 }
 
 .btn--primary:hover {
-  background: rgba(31, 29, 24, 0.94);
+  background: var(--cta-bg-hover);
 }
 
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.62);
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  border-color: var(--cta-border);
 }
 
 .trust {
@@ -423,10 +438,17 @@ img {
 .svc {
   border-radius: var(--r-lg);
   border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
+
+  /* ✅ Alternating 2 shades */
+  background: var(--svc-a);
+
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   padding: 14px;
   transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.svc:nth-child(even) {
+  background: var(--svc-b);
 }
 
 .svc__top {
@@ -511,7 +533,7 @@ details[open] .svc__chev {
   line-height: 1.6;
 }
 
-/* Mobile services carousel, styled like frosted UI card (image reference) */
+/* Mobile services carousel */
 @media (max-width: 919px) {
   .services {
     padding: 16px 16px 30px;
@@ -537,7 +559,6 @@ details[open] .svc__chev {
     padding: 18px 16px;
     border-radius: 24px;
 
-    background: rgba(255, 255, 255, 0.72);
     box-shadow:
       0 18px 40px rgba(31, 29, 24, 0.09),
       0 1px 0 rgba(255, 255, 255, 0.75) inset;
@@ -606,10 +627,30 @@ details[open] .svc__chev {
     align-items: center;
   }
   .hero__title { font-size: 44px; }
+
   .services { padding: 22px 24px 34px; }
+
+  /* ✅ Desktop pyramid layout: 2,3,2 */
   .services__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 14px;
+    grid-auto-flow: row dense;
+    align-items: stretch;
+  }
+
+  .services__grid .svc { min-width: unset; }
+
+  .services__grid .svc:nth-child(1),
+  .services__grid .svc:nth-child(2),
+  .services__grid .svc:nth-child(6),
+  .services__grid .svc:nth-child(7) {
+    grid-column: span 3;
+  }
+
+  .services__grid .svc:nth-child(3),
+  .services__grid .svc:nth-child(4),
+  .services__grid .svc:nth-child(5) {
+    grid-column: span 2;
   }
 }
 
@@ -756,7 +797,6 @@ details[open] .svc__chev {
   max-width: 80ch;
 }
 
-/* Mobile: vertical accordion list (no carousel) */
 .focus__grid {
   display: grid;
   gap: 12px;

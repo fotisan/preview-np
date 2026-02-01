@@ -63,6 +63,30 @@
           <a class="pill pill--primary" href="#contact">Επικοινωνία</a>
         </nav>
 
+        <!-- ✅ Social icons (Nav - desktop) -->
+        <div class="nav-social" aria-label="Social media">
+          <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 11a4 4 0 1 0 4 4 4 4 0 0 0-4-4z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <a class="social-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 8h2V5h-2a4 4 0 0 0-4 4v3H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="social-btn" href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 3v10.2a4.6 4.6 0 1 1-3.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 3c1.2 2.7 3.2 4.4 6 4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Άνοιγμα μενού">
           <span class="nav-toggle__lines" aria-hidden="true"></span>
         </button>
@@ -75,12 +99,27 @@
         <a class="mnav__link" href="#about">Σχετικά</a>
         <a class="mnav__link mnav__link--primary" href="#contact">Επικοινωνία</a>
 
-        <div class="mnav__social">
-          <a class="icon-btn" href="#contact" aria-label="Κλήση">
-            <span aria-hidden="true">📞</span>
+        <!-- ✅ Social icons (Hamburger - mobile) -->
+        <div class="mnav__social" aria-label="Social media">
+          <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 11a4 4 0 1 0 4 4 4 4 0 0 0-4-4z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
           </a>
-          <a class="icon-btn" href="#contact" aria-label="Email">
-            <span aria-hidden="true">✉️</span>
+
+          <a class="social-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 8h2V5h-2a4 4 0 0 0-4 4v3H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="social-btn" href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 3v10.2a4.6 4.6 0 1 1-3.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 3c1.2 2.7 3.2 4.4 6 4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -421,6 +460,11 @@
               Για τους γονείς, το ζητούμενο δεν είναι η τελειότητα. Είναι η στήριξη, η κατανόηση,
               και μια σταθερή συνεργασία ώστε το σπίτι να γίνει πιο ήρεμο, πιο προβλέψιμο, πιο ανθρώπινο.
             </p>
+
+            <!-- ✅ CTA στο τέλος του "Σχετικά" (mobile + desktop) -->
+            <div class="about__cta">
+              <a class="btn btn--primary" href="#contact">Κάντε το πρώτο βήμα</a>
+            </div>
           </div>
 
           <div class="about__media">
@@ -560,9 +604,29 @@
               </div>
               <div class="ci-row">
                 <div class="ci-k">Social</div>
-                <div class="ci-social">
-                  <a class="chip-link" href="#" rel="noopener">Instagram</a>
-                  <a class="chip-link" href="#" rel="noopener">Facebook</a>
+
+                <!-- ✅ Social icons (Contact) -->
+                <div class="ci-social" aria-label="Social media">
+                  <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M12 11a4 4 0 1 0 4 4 4 4 0 0 0-4-4z" fill="none" stroke="currentColor" stroke-width="2"/>
+                      <path d="M17.5 6.5h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </a>
+
+                  <a class="social-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <path d="M14 8h2V5h-2a4 4 0 0 0-4 4v3H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+
+                  <a class="social-btn" href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <path d="M14 3v10.2a4.6 4.6 0 1 1-3.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M14 3c1.2 2.7 3.2 4.4 6 4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -605,6 +669,30 @@
         <div class="site-footer__meta">
           Ιδιωτικές συνεδρίες στη Ρόδο • Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα.
         </div>
+
+        <!-- ✅ Social icons (Footer) -->
+        <div class="site-footer__social" aria-label="Social media">
+          <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 11a4 4 0 1 0 4 4 4 4 0 0 0-4-4z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <a class="social-btn" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 8h2V5h-2a4 4 0 0 0-4 4v3H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="social-btn" href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 3v10.2a4.6 4.6 0 1 1-3.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 3c1.2 2.7 3.2 4.4 6 4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div class="site-footer__cols">
@@ -633,10 +721,18 @@
       <div class="site-footer__bottom">
         <span>© <span id="y"></span> Νικολέτα Πλατή</span>
         <span class="site-footer__dot" aria-hidden="true">•</span>
-        <a class="site-footer__legal" href="#top">Πάνω</a>
+        <span class="site-footer__legal">Με αγάπη και σεβασμό</span>
       </div>
     </div>
   </footer>
+
+  <!-- ✅ Scroll-to-top (μόνο mobile) -->
+  <button class="to-top" type="button" aria-label="Επιστροφή στην κορυφή">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path d="M12 5l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
 
   <script>
     // Footer year
@@ -679,6 +775,31 @@
         { root: scroller, threshold: 0.6 }
       );
       svc.forEach((c) => io.observe(c));
+    }
+
+    // ✅ Scroll-to-top button (mobile only)
+    const toTop = document.querySelector(".to-top");
+    let ticking = false;
+
+    function onScroll() {
+      if (!toTop) return;
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (y > 320) toTop.classList.add("is-show");
+      else toTop.classList.remove("is-show");
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(onScroll);
+      }
+    }, { passive: true });
+
+    if (toTop) {
+      toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
   </script>
 </body>

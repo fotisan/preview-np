@@ -1,392 +1,644 @@
 <!doctype html>
 <html lang="el">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Νικολέτα Πλατή • Ρόδος</title>
-    <link rel="preload" href="Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="Inter-italic-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body>
-    <header class="site-header" id="top">
-      <div class="wrap header__inner">
-        <a class="brand" href="#top" aria-label="Αρχική">
-          <span class="brand__mark" aria-hidden="true">
-            <img src="logo.jpg" alt="" loading="lazy" decoding="async" width="96" height="96" />
-          </span>
-          <span class="brand__text">
-            <span class="brand__name">Νικολέτα Πλατή</span>
-            <span class="brand__sub">Ρόδος, Ελλάδα</span>
-          </span>
-        </a>
+  <link rel="preload" href="Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="Inter-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 
-        <button class="nav-toggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="siteNav">
-          <span class="nav-toggle__line"></span>
-          <span class="nav-toggle__line"></span>
-        </button>
+  <title>Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή</title>
+  <meta name="description" content="Ιδιωτικές συνεδρίες στη Ρόδο. Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα και σεβασμό στον ρυθμό σας." />
+
+  <link rel="icon" href="logo.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+
+  <link rel="canonical" href="https://nikoletaplati.gr/" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:title" content="Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή" />
+  <meta property="og:description" content="Ένας ασφαλής, ήρεμος χώρος για να μιλήσετε όπως είστε. Χωρίς πίεση, με καθαρά βήματα." />
+  <meta property="og:image" content="Hero-section.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Psychologist",
+    "name": "Νικολέτα Πλατή",
+    "url": "https://nikoletaplati.gr/",
+    "image": "https://nikoletaplati.gr/Hero-section.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ρόδος",
+      "addressCountry": "GR"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Πήγαινε στο περιεχόμενο</a>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero__wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand__avatar" aria-hidden="true">
+            <img src="logo.jpg" alt="" width="20" height="20" style="border-radius:999px" />
+          </div>
+          <div class="brand__text">
+            <div class="brand__name">Νικολέτα Πλατή</div>
+            <div class="brand__meta">Ψυχολόγος • Ρόδος</div>
+          </div>
+        </div>
 
         <nav class="nav" aria-label="Κύρια πλοήγηση">
-          <a href="#services" class="btn btn--outline">Υπηρεσίες</a>
-          <a href="#focus" class="btn btn--outline">Τι μπορούμε να δουλέψουμε</a>
-          <a href="#faq" class="btn btn--outline">FAQ</a>
-          <a href="#contact" class="btn btn--primary">Επικοινωνήστε μαζί μου</a>
+          <a class="pill" href="#services">Υπηρεσίες</a>
+          <a class="pill" href="#work-with">Πώς δουλεύουμε</a>
+          <a class="pill" href="#focus">Τι μπορούμε να δουλέψουμε</a>
+          <a class="pill" href="#about">Σχετικά</a>
+          <a class="pill pill--primary" href="#contact">Επικοινωνία</a>
         </nav>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Άνοιγμα μενού">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
       </div>
 
-      <div class="mobile-nav" id="siteNav" aria-hidden="true">
-        <div class="mobile-nav__inner">
-          <a href="#services" class="mobile-nav__link">Υπηρεσίες</a>
-          <a href="#focus" class="mobile-nav__link">Τι μπορούμε να δουλέψουμε</a>
-          <a href="#faq" class="mobile-nav__link">FAQ</a>
-          <a href="#contact" class="btn btn--primary mobile-nav__cta">Επικοινωνήστε μαζί μου</a>
+      <div class="mnav" id="mnav" aria-label="Κινητό μενού">
+        <a class="mnav__link" href="#services">Υπηρεσίες</a>
+        <a class="mnav__link" href="#work-with">Πώς δουλεύουμε</a>
+        <a class="mnav__link" href="#focus">Τι μπορούμε να δουλέψουμε</a>
+        <a class="mnav__link" href="#about">Σχετικά</a>
+        <a class="mnav__link mnav__link--primary" href="#contact">Επικοινωνία</a>
 
-          <div class="mobile-social">
-            <a class="social-link" href="#" aria-label="Instagram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
-                <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z" stroke="currentColor" stroke-width="2"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
-                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-            </a>
-            <a class="social-link" href="#" aria-label="Facebook" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-            </a>
+        <div class="mnav__social">
+          <a class="icon-btn" href="#contact" aria-label="Κλήση">
+            <span aria-hidden="true">📞</span>
+          </a>
+          <a class="icon-btn" href="#contact" aria-label="Email">
+            <span aria-hidden="true">✉️</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider" role="presentation"></div>
+
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <div class="microline">ΙΔΙΩΤΙΚΕΣ ΣΥΝΕΔΡΙΕΣ ΣΤΗ ΡΟΔΟ</div>
+          <h1 class="hero__title">Όταν όλα βαραίνουν, δεν χρειάζεται να τα κουβαλάτε μόνοι.</h1>
+          <p class="hero__lead">
+            Αν νιώθετε ότι κρατάτε πολλά μέσα σας, ότι κουράζεστε εύκολα, ότι οι σκέψεις δεν σταματούν,
+            εδώ υπάρχει χώρος να μιλήσετε όπως είστε. Χωρίς πίεση, χωρίς «σωστό» και «λάθος».
+            Μαζί βρίσκουμε την άκρη και κάνουμε μικρά, σταθερά βήματα που ταιριάζουν στη δική σας καθημερινότητα.
+          </p>
+
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
+            <a class="btn btn--ghost" href="#services">Πώς μπορώ να βοηθήσω;</a>
+          </div>
+
+          <ul class="trust" aria-label="Σημεία εμπιστοσύνης">
+            <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span>Εχεμύθεια</li>
+            <li class="trust__item"><span class="dot dot--mint" aria-hidden="true"></span>Χωρίς πίεση</li>
+            <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span>Καθαρά βήματα</li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <div class="media__frame">
+            <img class="media__img" src="Hero-section.webp" alt="Χώρος συνεδριών" width="1200" height="800" loading="eager" />
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__chips">
+              <span class="chip">Ιδιωτικό περιβάλλον</span>
+              <span class="chip">Στη Ρόδο</span>
+              <span class="chip">Online συνεδρίες</span>
+            </div>
+
+            <div class="info-card__grid">
+              <div class="mini">
+                <div class="mini__label">Διάρκεια</div>
+                <div class="mini__value">50′</div>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Ρυθμός</div>
+                <div class="mini__value">Στον δικό σας</div>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Πλαίσιο</div>
+                <div class="mini__value">Ασφάλεια</div>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Στόχος</div>
+                <div class="mini__value">Πρακτική αλλαγή</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
 
-    <main id="main">
-      <section class="hero">
-        <div class="wrap hero__grid">
-          <div class="hero__copy">
-            <p class="microline">ΙΔΙΩΤΙΚΕΣ ΣΥΝΕΔΡΙΕΣ ΣΤΗ ΡΟΔΟ</p>
-            <h1 class="hero__title">Όταν όλα βαραίνουν, δεν χρειάζεται να τα κουβαλάτε μόνοι.</h1>
-            <p class="hero__lead">
-              Αν νιώθετε ότι κρατάτε πολλά μέσα σας, ότι κουράζεστε εύκολα, ότι οι σκέψεις δεν σταματούν,
-              εδώ υπάρχει χώρος να μιλήσετε όπως είστε. Χωρίς πίεση, χωρίς «σωστό» και «λάθος».
-              Μαζί βρίσκουμε την άκρη και κάνουμε μικρά, σταθερά βήματα που ταιριάζουν στη δική σας καθημερινότητα.
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="services__wrap">
+        <header class="services__head">
+          <h2 class="services__title">Υπηρεσίες</h2>
+          <p class="services__sub">
+            Ένας καθαρός τρόπος να δείτε τι μπορούμε να δουλέψουμε, με απλά βήματα και σεβασμό στον ρυθμό σας.
+          </p>
+        </header>
+
+        <div class="services__pyramid" aria-label="Κάρτες υπηρεσιών">
+          <div class="services__row">
+            <article class="svc is-active">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🧠</div>
+                <div class="svc__num" aria-hidden="true">01</div>
+              </div>
+              <h3 class="svc__title">Ατομική Ψυχοθεραπεία</h3>
+              <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στην ασφάλεια και στη σχέση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ενήλικες</li>
+                  <li>Έφηβοι</li>
+                  <li>Παιδιά, παιγνιοθεραπεία και δημιουργικές τεχνικές</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🧩</div>
+                <div class="svc__num" aria-hidden="true">02</div>
+              </div>
+              <h3 class="svc__title">Συμβουλευτική Υποστήριξη</h3>
+              <p class="svc__desc">Πρακτική βοήθεια για να ηρεμήσει ο νους, να μπει τάξη στο συναίσθημα και να επιστρέψει η ενέργεια.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Διαχείριση άγχους και στρες</li>
+                  <li>Αυτοεκτίμηση και αυτοπεποίθηση</li>
+                  <li>Συναισθηματική ρύθμιση</li>
+                  <li>Overthinking και burnout</li>
+                  <li>Διαχείριση αλλαγών ζωής</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">💬</div>
+                <div class="svc__num" aria-hidden="true">03</div>
+              </div>
+              <h3 class="svc__title">Θεραπεία Σχέσεων</h3>
+              <p class="svc__desc">Όταν η επικοινωνία δυσκολεύει ή τα μοτίβα επαναλαμβάνονται, χτίζουμε μαζί μια πιο σταθερή βάση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ερωτικές σχέσεις</li>
+                  <li>Οικογενειακές δυσκολίες</li>
+                  <li>Όρια και επικοινωνία</li>
+                  <li>Συναισθηματική εξάρτηση / προσκόλληση</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+
+          <div class="services__row">
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">👨‍👩‍👧</div>
+                <div class="svc__num" aria-hidden="true">04</div>
+              </div>
+              <h3 class="svc__title">Γονεϊκή Υποστήριξη</h3>
+              <p class="svc__desc">Καθοδήγηση και στήριξη για γονείς, με πρακτικές στρατηγικές και ανθρώπινο ρυθμό.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Συμβουλευτική γονέων</li>
+                  <li>Υποστήριξη γονέων παιδιών με ΔΕΠΥ / αυτισμό</li>
+                  <li>Καθοδήγηση σε θέματα ορίων και καθημερινότητας</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🌿</div>
+                <div class="svc__num" aria-hidden="true">05</div>
+              </div>
+              <h3 class="svc__title">Προσωπική Ανάπτυξη</h3>
+              <p class="svc__desc">Για όταν θέλετε να γνωρίσετε καλύτερα τον εαυτό σας και να σταθείτε πιο σταθερά.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Στόχοι και αποφάσεις</li>
+                  <li>Αυτοφροντίδα και όρια</li>
+                  <li>Μεταβάσεις ζωής</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🤝</div>
+                <div class="svc__num" aria-hidden="true">06</div>
+              </div>
+              <h3 class="svc__title">Ομαδικές Δράσεις</h3>
+              <p class="svc__desc">Διακριτικές, μικρές ομάδες με στόχο σύνδεση, κατανόηση και πρακτική ενδυνάμωση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ομάδες υποστήριξης</li>
+                  <li>Εργαστήρια δεξιοτήτων</li>
+                  <li>Θεματικές συναντήσεις</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK WITH -->
+    <section class="work-with" id="work-with">
+      <div class="work-with__wrap">
+        <div class="soft-banner">
+          <div>
+            <h3 class="soft-banner__title">Δεν ξέρετε από πού να ξεκινήσετε; Είναι φυσιολογικό.</h3>
+            <p class="soft-banner__sub">
+              Μπορούμε να ξεκινήσουμε από αυτό που σας δυσκολεύει περισσότερο σήμερα και να χτίσουμε από εκεί.
             </p>
-
-            <div class="hero__ctas">
-              <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
-              <a class="btn btn--ghost" href="#services">Πως μπορώ να βοηθήσω</a>
-            </div>
-
-            <ul class="trust" aria-label="Σημεία εμπιστοσύνης">
-              <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span> Εχεμύθεια</li>
-              <li class="trust__item"><span class="dot dot--mint" aria-hidden="true"></span> Χωρίς πίεση</li>
-              <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span> Καθαρά βήματα</li>
-            </ul>
           </div>
+          <div class="soft-banner__actions">
+            <a class="btn btn--primary" href="#contact">Κλείστε ραντεβού</a>
+            <a class="btn btn--outline" href="#services">Δείτε υπηρεσίες</a>
+          </div>
+        </div>
 
-          <div class="hero__media">
-            <div class="media__frame">
-              <img class="media__img" src="Hero-section.webp" alt="Χώρος συνεδριών" loading="eager" decoding="async" />
+        <header class="work-with__head">
+          <h2 class="work-with__title">Πώς δουλεύουμε μαζί</h2>
+          <p class="work-with__sub">
+            Ένα πλαίσιο που κρατά ασφάλεια, απλότητα και σταθερά βήματα, χωρίς να πιέζει.
+          </p>
+        </header>
+
+        <div class="modes" aria-label="Τρόποι συνεδρίας">
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">🏠</div>
+            <div>
+              <h3 class="mode__title">Δια ζώσης</h3>
+              <p class="mode__text">Στη Ρόδο, σε ήρεμο και διακριτικό χώρο.</p>
             </div>
-
-            <div class="info-card">
-              <div class="info-card__chips">
-                <span class="chip">Online συνεδρίες</span>
-                <span class="chip">Ρόδος</span>
-                <span class="chip">Νέα αιτήματα</span>
-              </div>
-              <div class="info-card__grid">
-                <div class="mini">
-                  <div class="mini__label">Διάρκεια</div>
-                  <div class="mini__value">50’</div>
-                </div>
-                <div class="mini">
-                  <div class="mini__label">Γλώσσες</div>
-                  <div class="mini__value">Ελληνικά</div>
-                </div>
-              </div>
+          </div>
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">💻</div>
+            <div>
+              <h3 class="mode__title">Online</h3>
+              <p class="mode__text">Με σταθερότητα, ιδιωτικότητα και καθαρή δομή.</p>
+            </div>
+          </div>
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">🗓️</div>
+            <div>
+              <h3 class="mode__title">Ρυθμός</h3>
+              <p class="mode__text">Συμφωνούμε μαζί το πλάνο που σας ταιριάζει.</p>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="section services" id="services">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title">Υπηρεσίες</h2>
-            <p class="section__sub">Με ασφάλεια, σχέση και πρακτικά βήματα, στο δικό σας ρυθμό.</p>
-          </header>
-
-          <div class="services__pyramid">
-            <div class="services__row">
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">01</span>
-                </div>
-                <h3 class="svc__title">Ατομική Ψυχοθεραπεία</h3>
-                <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στην ασφάλεια και στη σχέση.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Ενήλικες</li>
-                    <li>Έφηβοι</li>
-                    <li>Παιδιά, παιγνιοθεραπεία και δημιουργικές τεχνικές</li>
-                  </ul>
-                </details>
-              </article>
-
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">02</span>
-                </div>
-                <h3 class="svc__title">Συμβουλευτική Υποστήριξη</h3>
-                <p class="svc__desc">Πρακτική βοήθεια για να ηρεμήσει ο νους, να μπει τάξη στο συναίσθημα και να επιστρέψει η ενέργεια.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Διαχείριση άγχους και στρες</li>
-                    <li>Αυτοεκτίμηση και αυτοπεποίθηση</li>
-                    <li>Συναισθηματική ρύθμιση</li>
-                    <li>Overthinking και burnout</li>
-                    <li>Διαχείριση αλλαγών ζωής</li>
-                  </ul>
-                </details>
-              </article>
-            </div>
-
-            <div class="services__row">
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">03</span>
-                </div>
-                <h3 class="svc__title">Θεραπεία Σχέσεων</h3>
-                <p class="svc__desc">Όταν η επικοινωνία δυσκολεύει ή τα μοτίβα επαναλαμβάνονται, βρίσκουμε ξανά χώρο για επαφή.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Ερωτικές σχέσεις</li>
-                    <li>Οικογενειακές δυσκολίες</li>
-                    <li>Όρια και επικοινωνία</li>
-                    <li>Συναισθηματική εξάρτηση και προσκόλληση</li>
-                  </ul>
-                </details>
-              </article>
-
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">04</span>
-                </div>
-                <h3 class="svc__title">Γονεϊκή Υποστήριξη</h3>
-                <p class="svc__desc">Στήριξη σε γονείς για να υπάρξει καθαρότητα, συνέπεια και ηρεμία στο σπίτι.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Συμβουλευτική γονέων</li>
-                    <li>Υποστήριξη γονέων παιδιών με ΔΕΠΥ και αυτισμό</li>
-                    <li>Καθοδήγηση σε θέματα συμπεριφοράς</li>
-                  </ul>
-                </details>
-              </article>
-
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">05</span>
-                </div>
-                <h3 class="svc__title">Ομαδικές Δράσεις</h3>
-                <p class="svc__desc">Μικρές ομάδες με δομή και ασφάλεια, για σύνδεση και προσωπική εξέλιξη.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Ομάδες ενδυνάμωσης</li>
-                    <li>Εργαστήρια δεξιοτήτων</li>
-                    <li>Θεματικές συναντήσεις</li>
-                  </ul>
-                </details>
-              </article>
-            </div>
-
-            <div class="services__row">
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">06</span>
-                </div>
-                <h3 class="svc__title">Προσωπική Ανάπτυξη</h3>
-                <p class="svc__desc">Σταθερή δουλειά για αυτογνωσία, όρια και πιο καθαρές επιλογές στην καθημερινότητα.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Στόχοι και κίνητρα</li>
-                    <li>Ανθεκτικότητα</li>
-                    <li>Συνήθειες και ρουτίνα</li>
-                  </ul>
-                </details>
-              </article>
-
-              <article class="svc">
-                <div class="svc__top">
-                  <div class="svc__icon" aria-hidden="true"></div>
-                  <span class="svc__num" aria-hidden="true">07</span>
-                </div>
-                <h3 class="svc__title">Online Συνεδρίες</h3>
-                <p class="svc__desc">Για όταν ο χρόνος ή η απόσταση δυσκολεύουν, αλλά η ανάγκη για στήριξη είναι εδώ.</p>
-
-                <details class="svc__more">
-                  <summary class="svc__summary">Δείτε περισσότερα</summary>
-                  <ul class="svc__list">
-                    <li>Σταθερό πλαίσιο</li>
-                    <li>Ασφάλεια και εμπιστευτικότητα</li>
-                    <li>Ευελιξία</li>
-                  </ul>
-                </details>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section focus" id="focus">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title">Τι μπορούμε να δουλέψουμε μαζί</h2>
-            <p class="section__sub">Θέματα που έρχονται συχνά στις συνεδρίες.</p>
-          </header>
-
-          <div class="focus__grid">
-            <details class="acc">
-              <summary class="acc__sum">Άγχος και στρες</summary>
-              <div class="acc__body">
-                <p>Μαθαίνουμε να αναγνωρίζουμε τα μοτίβα και να χτίζουμε πρακτικές λύσεις για την καθημερινότητα.</p>
-              </div>
-            </details>
-            <details class="acc">
-              <summary class="acc__sum">Overthinking και burnout</summary>
-              <div class="acc__body">
-                <p>Βάζουμε όρια, αποσυμπιέζουμε και ξαναβρίσκουμε ρυθμό, χωρίς ενοχές.</p>
-              </div>
-            </details>
-            <details class="acc">
-              <summary class="acc__sum">Σχέσεις και όρια</summary>
-              <div class="acc__body">
-                <p>Επικοινωνία, ανάγκες, προσκόλληση, και το πώς στέκεστε πιο καθαρά μέσα στις σχέσεις σας.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section faq" id="faq">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title">FAQ</h2>
-            <p class="section__sub">Μερικές σύντομες απαντήσεις πριν επικοινωνήσετε.</p>
-          </header>
-
-          <div class="faq__grid">
-            <details class="acc">
-              <summary class="acc__sum">Πόσο διαρκεί μια συνεδρία;</summary>
-              <div class="acc__body"><p>Συνήθως 50 λεπτά.</p></div>
-            </details>
-            <details class="acc">
-              <summary class="acc__sum">Γίνονται online συνεδρίες;</summary>
-              <div class="acc__body"><p>Ναι, υπάρχει δυνατότητα online συνεδριών.</p></div>
-            </details>
-            <details class="acc">
-              <summary class="acc__sum">Πώς κλείνω ραντεβού;</summary>
-              <div class="acc__body"><p>Μπορείτε να στείλετε μήνυμα από την φόρμα επικοινωνίας.</p></div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title">Επικοινωνία</h2>
-            <p class="section__sub">Στείλτε ένα μήνυμα και θα σας απαντήσω σύντομα.</p>
-          </header>
-
-          <div class="contact__grid">
-            <div class="contact-info">
-              <p class="ci-p"><span class="ci-k">Τοποθεσία:</span> <span class="ci-v">Ρόδος</span></p>
-              <p class="ci-p"><span class="ci-k">Email:</span> <a class="ci-link" href="mailto:nicoletaplath@gmail.com">nicoletaplath@gmail.com</a></p>
-              <p class="ci-p"><span class="ci-k">Τηλέφωνο:</span> <a class="ci-link" href="tel:+306949626413">+30 694 962 6413</a></p>
-
-              <div class="ci-social" aria-label="Κοινωνικά">
-                <a class="chip-link" href="#" target="_blank" rel="noopener">Instagram</a>
-                <a class="chip-link" href="#" target="_blank" rel="noopener">Facebook</a>
-              </div>
-            </div>
-
-            <form class="contact-form" action="#" method="post">
-              <label class="field">
-                <span class="field__label">Ονοματεπώνυμο</span>
-                <input class="field__input" type="text" name="name" autocomplete="name" required />
-              </label>
-
-              <label class="field">
-                <span class="field__label">Email</span>
-                <input class="field__input" type="email" name="email" autocomplete="email" required />
-              </label>
-
-              <label class="field">
-                <span class="field__label">Μήνυμα</span>
-                <textarea class="field__input field__textarea" name="message" required></textarea>
-              </label>
-
-              <div class="contact-form__actions">
-                <button class="btn btn--primary" type="submit">Αποστολή</button>
-                <a class="btn btn--outline" href="tel:+306949626413">Κλήση</a>
-              </div>
-
-              <p class="contact-form__note">Με την αποστολή, συμφωνείτε να επικοινωνήσω μαζί σας για να κανονίσουμε ραντεβού.</p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="wrap footer__inner">
-        <p class="fine">© <span id="year"></span> Νικολέτα Πλατή</p>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      // Mobile nav toggle
-      const toggle = document.querySelector(".nav-toggle");
-      const mobileNav = document.getElementById("siteNav");
+    <!-- FOCUS -->
+    <section class="focus" id="focus">
+      <div class="focus__wrap">
+        <header class="focus__head">
+          <h2 class="focus__title">Τι μπορούμε να δουλέψουμε μαζί</h2>
+          <p class="focus__sub">
+            Θέματα που συναντάμε συχνά. Αν δεν βλέπετε ακριβώς αυτό που σας αφορά, μπορούμε να το συζητήσουμε.
+          </p>
+        </header>
 
-      function setNav(open) {
-        toggle.setAttribute("aria-expanded", String(open));
-        mobileNav.classList.toggle("is-open", open);
-        mobileNav.setAttribute("aria-hidden", String(!open));
-        document.body.classList.toggle("no-scroll", open);
-      }
+        <div class="focus__grid">
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Άγχος και στρες</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Αίσθημα πίεσης, ανησυχία, σωματική ένταση</li>
+                <li>Τεχνικές ρύθμισης και πρακτικά εργαλεία</li>
+              </ul>
+            </div>
+          </details>
 
-      toggle?.addEventListener("click", () => {
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        setNav(!isOpen);
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Αυτοεκτίμηση και όρια</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Ενοχές, δυσκολία να πείτε «όχι»</li>
+                <li>Χτίσιμο σταθερών ορίων χωρίς σύγκρουση</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Σχέσεις και επικοινωνία</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Μοτίβα που επαναλαμβάνονται</li>
+                <li>Καθαρή επικοινωνία και ασφάλεια στη σχέση</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Αλλαγές ζωής</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Μεταβάσεις, αποφάσεις, νέες αρχές</li>
+                <li>Στήριξη, οργάνωση και μικρά σταθερά βήματα</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about__wrap">
+        <div class="about__grid">
+          <div class="about__copy">
+            <h2 class="about__title">Σχετικά</h2>
+            <p class="about__text">
+              Η δουλειά μου στηρίζεται στη σχέση, στην ασφάλεια και στο να βρίσκουμε μαζί πρακτικούς τρόπους
+              που ταιριάζουν στην καθημερινότητά σας. Στόχος είναι να νιώθετε λίγο πιο ανάλαφρα και λίγο πιο καθαρά,
+              βήμα βήμα.
+            </p>
+          </div>
+
+          <div class="about__media">
+            <figure class="portrait">
+              <img class="portrait__img" src="about.webp" alt="Πορτρέτο" width="900" height="1100" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline" id="timeline">
+      <div class="timeline__wrap">
+        <header class="timeline__head">
+          <h2 class="timeline__title">Σπουδές και εξειδίκευση</h2>
+          <p class="timeline__sub">
+            Μια σύντομη, καθαρή εικόνα της πορείας μου, με βάση την εκπαίδευση και τις εξειδικεύσεις.
+          </p>
+        </header>
+
+        <ol class="timeline__list">
+          <li class="tl">
+            <span class="tl__dot" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">BSc (Hons) Psychology</h3>
+              <div class="tl__meta">Canterbury Christ Church University</div>
+              <p class="tl__text">
+                Αποφοίτησα από το Τμήμα Ψυχολογίας, με έμφαση στη θεωρητική βάση και στην κατανόηση του ανθρώπινου νου και της συμπεριφοράς.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot tl__dot--mint" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Εκπαιδευτική Ψυχολογία και Πρακτικές Εφαρμογές</h3>
+              <div class="tl__meta">Ανοιχτό Ίδρυμα Εκπαίδευσης</div>
+              <p class="tl__text">
+                Εξειδίκευση με πρακτικό προσανατολισμό, σε εργαλεία και εφαρμογές που υποστηρίζουν την ανάπτυξη και τη μάθηση.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Συμβουλευτική Ψυχολογία</h3>
+              <div class="tl__meta">Pearson University</div>
+              <p class="tl__text">
+                Εκπαίδευση στη συμβουλευτική προσέγγιση, με έμφαση στη σχέση, στην ενσυναίσθηση και στη δομημένη υποστήριξη.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot tl__dot--mint" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Αφηγηματική Ψυχοθεραπεία</h3>
+              <div class="tl__meta">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</div>
+              <p class="tl__text">
+                Εξειδίκευση στις αφηγηματικές, διαλογικές και σχεσιακές προσεγγίσεις στη μετανεωτερικότητα.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact__wrap">
+        <header class="contact__head">
+          <h2 class="contact__title">Επικοινωνία</h2>
+          <p class="contact__sub">Αν θέλετε, γράψτε μου λίγα λόγια. Θα σας απαντήσω με ηρεμία και διακριτικότητα.</p>
+        </header>
+
+        <div class="contact__layout">
+          <aside class="contact-info" aria-label="Στοιχεία επικοινωνίας">
+            <div class="contact-info__media">
+              <img src="contact.webp" alt="Ρόδος" width="1200" height="800" loading="lazy" />
+            </div>
+            <div class="contact-info__rows">
+              <div class="ci-row">
+                <div class="ci-k">Τηλέφωνο</div>
+                <div class="ci-v"><a class="ci-link" href="tel:+30XXXXXXXXXX">+30 XXXXXXXXXX</a></div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Email</div>
+                <div class="ci-v"><a class="ci-link" href="mailto:hello@nikoletaplati.gr">hello@nikoletaplati.gr</a></div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Τοποθεσία</div>
+                <div class="ci-v">Ρόδος</div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Social</div>
+                <div class="ci-social">
+                  <a class="chip-link" href="#" rel="noopener">Instagram</a>
+                  <a class="chip-link" href="#" rel="noopener">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label class="field__label" for="name">Ονοματεπώνυμο</label>
+              <input class="field__input" id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__input" id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="message">Μήνυμα</label>
+              <textarea class="field__input field__textarea" id="message" name="message" required></textarea>
+            </div>
+
+            <div class="contact-form__actions">
+              <button class="btn btn--primary" type="submit">Αποστολή</button>
+              <a class="btn btn--outline" href="tel:+30XXXXXXXXXX">Κλήση</a>
+            </div>
+
+            <p class="contact-form__note">
+              Με την αποστολή, συμφωνείτε να επικοινωνήσω μαζί σας για τον σκοπό του ραντεβού.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__wrap">
+      <div class="site-footer__brand">
+        <div class="site-footer__name">Νικολέτα Πλατή</div>
+        <div class="site-footer__meta">
+          Ιδιωτικές συνεδρίες στη Ρόδο • Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα.
+        </div>
+      </div>
+
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <div class="site-footer__k">Πλοήγηση</div>
+          <a class="site-footer__link" href="#services">Υπηρεσίες</a>
+          <a class="site-footer__link" href="#focus">Τι δουλεύουμε</a>
+          <a class="site-footer__link" href="#contact">Επικοινωνία</a>
+        </div>
+
+        <div class="site-footer__col">
+          <div class="site-footer__k">Νομικά</div>
+          <a class="site-footer__legal" href="#">Πολιτική απορρήτου</a>
+          <a class="site-footer__legal" href="#">Όροι χρήσης</a>
+        </div>
+
+        <div class="site-footer__col">
+          <div class="site-footer__k">Επικοινωνία</div>
+          <div class="site-footer__text">
+            <a class="site-footer__link" href="mailto:hello@nikoletaplati.gr">hello@nikoletaplati.gr</a><br />
+            <a class="site-footer__link" href="tel:+30XXXXXXXXXX">+30 XXXXXXXXXX</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© <span id="y"></span> Νικολέτα Πλατή</span>
+        <span class="site-footer__dot" aria-hidden="true">•</span>
+        <a class="site-footer__legal" href="#top">Πάνω</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggle = document.querySelector(".nav-toggle");
+    const mnav = document.getElementById("mnav");
+
+    if (toggle && mnav) {
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        mnav.classList.toggle("is-open", !open);
+        document.body.classList.toggle("no-scroll", !open);
       });
 
-      mobileNav?.addEventListener("click", (e) => {
-        const a = e.target.closest("a");
-        if (a) setNav(false);
+      mnav.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          toggle.setAttribute("aria-expanded", "false");
+          mnav.classList.remove("is-open");
+          document.body.classList.remove("no-scroll");
+        });
       });
+    }
 
-      // Footer year
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+    // Services active card (mobile)
+    const svc = Array.from(document.querySelectorAll(".svc"));
+    const scroller = document.querySelector(".services__pyramid");
+    if (svc.length && scroller) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              svc.forEach((c) => c.classList.remove("is-active"));
+              e.target.classList.add("is-active");
+            }
+          });
+        },
+        { root: scroller, threshold: 0.6 }
+      );
+      svc.forEach((c) => io.observe(c));
+    }
+  </script>
+</body>
 </html>

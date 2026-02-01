@@ -919,115 +919,6 @@ details[open] .acc__icon::after {
   }
 }
 
-/* ---------------- TIMELINE ---------------- */
-.timeline {
-  padding: 6px 16px 28px;
-}
-
-.timeline__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.timeline__head {
-  display: grid;
-  gap: 8px;
-}
-
-.timeline__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.timeline__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.tline {
-  margin-top: 18px;
-  display: grid;
-  gap: 12px;
-  position: relative;
-  padding-left: 26px;
-}
-
-.tline::before {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 6px;
-  bottom: 6px;
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    rgba(31, 29, 24, 0),
-    rgba(31, 29, 24, 0.18),
-    rgba(31, 29, 24, 0)
-  );
-  opacity: 0.55;
-}
-
-.titem { position: relative; }
-
-.titem__dot {
-  position: absolute;
-  left: -26px;
-  top: 18px;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(202, 167, 122, 0.72);
-  border: 1px solid rgba(202, 167, 122, 0.85);
-  box-shadow: 0 0 0 6px rgba(202, 167, 122, 0.14);
-}
-
-.titem__card {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px;
-  transition: transform 200ms ease, background 200ms ease;
-}
-
-.titem__card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.titem__kicker {
-  font-size: 11px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.55);
-}
-
-.titem__title {
-  margin: 6px 0 6px;
-  font-weight: 900;
-  font-size: 14.5px;
-  letter-spacing: -0.01em;
-}
-
-.titem__text {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.72);
-  line-height: 1.65;
-  font-size: 13.5px;
-}
-
-@media (min-width: 920px) {
-  .timeline { padding: 10px 24px 30px; }
-  .tline { gap: 14px; max-width: 860px; }
-}
-
-
 /* ---------------- ABOUT ---------------- */
 .about {
   padding: 6px 16px 28px;
@@ -1071,7 +962,9 @@ details[open] .acc__icon::after {
 }
 
 @media (min-width: 920px) {
+  /* ✅ πιο κοντά στο επόμενο section (Επικοινωνία) */
   .about { padding: 10px 24px 22px; }
+
   .about__grid {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 18px;
@@ -1080,6 +973,148 @@ details[open] .acc__icon::after {
 
   .about__media { display: flex; justify-content: flex-end; }
   .portrait { max-width: 56%; }
+}
+
+/* ---------------- TIMELINE (NEW) ---------------- */
+.timeline {
+  padding: 0 16px 28px;
+}
+
+.timeline__wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+
+.timeline__head {
+  display: grid;
+  gap: 8px;
+}
+
+.timeline__title {
+  font-family: var(--serif);
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+.timeline__sub {
+  margin: 0;
+  color: rgba(31, 29, 24, 0.70);
+  line-height: 1.55;
+  font-size: 13.5px;
+  max-width: 80ch;
+}
+
+.timeline__list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0 0 0 34px;
+  display: grid;
+  gap: 12px;
+  position: relative;
+}
+
+.timeline__list::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 99px;
+  background: linear-gradient(
+    180deg,
+    rgba(202, 167, 122, 0.0),
+    rgba(202, 167, 122, 0.42),
+    rgba(184, 215, 207, 0.42),
+    rgba(202, 167, 122, 0.0)
+  );
+  opacity: 0.6;
+}
+
+.tl {
+  position: relative;
+}
+
+.tl__dot {
+  position: absolute;
+  left: -20px; /* 34px padding - 20px = 14px (align to line) */
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(202, 167, 122, 0.85);
+  box-shadow:
+    0 0 0 4px rgba(202, 167, 122, 0.16),
+    0 12px 22px rgba(31, 29, 24, 0.10);
+}
+
+.tl__dot--mint {
+  background: rgba(184, 215, 207, 0.95);
+  box-shadow:
+    0 0 0 4px rgba(184, 215, 207, 0.16),
+    0 12px 22px rgba(31, 29, 24, 0.10);
+}
+
+.tl__card {
+  border-radius: 26px;
+  border: 1px solid rgba(31, 29, 24, 0.10);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  padding: 14px 14px 12px;
+}
+
+.tl__title {
+  margin: 0 0 6px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  font-size: 14px;
+}
+
+.tl__meta {
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(31, 29, 24, 0.56);
+  margin-bottom: 8px;
+}
+
+.tl__text {
+  margin: 0;
+  color: rgba(31, 29, 24, 0.70);
+  font-size: 13.5px;
+  line-height: 1.62;
+}
+
+@media (min-width: 920px) {
+  .timeline { padding: 0 24px 34px; }
+
+  .timeline__title {
+    font-size: 46px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .timeline__sub { font-size: 14.5px; }
+
+  .timeline__list {
+    gap: 14px;
+    padding-left: 40px;
+  }
+
+  .timeline__list::before {
+    left: 18px;
+  }
+
+  .tl__dot {
+    left: -22px; /* 40px - 22px = 18px */
+    top: 20px;
+  }
+
+  .tl__card {
+    padding: 16px 16px 14px;
+  }
+
+  .tl__title { font-size: 14.5px; }
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -1254,7 +1289,7 @@ details[open] .acc__icon::after {
 }
 
 @media (min-width: 920px) {
-  .contact { padding: 6px 24px 46px; }
+  .contact { padding: 10px 24px 46px; }
   .contact__layout {
     grid-template-columns: 1.05fr 0.95fr;
     gap: 18px;

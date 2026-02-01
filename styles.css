@@ -1,1672 +1,673 @@
-/* =========================
-   LOCAL FONTS (NO GOOGLE)
-   ========================= */
-@font-face{
-  font-family: "Inter";
-  src: url("Inter-roman.var.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face{
-  font-family: "Inter";
-  src: url("Inter-italic-var.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-:root {
-  /* colors */
-  --bg: #f6f1ea;
-  --bg-2: #f1ebe3;
-  --ink: #1f1d1a;
-  --muted: rgba(31, 29, 26, 0.68);
-  --line: rgba(31, 29, 26, 0.12);
+  <link rel="preload" href="Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="Inter-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 
-  --card: rgba(255, 255, 255, 0.66);
-  --card-solid: rgba(255, 255, 255, 0.78);
-  --shadow: 0 18px 50px rgba(31, 29, 26, 0.10);
+  <title>Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή</title>
+  <meta name="description" content="Ιδιωτικές συνεδρίες στη Ρόδο. Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα και σεβασμό στον ρυθμό σας." />
 
-  --warm: #c8a57b;
-  --mint: #7faea0;
+  <link rel="icon" href="logo.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
 
-  /* CTA palette */
-  --cta-bg: rgba(200, 165, 123, 0.72);
-  --cta-bg-hover: rgba(200, 165, 123, 0.82);
-  --cta-border: rgba(200, 165, 123, 0.85);
-  --cta-text: rgba(31, 29, 26, 0.92);
+  <link rel="canonical" href="https://nikoletaplati.gr/" />
+  <meta name="robots" content="index,follow" />
 
-  /* Services alternating backgrounds (2 shades) */
-  --svc-a: rgba(255, 255, 255, 0.62);
-  --svc-b: rgba(255, 255, 255, 0.74);
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:title" content="Ψυχολόγος στη Ρόδο | Νικολέτα Πλατή" />
+  <meta property="og:description" content="Ένας ασφαλής, ήρεμος χώρος για να μιλήσετε όπως είστε. Χωρίς πίεση, με καθαρά βήματα." />
+  <meta property="og:image" content="Hero-section.webp" />
 
-  /* radii */
-  --r-lg: 22px;
-  --r-md: 18px;
-  --r-sm: 12px;
-
-  /* type */
-  --serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
-  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-
-  /* layout */
-  --wrap: 980px;
-
-  /* ✅ shared card width for desktop (used also by banner width calc) */
-  --svc-w: clamp(260px, 26vw, 300px);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--bg);
-  font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* Global “one-section” feel */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  inset: auto;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(0px);
-  opacity: 0.9;
-}
-
-body::before {
-  width: 980px;
-  height: 980px;
-  left: -340px;
-  top: -360px;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-body::after {
-  width: 860px;
-  height: 860px;
-  right: -380px;
-  top: 80px;
-  background: radial-gradient(closest-side, rgba(127, 174, 160, 0.22) 0%, rgba(127, 174, 160, 0) 70%);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.hero,
-.services,
-.work-with,
-.focus,
-.about,
-.timeline,
-.contact {
-  position: relative;
-  z-index: 1;
-  background: transparent;
-}
-
-/* ---------------- HERO ---------------- */
-.hero {
-  padding: 20px 16px 22px;
-}
-
-.hero__wrap {
-  max-width: min(var(--wrap), 980px);
-  margin: 0 auto;
-}
-
-/* Top bar */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.brand {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.brand__avatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.70);
-  box-shadow: 0 10px 18px rgba(31, 29, 24, 0.06);
-}
-
-.brand__text {
-  display: grid;
-  line-height: 1.1;
-}
-
-.brand__name {
-  font-weight: 900;
-  letter-spacing: -0.01em;
-}
-
-.brand__meta {
-  font-size: 12px;
-  color: rgba(31, 29, 24, 0.62);
-}
-
-.nav {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.pill {
-  height: 36px;
-  padding: 0 12px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 800;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  color: rgba(31, 29, 24, 0.82);
-  transition: background 200ms ease, transform 200ms ease;
-}
-
-.pill:hover {
-  background: rgba(255, 255, 255, 0.75);
-  transform: translateY(-1px);
-}
-
-.pill--primary {
-  background: rgba(200, 165, 123, 0.72);
-  border-color: rgba(200, 165, 123, 0.85);
-}
-
-.pill--primary:hover {
-  background: rgba(200, 165, 123, 0.82);
-}
-
-.icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  transition: background 200ms ease, transform 200ms ease;
-}
-
-.icon-btn:hover {
-  background: rgba(255, 255, 255, 0.75);
-  transform: translateY(-1px);
-}
-
-.divider {
-  height: 1px;
-  margin: 14px 0 18px;
-  background: linear-gradient(
-    90deg,
-    rgba(31, 29, 24, 0),
-    rgba(31, 29, 24, 0.10),
-    rgba(31, 29, 24, 0)
-  );
-  opacity: 0.28;
-}
-
-.hero__grid {
-  display: grid;
-  gap: 18px;
-  align-items: start;
-}
-
-.microline {
-  font-size: 12px;
-  letter-spacing: 0.09em;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.55);
-}
-
-.hero__title {
-  font-family: var(--serif);
-  font-size: 38px;
-  line-height: 1.03;
-  letter-spacing: -0.02em;
-  margin: 10px 0 12px;
-  font-weight: 900;
-}
-
-.hero__lead {
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 14.5px;
-  line-height: 1.65;
-  margin: 0 0 14px;
-  max-width: 58ch;
-}
-
-.hero__ctas {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-/* Buttons */
-.btn {
-  height: 44px;
-  padding: 0 16px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 13px;
-
-  border: 1px solid var(--cta-border);
-  background: var(--cta-bg);
-  color: var(--cta-text);
-
-  transition: transform 200ms ease, background 200ms ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  background: var(--cta-bg-hover);
-}
-
-.btn--primary {
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  border-color: var(--cta-border);
-}
-
-.btn--primary:hover {
-  background: var(--cta-bg-hover);
-}
-
-.btn--ghost {
-  background: rgba(255, 255, 255, 0.82);
-  color: rgba(31, 29, 24, 0.88);
-  border-color: rgba(31, 29, 24, 0.14);
-}
-
-.btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.trust {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.trust__item {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 12px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-}
-
-.dot--warm { background: var(--warm); }
-.dot--mint { background: var(--mint); }
-
-.hero__media {
-  display: grid;
-  gap: 12px;
-}
-
-.media__frame {
-  border-radius: 26px;
-  overflow: hidden;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.54);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-}
-
-.media__img {
-  width: 100%;
-  display: block;
-}
-
-.info-card {
-  border-radius: 22px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.64);
-  box-shadow: var(--shadow);
-  padding: 12px;
-}
-
-.info-card__chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.chip {
-  height: 30px;
-  padding: 0 10px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.72);
-  background: rgba(255, 255, 255, 0.70);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-}
-
-.info-card__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 720px) {
-  .info-card__grid {
-    grid-template-columns: repeat(3, 1fr);
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Psychologist",
+    "name": "Νικολέτα Πλατή",
+    "url": "https://nikoletaplati.gr/",
+    "image": "https://nikoletaplati.gr/Hero-section.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ρόδος",
+      "addressCountry": "GR"
+    }
   }
-}
-
-.mini {
-  border-radius: 16px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.74);
-  padding: 10px;
-}
-
-.mini__label {
-  font-size: 12px;
-  font-weight: 800;
-  color: rgba(31, 29, 24, 0.55);
-  margin-bottom: 4px;
-}
-
-.mini__value {
-  font-weight: 900;
-  font-size: 13px;
-}
-
-/* ✅ Desktop hero: media δεξιά από το H1/κείμενα */
-@media (min-width: 920px) {
-  .hero { padding: 26px 24px 30px; }
-
-  .hero__grid {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 22px;
-    align-items: start;
-  }
-
-  .hero__title {
-    font-size: 54px;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-  }
-
-  .hero__lead { font-size: 15px; }
-}
-
-/* ---------------- SERVICES ---------------- */
-.services {
-  padding: 18px 16px 28px;
-}
-
-.services__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.services__head {
-  display: grid;
-  gap: 8px;
-}
-
-.services__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-}
-
-.services__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 70ch;
-}
-
-/* Mobile-first: horizontal scroll */
-.services__pyramid {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 12px 18px 18px;
-  scroll-padding-left: 18px;
-}
-
-.services__pyramid::-webkit-scrollbar { display: none; }
-.services__row { display: contents; }
-
-.svc {
-  flex: 0 0 78%;
-  max-width: 78%;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.66);
-  box-shadow:
-    0 18px 40px rgba(31, 29, 24, 0.09),
-    0 1px 0 rgba(255, 255, 255, 0.75) inset;
-
-  padding: 18px 16px;
-  text-align: center;
-
-  transform: scale(0.90) translateY(8px);
-  opacity: 0.78;
-  transition: transform 240ms ease, opacity 240ms ease;
-  will-change: transform;
-}
-
-.svc.is-active {
-  transform: scale(0.96) translateY(0);
-  opacity: 1;
-}
-
-.svc__top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.svc__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 10px 22px rgba(31, 29, 24, 0.06);
-}
-
-.svc__num { display: none; }
-
-.svc__title {
-  margin: 0 0 8px;
-  font-family: var(--serif);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  font-size: 24px;
-}
-
-.svc__desc {
-  margin: 0 0 12px;
-  color: rgba(31, 29, 24, 0.68);
-  line-height: 1.65;
-  font-size: 13.5px;
-}
-
-/* Accordion shell (mobile) */
-.svc__more {
-  border-radius: 18px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.70);
-  overflow: hidden;
-  text-align: left;
-}
-
-.svc__summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 11px 12px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  font-weight: 900;
-  font-size: 12.5px;
-  color: rgba(31, 29, 24, 0.78);
-}
-
-.svc__summary::-webkit-details-marker { display: none; }
-
-.svc__chev {
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid rgba(31, 29, 24, 0.55);
-  border-bottom: 2px solid rgba(31, 29, 24, 0.55);
-  transform: rotate(45deg);
-  transition: transform 200ms ease;
-}
-
-details[open] .svc__chev { transform: rotate(-135deg); }
-
-.svc__list {
-  margin: 0;
-  padding: 0 12px 12px 22px;
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 13.5px;
-  line-height: 1.6;
-}
-
-/* Desktop: rows of equal-size cards (now supports 2 / 3 / 2 naturally) */
-@media (min-width: 920px) {
-  .services { padding: 22px 24px 34px; }
-
-  .services__head { margin-bottom: 18px; }
-  .services__title {
-    font-size: 56px;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-  }
-  .services__sub { font-size: 14.5px; }
-
-  .services__pyramid {
-    display: grid;
-    gap: 14px;
-    padding: 0;
-    overflow: visible;
-    scroll-snap-type: none;
-  }
-
-  .services__row {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    align-items: stretch;
-  }
-
-  .svc {
-    flex: 0 0 var(--svc-w);
-    max-width: var(--svc-w);
-
-    padding: 22px 22px 20px;
-    text-align: left;
-
-    transform: none;
-    opacity: 1;
-    transition: transform 200ms ease;
-  }
-
-  .svc:hover { transform: translateY(-2px); }
-
-  .svc__top {
-    justify-content: space-between;
-    margin-bottom: 14px;
-  }
-
-  .svc__icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 16px;
-    box-shadow: none;
-  }
-
-  .svc__num {
-    display: block;
-    position: absolute;
-    top: 16px;
-    right: 18px;
-    font-family: var(--serif);
-    font-size: 46px;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    color: rgba(31, 29, 24, 0.22);
-    opacity: 0.25;
-  }
-
-  .svc__title {
-    font-family: var(--sans);
-    font-size: 17px;
-    letter-spacing: -0.01em;
-    margin: 0 0 6px;
-  }
-  .svc__desc { font-size: 13.5px; margin: 0 0 10px; }
-
-  /* Show bullets on desktop */
-  .svc { position: relative; display: flex; flex-direction: column; }
-  .svc__more {
-    margin-top: auto;
-    border: 0;
-    background: transparent;
-  }
-  .svc__summary { display: none; }
-  details.svc__more:not([open]) > :not(summary) { display: block; }
-
-  .svc__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 10px;
-  }
-  .svc__list li {
-    position: relative;
-    padding-left: 18px;
-    color: rgba(31, 29, 24, 0.72);
-    font-size: 13.5px;
-    line-height: 1.5;
-  }
-  .svc__list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: rgba(200, 165, 123, 0.68);
-    box-shadow: 0 0 0 3px rgba(200, 165, 123, 0.16);
-    transform: translateY(-50%);
-  }
-}
-
-/* ---------------- WORK-WITH ---------------- */
-.work-with {
-  padding: 6px 16px 26px;
-}
-
-.work-with__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.soft-banner {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px;
-  display: grid;
-  gap: 12px;
-}
-
-.soft-banner__title {
-  margin: 0 0 6px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-}
-
-.soft-banner__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-}
-
-.soft-banner__actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.work-with__head {
-  margin-top: 18px;
-  display: grid;
-  gap: 8px;
-}
-
-.work-with__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.work-with__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.modes {
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.mode {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  border-radius: 22px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 12px;
-}
-
-.mode__icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  display: grid;
-  place-items: center;
-  font-size: 18px;
-}
-
-.mode__title {
-  margin: 0;
-  font-weight: 900;
-  font-size: 14px;
-}
-
-.mode__text {
-  margin: 4px 0 0;
-  color: rgba(31, 29, 24, 0.68);
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-@media (min-width: 920px) {
-  .work-with { padding: 10px 24px 34px; }
-
-  /* ✅ ίδιο πλάτος με 2 cards (Προσωπική Ανάπτυξη + Ομαδικές Δράσεις) */
-  .soft-banner {
-    max-width: calc(var(--svc-w) + var(--svc-w) + 14px);
-    margin-left: auto;
-    margin-right: auto;
-
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-  }
-
-  .soft-banner__actions { justify-content: flex-end; }
-  .modes { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* ---------------- FOCUS ACCORDION ---------------- */
-.focus {
-  padding: 6px 16px 26px;
-}
-
-.focus__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.focus__head {
-  display: grid;
-  gap: 8px;
-}
-
-.focus__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.focus__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.focus__grid {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.acc {
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-.acc__summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 12px 14px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-}
-
-.acc__summary::-webkit-details-marker { display: none; }
-
-.acc__title {
-  font-weight: 900;
-  font-size: 13.5px;
-  color: rgba(31, 29, 24, 0.86);
-}
-
-.acc__icon {
-  width: 12px;
-  height: 12px;
-  position: relative;
-  opacity: 0.7;
-}
-
-.acc__icon::before,
-.acc__icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  background: rgba(31, 29, 24, 0.65);
-  border-radius: 99px;
-}
-
-.acc__icon::before {
-  width: 12px;
-  height: 2px;
-}
-
-.acc__icon::after {
-  width: 2px;
-  height: 12px;
-  transition: transform 200ms ease, opacity 200ms ease;
-}
-
-details[open] .acc__icon::after {
-  transform: scaleY(0);
-  opacity: 0;
-}
-
-.acc__content { padding: 0 14px 12px; }
-
-.acc__list {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 13.5px;
-  line-height: 1.6;
-}
-
-@media (min-width: 920px) {
-  .focus { padding: 10px 24px 34px; }
-  .focus__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-}
-
-/* ---------------- ABOUT ---------------- */
-.about {
-  padding: 6px 16px 28px;
-}
-
-.about__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.about__grid {
-  display: grid;
-  gap: 16px;
-  align-items: start;
-}
-
-.about__title {
-  font-family: var(--serif);
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.about__text {
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 13.8px;
-  line-height: 1.7;
-}
-
-.portrait {
-  margin: 0;
-  border-radius: 26px;
-  overflow: hidden;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-}
-
-.portrait__img {
-  width: 100%;
-  display: block;
-}
-
-@media (min-width: 920px) {
-  /* ✅ πιο κοντά στο κέντρο + μεγαλύτερη φωτογραφία */
-  .about { padding: 10px 24px 22px; }
-
-  .about__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    align-items: center;
-  }
-
-  .about__media { display: flex; justify-content: center; }
-  .portrait { width: 100%; max-width: 390px; }
-}
-
-/* ---------------- TIMELINE (NEW) ---------------- */
-.timeline {
-  padding: 0 16px 28px;
-}
-
-.timeline__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.timeline__head {
-  display: grid;
-  gap: 8px;
-}
-
-.timeline__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-}
-
-.timeline__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.timeline__list {
-  list-style: none;
-  margin: 18px 0 0;
-  padding: 0 0 0 34px;
-  display: grid;
-  gap: 12px;
-  position: relative;
-}
-
-.timeline__list::before {
-  content: "";
-  position: absolute;
-  left: 14px;
-  top: 6px;
-  bottom: 6px;
-  width: 2px;
-  border-radius: 99px;
-  background: linear-gradient(
-    180deg,
-    rgba(200, 165, 123, 0.0),
-    rgba(200, 165, 123, 0.42),
-    rgba(127, 174, 160, 0.42),
-    rgba(200, 165, 123, 0.0)
-  );
-  opacity: 0.6;
-}
-
-.tl {
-  position: relative;
-}
-
-.tl__dot {
-  position: absolute;
-  left: -26px; /* 34px padding - 26px = 8px; 8px + 6px center = 14px (center on line) */
-  top: 18px;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(200, 165, 123, 0.85);
-  box-shadow:
-    0 0 0 4px rgba(200, 165, 123, 0.16),
-    0 12px 22px rgba(31, 29, 24, 0.10);
-}
-
-.tl__dot--mint {
-  background: rgba(127, 174, 160, 0.95);
-  box-shadow:
-    0 0 0 4px rgba(127, 174, 160, 0.16),
-    0 12px 22px rgba(31, 29, 24, 0.10);
-}
-
-.tl__card {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px 14px 12px;
-}
-
-.tl__title {
-  margin: 0 0 6px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  font-size: 14px;
-}
-
-.tl__meta {
-  font-size: 12px;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.56);
-  margin-bottom: 8px;
-}
-
-.tl__text {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  font-size: 13.5px;
-  line-height: 1.62;
-}
-
-@media (min-width: 920px) {
-  .timeline { padding: 0 24px 34px; }
-
-  .timeline__title {
-    font-size: 46px;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-  }
-
-  .timeline__sub { font-size: 14.5px; }
-
-  .timeline__list {
-    gap: 14px;
-    padding-left: 40px;
-  }
-
-  .timeline__list::before {
-    left: 18px;
-  }
-
-  .tl__dot {
-    left: -28px; /* 40px - 28px = 12px; 12px + 6px center = 18px */
-    top: 20px;
-  }
-
-  .tl__card {
-    padding: 16px 16px 14px;
-  }
-
-  .tl__title { font-size: 14.5px; }
-}
-
-
-/* ---------------- FAQ ---------------- */
-.faq {
-  padding: 6px 16px 26px;
-}
-
-.faq__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.faq__head {
-  display: grid;
-  gap: 8px;
-}
-
-.faq__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.faq__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.faq__grid {
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.faq__left {
-  display: grid;
-  gap: 12px;
-}
-
-.faq-item {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-.faq-item__q {
-  cursor: pointer;
-  list-style: none;
-  padding: 16px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-
-  font-weight: 900;
-  font-size: 14px;
-  color: rgba(31, 29, 24, 0.88);
-}
-
-.faq-item__q::-webkit-details-marker { display: none; }
-
-.faq-item__q::after {
-  content: "+";
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-
-  font-weight: 900;
-  font-size: 18px;
-  line-height: 1;
-
-  color: rgba(31, 29, 24, 0.70);
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-
-  transition: transform 200ms ease, background 200ms ease;
-  flex: 0 0 auto;
-}
-
-details[open] > .faq-item__q::after {
-  content: "×";
-  transform: rotate(0deg);
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.faq-item__a {
-  padding: 0 18px 16px;
-  color: rgba(31, 29, 24, 0.72);
-  font-size: 13.5px;
-  line-height: 1.65;
-}
-
-.faq__media {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-.faq__media img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-}
-
-@media (min-width: 920px) {
-  .faq { padding: 10px 24px 34px; }
-
-  .faq__title {
-    font-size: 46px;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-  }
-
-  .faq__sub { font-size: 14.5px; }
-
-  .faq__grid {
-    grid-template-columns: 1.12fr 0.88fr;
-    gap: 18px;
-    align-items: stretch;
-  }
-
-  .faq__media { height: 100%; }
-  .faq__media img { height: 100%; min-height: 420px; }
-}
-
-
-/* ---------------- CONTACT ---------------- */
-.contact {
-  padding: 6px 16px 34px;
-}
-
-.contact__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.contact__head {
-  display: grid;
-  gap: 8px;
-}
-
-.contact__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.contact__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 70ch;
-}
-
-/* Contact layout */
-.contact__layout {
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.contact-info {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-.contact-info__media img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-}
-
-.contact-info__rows { padding: 14px; }
-
-.ci-row {
-  padding: 12px 0;
-  border-top: 1px solid rgba(31, 29, 24, 0.10);
-  display: grid;
-  gap: 6px;
-}
-
-.ci-row:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.ci-k {
-  font-size: 11px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.55);
-}
-
-.ci-v {
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.86);
-}
-
-.ci-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.ci-social {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 4px;
-}
-
-.chip-link {
-  height: 36px;
-  padding: 0 14px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 12.5px;
-  border: 1px solid rgba(31, 29, 24, 0.12);
-  background: rgba(255, 255, 255, 0.72);
-  color: rgba(31, 29, 24, 0.86);
-}
-
-.chip-link:hover { background: rgba(255, 255, 255, 0.84); }
-
-.contact-form {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px;
-  display: grid;
-  gap: 12px;
-}
-
-.field { display: grid; gap: 8px; }
-
-.field__label {
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(31, 29, 24, 0.70);
-}
-
-.field__input {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(31, 29, 24, 0.12);
-  background: rgba(255, 255, 255, 0.76);
-  padding: 12px 12px;
-  font: inherit;
-  color: rgba(31, 29, 24, 0.90);
-  outline: none;
-}
-
-.field__input:focus { border-color: rgba(31, 29, 24, 0.22); }
-
-.field__textarea { resize: vertical; min-height: 140px; }
-
-.contact-form .field__label {
-  text-transform: uppercase;
-  letter-spacing: 0.10em;
-  font-size: 11px;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.60);
-}
-
-.contact-form .field__input {
-  border-radius: 16px;
-  padding: 13px 14px;
-  background: rgba(255, 255, 255, 0.82);
-}
-
-.contact-form .field__textarea { min-height: 170px; }
-
-.contact-form__actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-.btn--outline { background: rgba(255, 255, 255, 0.72); }
-
-.contact-form__note {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.60);
-  font-size: 12.5px;
-  line-height: 1.55;
-}
-
-@media (min-width: 920px) {
-  .contact { padding: 10px 24px 46px; }
-  .contact__layout {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 18px;
-    align-items: stretch;
-  }
-  .contact-info__media img { height: 280px; }
-  .contact-form { padding: 16px; }
-}
-
-/* ---------------- MOBILE NAV (HAMBURGER) ---------------- */
-.nav-toggle {
-  display: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid var(--line);
-  color: rgba(31, 29, 24, 0.75);
-  cursor: pointer;
-  padding: 0;
-  place-items: center;
-}
-
-.nav-toggle:hover { background: rgba(255, 255, 255, 0.78); }
-
-.nav-toggle__lines {
-  width: 16px;
-  height: 12px;
-  position: relative;
-  display: block;
-}
-
-.nav-toggle__lines::before,
-.nav-toggle__lines::after,
-.nav-toggle__lines {
-  background: transparent;
-}
-
-.nav-toggle__lines::before,
-.nav-toggle__lines::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  border-radius: 99px;
-  background: rgba(31, 29, 24, 0.72);
-  transition: transform 200ms ease, top 200ms ease, opacity 200ms ease;
-}
-
-.nav-toggle__lines::before { top: 2px; }
-.nav-toggle__lines::after { top: 8px; }
-
-.nav-toggle[aria-expanded="true"] .nav-toggle__lines::before {
-  top: 5px;
-  transform: rotate(45deg);
-}
-.nav-toggle[aria-expanded="true"] .nav-toggle__lines::after {
-  top: 5px;
-  transform: rotate(-45deg);
-}
-
-.mnav {
-  margin-top: 12px;
-  border-radius: 18px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.66);
-  box-shadow: 0 14px 30px rgba(31, 29, 24, 0.08), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 12px;
-  display: grid;
-  gap: 10px;
-
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: max-height 260ms ease, opacity 200ms ease, transform 220ms ease;
-}
-
-.mnav.is-open {
-  max-height: 520px;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.mnav__link {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  font-weight: 800;
-  font-size: 13px;
-  color: rgba(31, 29, 24, 0.86);
-}
-
-.mnav__link:hover { background: rgba(255, 255, 255, 0.78); }
-
-.mnav__link--primary {
-  background: rgba(200, 165, 123, 0.72);
-  border-color: rgba(200, 165, 123, 0.85);
-}
-
-.mnav__link--primary:hover { background: rgba(200, 165, 123, 0.82); }
-
-.mnav__social {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-  padding-top: 4px;
-}
-
-@media (max-width: 919px) {
-  .nav { display: none; }
-  .nav-toggle { display: grid; }
-}
-
-/* ---------------- SITE FOOTER ---------------- */
-.site-footer {
-  padding: 30px 16px 38px;
-  position: relative;
-  z-index: 1;
-}
-
-.site-footer__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: 0 18px 40px rgba(31, 29, 24, 0.08), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.site-footer__wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(520px 260px at 10% 18%, rgba(200, 165, 123, 0.14) 0%, rgba(200, 165, 123, 0) 62%);
-  pointer-events: none;
-}
-
-.site-footer__wrap > * { position: relative; z-index: 1; }
-
-.site-footer__brand { display: grid; gap: 6px; margin-bottom: 14px; }
-
-.site-footer__name {
-  font-family: var(--serif);
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  font-size: 18px;
-}
-
-.site-footer__meta {
-  color: rgba(31, 29, 24, 0.66);
-  font-size: 13px;
-  line-height: 1.45;
-  max-width: 70ch;
-}
-
-.site-footer__cols { display: grid; gap: 14px; }
-
-.site-footer__col { display: grid; gap: 8px; }
-
-.site-footer__k {
-  font-size: 12px;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.62);
-  margin-bottom: 2px;
-}
-
-.site-footer__link,
-.site-footer__legal {
-  font-weight: 800;
-  font-size: 13px;
-  color: rgba(31, 29, 24, 0.82);
-}
-
-.site-footer__link:hover,
-.site-footer__legal:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.site-footer__text {
-  font-size: 13px;
-  color: rgba(31, 29, 24, 0.74);
-  line-height: 1.5;
-}
-
-.site-footer__social { display: flex; gap: 10px; }
-
-.site-footer__bottom {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(31, 29, 24, 0.10);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  color: rgba(31, 29, 24, 0.60);
-  font-size: 12px;
-}
-
-.site-footer__dot { opacity: 0.6; }
-
-@media (min-width: 920px) {
-  .site-footer {
-    padding: 38px 24px 54px;
-  }
-
-  .site-footer__cols {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
-  }
-}
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero__wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand__avatar" aria-hidden="true">
+            <img src="logo.jpg" alt="" width="20" height="20" style="border-radius:999px" />
+          </div>
+          <div class="brand__text">
+            <div class="brand__name">Νικολέτα Πλατή</div>
+            <div class="brand__meta">Ψυχολόγος • Ρόδος</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Κύρια πλοήγηση">
+          <a class="pill" href="#services">Υπηρεσίες</a>
+          <a class="pill" href="#work-with">Πώς δουλεύουμε</a>
+          <a class="pill" href="#focus">Τι μπορούμε να δουλέψουμε</a>
+          <a class="pill" href="#about">Σχετικά</a>
+          <a class="pill pill--primary" href="#contact">Επικοινωνία</a>
+        </nav>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Άνοιγμα μενού">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="mnav" id="mnav" aria-label="Κινητό μενού">
+        <a class="mnav__link" href="#services">Υπηρεσίες</a>
+        <a class="mnav__link" href="#work-with">Πώς δουλεύουμε</a>
+        <a class="mnav__link" href="#focus">Τι μπορούμε να δουλέψουμε</a>
+        <a class="mnav__link" href="#about">Σχετικά</a>
+        <a class="mnav__link mnav__link--primary" href="#contact">Επικοινωνία</a>
+
+        <div class="mnav__social">
+          <a class="icon-btn" href="#contact" aria-label="Κλήση">
+            <span aria-hidden="true">📞</span>
+          </a>
+          <a class="icon-btn" href="#contact" aria-label="Email">
+            <span aria-hidden="true">✉️</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider" role="presentation"></div>
+
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <div class="microline">ΙΔΙΩΤΙΚΕΣ ΣΥΝΕΔΡΙΕΣ ΣΤΗ ΡΟΔΟ</div>
+          <h1 class="hero__title">Όταν όλα βαραίνουν, δεν χρειάζεται να τα κουβαλάτε μόνοι.</h1>
+          <p class="hero__lead">
+            Αν νιώθετε ότι κρατάτε πολλά μέσα σας, ότι κουράζεστε εύκολα, ότι οι σκέψεις δεν σταματούν,
+            εδώ υπάρχει χώρος να μιλήσετε όπως είστε. Χωρίς πίεση, χωρίς «σωστό» και «λάθος».
+            Μαζί βρίσκουμε την άκρη και κάνουμε μικρά, σταθερά βήματα που ταιριάζουν στη δική σας καθημερινότητα.
+          </p>
+
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="#contact">Επικοινωνήστε μαζί μου</a>
+            <a class="btn btn--ghost" href="#services">Πώς μπορώ να βοηθήσω;</a>
+          </div>
+
+          <ul class="trust" aria-label="Σημεία εμπιστοσύνης">
+            <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span>Εχεμύθεια</li>
+            <li class="trust__item"><span class="dot dot--mint" aria-hidden="true"></span>Χωρίς πίεση</li>
+            <li class="trust__item"><span class="dot dot--warm" aria-hidden="true"></span>Καθαρά βήματα</li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <div class="media__frame">
+            <img class="media__img" src="Hero-section.webp" alt="Χώρος συνεδριών" width="1200" height="800" loading="eager" />
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__grid">
+              <div class="mini">
+                <div class="mini__label">Ρόδος, Ελλάδα</div>
+                <div class="mini__value">Στεφάνου Καζούλη 18</div>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Διάρκεια συνεδρίας</div>
+                <div class="mini__value">60 λεπτά</div>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Πρώτο βήμα</div>
+                <div class="mini__value">Ένα σύντομο μήνυμα</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="services__wrap">
+        <header class="services__head">
+          <h2 class="services__title">Υπηρεσίες</h2>
+          <p class="services__sub">
+            Ένας καθαρός τρόπος να δείτε τι μπορούμε να δουλέψουμε, με απλά βήματα και σεβασμό στον ρυθμό σας.
+          </p>
+        </header>
+
+        <div class="services__pyramid" aria-label="Κάρτες υπηρεσιών">
+          <div class="services__row">
+            <article class="svc is-active">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🧠</div>
+                <div class="svc__num" aria-hidden="true">01</div>
+              </div>
+              <h3 class="svc__title">Ατομική Ψυχοθεραπεία</h3>
+              <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στην ασφάλεια και στη σχέση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ενήλικες</li>
+                  <li>Έφηβοι</li>
+                  <li>Παιδιά, παιγνιοθεραπεία και δημιουργικές τεχνικές</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🧩</div>
+                <div class="svc__num" aria-hidden="true">02</div>
+              </div>
+              <h3 class="svc__title">Συμβουλευτική Υποστήριξη</h3>
+              <p class="svc__desc">Πρακτική βοήθεια για να ηρεμήσει ο νους, να μπει τάξη στο συναίσθημα και να επιστρέψει η ενέργεια.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Διαχείριση άγχους και στρες</li>
+                  <li>Αυτοεκτίμηση και αυτοπεποίθηση</li>
+                  <li>Συναισθηματική ρύθμιση</li>
+                  <li>Overthinking και burnout</li>
+                  <li>Διαχείριση αλλαγών ζωής</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">💬</div>
+                <div class="svc__num" aria-hidden="true">03</div>
+              </div>
+              <h3 class="svc__title">Θεραπεία Σχέσεων</h3>
+              <p class="svc__desc">Όταν η επικοινωνία δυσκολεύει ή τα μοτίβα επαναλαμβάνονται, χτίζουμε μαζί μια πιο σταθερή βάση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ερωτικές σχέσεις</li>
+                  <li>Οικογενειακές δυσκολίες</li>
+                  <li>Όρια και επικοινωνία</li>
+                  <li>Συναισθηματική εξάρτηση / προσκόλληση</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+
+          <div class="services__row">
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">👨‍👩‍👧</div>
+                <div class="svc__num" aria-hidden="true">04</div>
+              </div>
+              <h3 class="svc__title">Γονεϊκή Υποστήριξη</h3>
+              <p class="svc__desc">Καθοδήγηση και στήριξη για γονείς, με πρακτικές στρατηγικές και ανθρώπινο ρυθμό.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Συμβουλευτική γονέων</li>
+                  <li>Υποστήριξη γονέων παιδιών με ΔΕΠΥ / αυτισμό</li>
+                  <li>Καθοδήγηση σε θέματα ορίων και καθημερινότητας</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🌿</div>
+                <div class="svc__num" aria-hidden="true">05</div>
+              </div>
+              <h3 class="svc__title">Προσωπική Ανάπτυξη</h3>
+              <p class="svc__desc">Για όταν θέλετε να γνωρίσετε καλύτερα τον εαυτό σας και να σταθείτε πιο σταθερά.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Στόχοι και αποφάσεις</li>
+                  <li>Αυτοφροντίδα και όρια</li>
+                  <li>Μεταβάσεις ζωής</li>
+                </ul>
+              </details>
+            </article>
+
+            <article class="svc">
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true">🤝</div>
+                <div class="svc__num" aria-hidden="true">06</div>
+              </div>
+              <h3 class="svc__title">Ομαδικές Δράσεις</h3>
+              <p class="svc__desc">Διακριτικές, μικρές ομάδες με στόχο σύνδεση, κατανόηση και πρακτική ενδυνάμωση.</p>
+
+              <details class="svc__more">
+                <summary class="svc__summary">
+                  Διαβάστε περισσότερα
+                  <span class="svc__chev" aria-hidden="true"></span>
+                </summary>
+                <ul class="svc__list">
+                  <li>Ομάδες υποστήριξης</li>
+                  <li>Εργαστήρια δεξιοτήτων</li>
+                  <li>Θεματικές συναντήσεις</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK WITH -->
+    <section class="work-with" id="work-with">
+      <div class="work-with__wrap">
+        <div class="soft-banner">
+          <div>
+            <h3 class="soft-banner__title">Δεν ξέρετε από πού να ξεκινήσετε; Είναι φυσιολογικό.</h3>
+            <p class="soft-banner__sub">
+              Μπορούμε να ξεκινήσουμε από αυτό που σας δυσκολεύει περισσότερο σήμερα και να χτίσουμε από εκεί.
+            </p>
+          </div>
+          <div class="soft-banner__actions">
+            <a class="btn btn--primary" href="#contact">Κλείστε ραντεβού</a>
+            <a class="btn btn--outline" href="#services">Δείτε υπηρεσίες</a>
+          </div>
+        </div>
+
+        <header class="work-with__head">
+          <h2 class="work-with__title">Πώς δουλεύουμε μαζί</h2>
+          <p class="work-with__sub">
+            Ένα πλαίσιο που κρατά ασφάλεια, απλότητα και σταθερά βήματα, χωρίς να πιέζει.
+          </p>
+        </header>
+
+        <div class="modes" aria-label="Τρόποι συνεδρίας">
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">🏠</div>
+            <div>
+              <h3 class="mode__title">Δια ζώσης</h3>
+              <p class="mode__text">Στη Ρόδο, σε ήρεμο και διακριτικό χώρο.</p>
+            </div>
+          </div>
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">💻</div>
+            <div>
+              <h3 class="mode__title">Online</h3>
+              <p class="mode__text">Με σταθερότητα, ιδιωτικότητα και καθαρή δομή.</p>
+            </div>
+          </div>
+          <div class="mode">
+            <div class="mode__icon" aria-hidden="true">🗓️</div>
+            <div>
+              <h3 class="mode__title">Ρυθμός</h3>
+              <p class="mode__text">Συμφωνούμε μαζί το πλάνο που σας ταιριάζει.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS -->
+    <section class="focus" id="focus">
+      <div class="focus__wrap">
+        <header class="focus__head">
+          <h2 class="focus__title">Τι μπορούμε να δουλέψουμε μαζί</h2>
+          <p class="focus__sub">
+            Θέματα που συναντάμε συχνά. Αν δεν βλέπετε ακριβώς αυτό που σας αφορά, μπορούμε να το συζητήσουμε.
+          </p>
+        </header>
+
+        <div class="focus__grid">
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Άγχος και στρες</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Αίσθημα πίεσης, ανησυχία, σωματική ένταση</li>
+                <li>Τεχνικές ρύθμισης και πρακτικά εργαλεία</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Αυτοεκτίμηση και όρια</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Ενοχές, δυσκολία να πείτε «όχι»</li>
+                <li>Χτίσιμο σταθερών ορίων χωρίς σύγκρουση</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Σχέσεις και επικοινωνία</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Μοτίβα που επαναλαμβάνονται</li>
+                <li>Καθαρή επικοινωνία και ασφάλεια στη σχέση</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__title">Αλλαγές ζωής</span>
+              <span class="acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="acc__content">
+              <ul class="acc__list">
+                <li>Μεταβάσεις, αποφάσεις, νέες αρχές</li>
+                <li>Στήριξη, οργάνωση και μικρά σταθερά βήματα</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about__wrap">
+        <div class="about__grid">
+          <div class="about__copy">
+            <h2 class="about__title">Σχετικά</h2>
+            <p class="about__text">
+              Μερικές φορές δεν είναι ένα «μεγάλο» γεγονός που μας φέρνει εδώ. Είναι η συσσώρευση. Η κούραση που μένει, το σώμα που σφίγγει, οι σκέψεις που γυρίζουν την ίδια διαδρομή.<br><br>Η θεραπεία, για μένα, είναι ένας ασφαλής τόπος. Ένας χώρος όπου μπορείτε να ακουστείτε με σεβασμό, χωρίς να χρειάζεται να αποδείξετε τίποτα. Δουλεύουμε με αυτό που είναι αληθινό για εσάς, και το κάνουμε με τρόπο που να μπορεί να «ζήσει» μέσα στην καθημερινότητα.<br><br>Για τους γονείς, το ζητούμενο δεν είναι η τελειότητα. Είναι η στήριξη, η κατανόηση, και μια σταθερή συνεργασία ώστε το σπίτι να γίνει πιο ήρεμο, πιο προβλέψιμο, πιο ανθρώπινο.
+            </p>
+          </div>
+
+          <div class="about__media">
+            <figure class="portrait">
+              <img class="portrait__img" src="about.webp" alt="Πορτρέτο" width="900" height="1100" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline" id="timeline">
+      <div class="timeline__wrap">
+        <header class="timeline__head">
+          <h2 class="timeline__title">Σπουδές και εξειδίκευση</h2>
+          <p class="timeline__sub">
+            Μια σύντομη, καθαρή εικόνα της πορείας μου, με βάση την εκπαίδευση και τις εξειδικεύσεις.
+          </p>
+        </header>
+
+        <ol class="timeline__list">
+          <li class="tl">
+            <span class="tl__dot" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">BSc (Hons) Psychology</h3>
+              <div class="tl__meta">Canterbury Christ Church University</div>
+              <p class="tl__text">
+                Αποφοίτησα από το Τμήμα Ψυχολογίας, με έμφαση στη θεωρητική βάση και στην κατανόηση του ανθρώπινου νου και της συμπεριφοράς.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot tl__dot--mint" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Εκπαιδευτική Ψυχολογία και Πρακτικές Εφαρμογές</h3>
+              <div class="tl__meta">Ανοιχτό Ίδρυμα Εκπαίδευσης</div>
+              <p class="tl__text">
+                Εξειδίκευση με πρακτικό προσανατολισμό, σε εργαλεία και εφαρμογές που υποστηρίζουν την ανάπτυξη και τη μάθηση.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Συμβουλευτική Ψυχολογία</h3>
+              <div class="tl__meta">Pearson University</div>
+              <p class="tl__text">
+                Εκπαίδευση στη συμβουλευτική προσέγγιση, με έμφαση στη σχέση, στην ενσυναίσθηση και στη δομημένη υποστήριξη.
+              </p>
+            </div>
+          </li>
+
+          <li class="tl">
+            <span class="tl__dot tl__dot--mint" aria-hidden="true"></span>
+            <div class="tl__card">
+              <h3 class="tl__title">Αφηγηματική Ψυχοθεραπεία</h3>
+              <div class="tl__meta">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</div>
+              <p class="tl__text">
+                Εξειδίκευση στις αφηγηματικές, διαλογικές και σχεσιακές προσεγγίσεις στη μετανεωτερικότητα.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="faq__wrap">
+        <header class="faq__head">
+          <h2 class="faq__title">FAQ</h2>
+          <p class="faq__sub">Μικρές απαντήσεις, για να νιώθετε πιο σίγουροι πριν κάνετε το πρώτο βήμα.</p>
+        </header>
+
+        <div class="faq__grid">
+          <div class="faq__left" aria-label="Συχνές ερωτήσεις">
+            <details class="faq-item">
+              <summary class="faq-item__q">Πόση είναι η διάρκεια των συνεδριών;</summary>
+              <div class="faq-item__a">
+                Η τυπική διάρκεια είναι 60 λεπτά. Αυτός ο χρόνος είναι αποκλειστικά δικός σας, για να μιλήσουμε χωρίς βιασύνη.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-item__q">Πώς ξέρω τι υπηρεσία χρειάζομαι;</summary>
+              <div class="faq-item__a">
+                Δεν χρειάζεται να το ξέρετε από πριν. Περιγράψτε μου τι σας απασχολεί και θα σας καθοδηγήσω στο κατάλληλο ξεκίνημα.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-item__q">Πού βρίσκεται ο χώρος;</summary>
+              <div class="faq-item__a">Στεφάνου Καζούλη 18, Ρόδος, Ελλάδα.</div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-item__q">Ποια είναι η περιοχή εξυπηρέτησης;</summary>
+              <div class="faq-item__a">Ρόδος.</div>
+            </details>
+          </div>
+
+          <aside class="faq__media" aria-label="Εικόνα χώρου">
+            <img src="faq.webp" alt="Χώρος συνεδριών" width="1200" height="1400" loading="lazy" />
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact__wrap">
+        <header class="contact__head">
+          <h2 class="contact__title">Επικοινωνία</h2>
+          <p class="contact__sub">Αν θέλετε, γράψτε μου λίγα λόγια. Θα σας απαντήσω με ηρεμία και διακριτικότητα.</p>
+        </header>
+
+        <div class="contact__layout">
+          <aside class="contact-info" aria-label="Στοιχεία επικοινωνίας">
+            <div class="contact-info__media">
+              <img src="contact.webp" alt="Ρόδος" width="1200" height="800" loading="lazy" />
+            </div>
+            <div class="contact-info__rows">
+              <div class="ci-row">
+                <div class="ci-k">Τηλέφωνο</div>
+                <div class="ci-v"><a class="ci-link" href="tel:+30XXXXXXXXXX">+30 XXXXXXXXXX</a></div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Email</div>
+                <div class="ci-v"><a class="ci-link" href="mailto:hello@nikoletaplati.gr">hello@nikoletaplati.gr</a></div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Τοποθεσία</div>
+                <div class="ci-v">Ρόδος</div>
+              </div>
+              <div class="ci-row">
+                <div class="ci-k">Social</div>
+                <div class="ci-social">
+                  <a class="chip-link" href="#" rel="noopener">Instagram</a>
+                  <a class="chip-link" href="#" rel="noopener">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label class="field__label" for="name">Ονοματεπώνυμο</label>
+              <input class="field__input" id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__input" id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="message">Μήνυμα</label>
+              <textarea class="field__input field__textarea" id="message" name="message" required></textarea>
+            </div>
+
+            <div class="contact-form__actions">
+              <button class="btn btn--primary" type="submit">Αποστολή</button>
+              <a class="btn btn--outline" href="tel:+30XXXXXXXXXX">Κλήση</a>
+            </div>
+
+            <p class="contact-form__note">
+              Με την αποστολή, συμφωνείτε να επικοινωνήσω μαζί σας για τον σκοπό του ραντεβού.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__wrap">
+      <div class="site-footer__brand">
+        <div class="site-footer__name">Νικολέτα Πλατή</div>
+        <div class="site-footer__meta">
+          Ιδιωτικές συνεδρίες στη Ρόδο • Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα.
+        </div>
+      </div>
+
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <div class="site-footer__k">Πλοήγηση</div>
+          <a class="site-footer__link" href="#services">Υπηρεσίες</a>
+          <a class="site-footer__link" href="#focus">Τι δουλεύουμε</a>
+          <a class="site-footer__link" href="#contact">Επικοινωνία</a>
+        </div>
+
+        <div class="site-footer__col">
+          <div class="site-footer__k">Νομικά</div>
+          <a class="site-footer__legal" href="#">Πολιτική απορρήτου</a>
+          <a class="site-footer__legal" href="#">Όροι χρήσης</a>
+        </div>
+
+        <div class="site-footer__col">
+          <div class="site-footer__k">Επικοινωνία</div>
+          <div class="site-footer__text">
+            <a class="site-footer__link" href="mailto:hello@nikoletaplati.gr">hello@nikoletaplati.gr</a><br />
+            <a class="site-footer__link" href="tel:+30XXXXXXXXXX">+30 XXXXXXXXXX</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© <span id="y"></span> Νικολέτα Πλατή</span>
+        <span class="site-footer__dot" aria-hidden="true">•</span>
+        <a class="site-footer__legal" href="#top">Πάνω</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggle = document.querySelector(".nav-toggle");
+    const mnav = document.getElementById("mnav");
+
+    if (toggle && mnav) {
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        mnav.classList.toggle("is-open", !open);
+        document.body.classList.toggle("no-scroll", !open);
+      });
+
+      mnav.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          toggle.setAttribute("aria-expanded", "false");
+          mnav.classList.remove("is-open");
+          document.body.classList.remove("no-scroll");
+        });
+      });
+    }
+
+    // Services active card (mobile)
+    const svc = Array.from(document.querySelectorAll(".svc"));
+    const scroller = document.querySelector(".services__pyramid");
+    if (svc.length && scroller) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              svc.forEach((c) => c.classList.remove("is-active"));
+              e.target.classList.add("is-active");
+            }
+          });
+        },
+        { root: scroller, threshold: 0.6 }
+      );
+      svc.forEach((c) => io.observe(c));
+    }
+  </script>
+</body>
+</html>

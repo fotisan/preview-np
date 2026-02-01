@@ -617,6 +617,27 @@ details[open] .svc__chev {
     padding: 11px 12px;
     font-size: 12.5px;
   }
+
+
+  /* ✅ Mobile: foreground card + next card peeking, with a subtle depth effect */
+  .services__grid {
+    padding: 12px 18px 12px;
+    scroll-padding-left: 18px;
+  }
+  .svc {
+    flex: 0 0 auto;
+    min-width: 86%;
+    max-width: 86%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: scale(0.94);
+    opacity: 0.84;
+  }
+  .svc.is-active {
+    transform: scale(1);
+    opacity: 1;
+  }
+
 }
 
 @media (min-width: 920px) {
@@ -652,6 +673,79 @@ details[open] .svc__chev {
   .services__grid .svc:nth-child(5) {
     grid-column: span 2;
   }
+
+
+  /* ✅ Desktop cards like the reference screenshot */
+  .services__head { margin-bottom: 18px; }
+  .services__title { font-size: 56px; line-height: 0.98; letter-spacing: -0.03em; }
+  .services__sub { font-size: 14.5px; }
+
+  .svc {
+    position: relative;
+    padding: 22px 22px 20px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+  .svc:nth-child(even) { background: rgba(255, 255, 255, 0.72); }
+
+  .svc__top { margin-bottom: 14px; }
+  .svc__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+  .svc__num {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-family: var(--serif);
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: rgba(31, 29, 24, 0.22);
+    opacity: 0.25;
+  }
+
+  .svc__title { font-size: 17px; }
+  .svc__desc { font-size: 13.5px; }
+
+  /* Show bullets on desktop without the "Δείτε περισσότερα" UI */
+  .svc__more {
+    margin-top: 12px;
+    border: 0;
+    background: transparent;
+  }
+  .svc__summary { display: none; }
+  details.svc__more:not([open]) > :not(summary) { display: block; }
+
+  .svc__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .svc__list li {
+    position: relative;
+    padding-left: 18px;
+    color: rgba(31, 29, 24, 0.72);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .svc__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(202, 167, 122, 0.68);
+    box-shadow: 0 0 0 3px rgba(202, 167, 122, 0.16);
+    transform: translateY(-50%);
+  }
+
 }
 
 /* ---------------- WORK-WITH ---------------- */
@@ -933,6 +1027,15 @@ details[open] .acc__icon::after {
     gap: 18px;
     align-items: center;
   }
+
+  .about__media {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .portrait {
+    max-width: 75%;
+  }
+
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -1090,10 +1193,142 @@ details[open] .acc__icon::after {
 
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
-  .contact__grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: start;
+}
+
+
+/* ---- CONTACT (reference layout) ---- */
+.contact__layout {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.contact-info {
+  border-radius: 26px;
+  border: 1px solid rgba(31, 29, 24, 0.10);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  overflow: hidden;
+}
+
+.contact-info__media img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-info__rows {
+  padding: 14px;
+}
+
+.ci-row {
+  padding: 12px 0;
+  border-top: 1px solid rgba(31, 29, 24, 0.10);
+  display: grid;
+  gap: 6px;
+}
+
+.ci-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ci-k {
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgba(31, 29, 24, 0.55);
+}
+
+.ci-v {
+  font-weight: 900;
+  color: rgba(31, 29, 24, 0.86);
+}
+
+.ci-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ci-social {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.chip-link {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 12.5px;
+  border: 1px solid rgba(31, 29, 24, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(31, 29, 24, 0.86);
+}
+
+.chip-link:hover { background: rgba(255, 255, 255, 0.84); }
+
+.contact-form {
+  border-radius: 26px;
+  border: 1px solid rgba(31, 29, 24, 0.10);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.contact-form .field__label {
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(31, 29, 24, 0.60);
+}
+
+.contact-form .field__input {
+  border-radius: 16px;
+  padding: 13px 14px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.contact-form .field__textarea {
+  min-height: 170px;
+}
+
+.contact-form__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn--outline {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.contact-form__note {
+  margin: 0;
+  color: rgba(31, 29, 24, 0.60);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+@media (min-width: 920px) {
+  .contact__layout {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 18px;
+    align-items: stretch;
   }
+  .contact-info__media img { height: 280px; }
+  .contact-form { padding: 16px; }
 }
 
 /* ---------------- MOBILE NAV (HAMBURGER) ---------------- */

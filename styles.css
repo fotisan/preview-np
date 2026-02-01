@@ -54,7 +54,7 @@
   --wrap: 980px;
 
   /* ✅ shared card width for desktop (used also by banner width calc) */
-  --svc-w: clamp(260px, 26vw, 300px);
+  --svc-w: clamp(280px, 28vw, 340px);
 }
 
 *,
@@ -127,6 +127,7 @@ img {
 .focus,
 .about,
 .timeline,
+.faq,
 .contact {
   position: relative;
   z-index: 1;
@@ -139,7 +140,7 @@ img {
 }
 
 .hero__wrap {
-  max-width: min(var(--wrap), 980px);
+  max-width: var(--wrap);
   margin: 0 auto;
 }
 
@@ -971,8 +972,13 @@ details[open] .acc__icon::after {
   line-height: 1.7;
 }
 
+.about__copy .about__text { margin: 0 0 12px; }
+.about__copy .about__text:last-child { margin-bottom: 0; }
+
 .portrait {
-  margin: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 390px;
   border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(31, 29, 24, 0.10);
@@ -1062,7 +1068,7 @@ details[open] .acc__icon::after {
 
 .tl__dot {
   position: absolute;
-  left: -26px; /* 34px padding - 26px = 8px; 8px + 6px center = 14px (center on line) */
+  left: -26px;
   top: 18px;
   width: 12px;
   height: 12px;
@@ -1130,7 +1136,7 @@ details[open] .acc__icon::after {
   }
 
   .tl__dot {
-    left: -28px; /* 40px - 28px = 12px; 12px + 6px center = 18px */
+    left: -28px;
     top: 20px;
   }
 
@@ -1141,10 +1147,9 @@ details[open] .acc__icon::after {
   .tl__title { font-size: 14.5px; }
 }
 
-
 /* ---------------- FAQ ---------------- */
 .faq {
-  padding: 6px 16px 26px;
+  padding: 14px 16px 26px;
 }
 
 .faq__wrap {
@@ -1179,13 +1184,13 @@ details[open] .acc__icon::after {
 
 .faq__left {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .faq-item {
-  border-radius: 26px;
+  border-radius: 22px;
   border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.66);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   overflow: hidden;
 }
@@ -1193,7 +1198,7 @@ details[open] .acc__icon::after {
 .faq-item__q {
   cursor: pointer;
   list-style: none;
-  padding: 16px 18px;
+  padding: 18px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1201,42 +1206,33 @@ details[open] .acc__icon::after {
 
   font-weight: 900;
   font-size: 14px;
-  color: rgba(31, 29, 24, 0.88);
+  color: rgba(31, 29, 24, 0.86);
 }
 
 .faq-item__q::-webkit-details-marker { display: none; }
 
 .faq-item__q::after {
   content: "+";
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-
-  font-weight: 900;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
-
-  color: rgba(31, 29, 24, 0.70);
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(31, 29, 24, 0.10);
-
-  transition: transform 200ms ease, background 200ms ease;
-  flex: 0 0 auto;
+  font-weight: 900;
+  color: rgba(200, 165, 123, 0.95);
+  opacity: 0.95;
+  transform: translateY(-1px);
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 
 details[open] > .faq-item__q::after {
-  content: "×";
-  transform: rotate(0deg);
-  background: rgba(255, 255, 255, 0.72);
+  content: "–";
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .faq-item__a {
-  padding: 0 18px 16px;
+  padding: 0 18px 14px;
   color: rgba(31, 29, 24, 0.72);
   font-size: 13.5px;
-  line-height: 1.65;
+  line-height: 1.62;
 }
 
 .faq__media {
@@ -1249,13 +1245,13 @@ details[open] > .faq-item__q::after {
 
 .faq__media img {
   width: 100%;
-  height: 260px;
+  height: 300px;
   object-fit: cover;
   display: block;
 }
 
 @media (min-width: 920px) {
-  .faq { padding: 10px 24px 34px; }
+  .faq { padding: 18px 24px 34px; }
 
   .faq__title {
     font-size: 46px;
@@ -1274,7 +1270,6 @@ details[open] > .faq-item__q::after {
   .faq__media { height: 100%; }
   .faq__media img { height: 100%; min-height: 420px; }
 }
-
 
 /* ---------------- CONTACT ---------------- */
 .contact {

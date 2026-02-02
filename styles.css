@@ -515,10 +515,14 @@ body::after {
   will-change: transform;
 }
 
-/* ✅ Mobile: alternating card shades (light / slightly darker) */
+/* ✅ Mobile: alternating card shades (1st stays as-is, 2nd is between card + CTA) */
 @media (max-width: 919px) {
-  .services .svc { background: rgba(255, 255, 255, 0.66); }
-  .services .svc:nth-child(even) { background: rgba(255, 255, 255, 0.58); }
+  .services{
+    --svc-a: rgba(255, 255, 255, 0.66);  /* όπως ήταν */
+    --svc-b: rgba(228, 210, 189, 0.69);  /* ενδιάμεσο προς CTA */
+  }
+  .services .svc { background: var(--svc-a); }
+  .services .svc:nth-child(even) { background: var(--svc-b); }
 }
 
 .svc.is-active {

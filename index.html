@@ -41,7 +41,6 @@
 </head>
 
 <body>
-  <!-- HERO -->
   <header class="hero" id="top">
     <div class="hero__wrap">
       <div class="topbar">
@@ -63,7 +62,6 @@
           <a class="pill pill--primary" href="#contact">Επικοινωνία</a>
         </nav>
 
-        <!-- ✅ Social icons (Nav - desktop) -->
         <div class="nav-social" aria-label="Social media">
           <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -99,7 +97,6 @@
         <a class="mnav__link" href="#about">Σχετικά</a>
         <a class="mnav__link mnav__link--primary" href="#contact">Επικοινωνία</a>
 
-        <!-- ✅ Social icons (Hamburger - mobile) -->
         <div class="mnav__social" aria-label="Social media">
           <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -176,7 +173,6 @@
   </header>
 
   <main id="main">
-    <!-- SERVICES -->
     <section class="services" id="services">
       <div class="services__wrap">
         <header class="services__head">
@@ -194,7 +190,7 @@
                 <div class="svc__num" aria-hidden="true">01</div>
               </div>
               <h3 class="svc__title">Ατομική Ψυχοθεραπεία</h3>
-              <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στην ασφάλεια και στη σχέση.</p>
+              <p class="svc__desc">Για ενήλικες, εφήβους και παιδιά, με έμφαση στη σχέση και στην ασφάλεια.</p>
 
               <details class="svc__more">
                 <summary class="svc__summary">
@@ -323,7 +319,6 @@
       </div>
     </section>
 
-    <!-- WORK WITH -->
     <section class="work-with" id="work-with">
       <div class="work-with__wrap">
         <div class="soft-banner">
@@ -372,7 +367,6 @@
       </div>
     </section>
 
-    <!-- FOCUS -->
     <section class="focus" id="focus">
       <div class="focus__wrap">
         <header class="focus__head">
@@ -496,8 +490,6 @@
       </div>
     </section>
 
-
-    <!-- ABOUT -->
     <section class="about" id="about">
       <div class="about__wrap">
         <div class="about__grid">
@@ -520,7 +512,6 @@
               και μια σταθερή συνεργασία ώστε το σπίτι να γίνει πιο ήρεμο, πιο προβλέψιμο, πιο ανθρώπινο.
             </p>
 
-            <!-- ✅ CTA στο τέλος του "Σχετικά" (mobile + desktop) -->
             <div class="about__cta">
               <a class="btn btn--primary" href="#contact">Κάντε το πρώτο βήμα</a>
             </div>
@@ -535,7 +526,6 @@
       </div>
     </section>
 
-    <!-- TIMELINE -->
     <section class="timeline" id="timeline">
       <div class="timeline__wrap">
         <header class="timeline__head">
@@ -593,7 +583,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section class="faq" id="faq">
       <div class="faq__wrap">
         <header class="faq__head">
@@ -635,7 +624,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="contact__wrap">
         <header class="contact__head">
@@ -664,7 +652,6 @@
               <div class="ci-row">
                 <div class="ci-k">Social</div>
 
-                <!-- ✅ Social icons (Contact) -->
                 <div class="ci-social" aria-label="Social media">
                   <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -729,7 +716,6 @@
           Ιδιωτικές συνεδρίες στη Ρόδο • Ένας ήρεμος χώρος για να ακουστείτε χωρίς πίεση, με καθαρά βήματα.
         </div>
 
-        <!-- ✅ Social icons (Footer) -->
         <div class="site-footer__social" aria-label="Social media">
           <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -786,7 +772,6 @@
     </div>
   </footer>
 
-  <!-- ✅ Scroll-to-top (μόνο mobile) -->
   <button class="to-top" type="button" aria-label="Επιστροφή στην κορυφή">
     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
       <path d="M12 5l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -837,13 +822,13 @@
       svc.forEach((c) => io.observe(c));
     }
 
-    // ✅ Focus accordions: start closed on mobile
+    // Focus accordions: start closed on mobile
     const focusAcc = Array.from(document.querySelectorAll(".focus .acc"));
     if (focusAcc.length && window.matchMedia("(max-width: 919px)").matches) {
       focusAcc.forEach((d) => d.removeAttribute("open"));
     }
 
-    // ✅ Scroll-to-top button (mobile only)
+    // Scroll-to-top button
     const toTop = document.querySelector(".to-top");
     let ticking = false;
 

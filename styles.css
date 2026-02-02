@@ -83,6 +83,17 @@ body {
   position: relative;
 }
 
+/* --- REVEAL EFFECTS --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms ease, transform 800ms ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -150,11 +161,16 @@ body::after {
   background: rgba(255, 255, 255, 0.55);
   border-color: rgba(31, 29, 24, 0.16);
 }
+/* Λεπτεπίλεπτα icons */
+.social-btn svg {
+  display: block;
+  stroke-width: 1px;
+}
+
 .social-btn:focus-visible{
   outline: 2px solid rgba(200, 165, 123, 0.55);
   outline-offset: 2px;
 }
-.social-btn svg{ display:block; }
 
 /* ---------------- HERO ---------------- */
 .hero {
@@ -739,7 +755,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.62);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px;
+  padding: 24px;
   display: grid;
   gap: 12px;
 }
@@ -827,12 +843,11 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 @media (min-width: 920px) {
   .work-with { padding: 10px 24px 34px; }
 
+  /* FULL WIDTH FOR SOFT BANNER */
   .soft-banner {
-    max-width: calc(var(--svc-w) + var(--svc-w) + 14px);
-    margin-left: 0;
-    margin-right: auto;
-
-    grid-template-columns: 1.2fr 0.8fr;
+    width: 100%;
+    max-width: none;
+    grid-template-columns: 1fr auto;
     align-items: center;
   }
 
@@ -1287,7 +1302,7 @@ details[open] > .faq-item__q::after {
   .faq__media img { height: auto; min-height: 0; }
 }
 
-/* ---------------- CONTACT (Option 2: Unified Card - FULL BLEED FIX) ---------------- */
+/* ---------------- CONTACT ---------------- */
 .contact {
   padding: 6px 16px 34px;
 }
@@ -1324,7 +1339,6 @@ details[open] > .faq-item__q::after {
   background: rgba(255, 255, 255, 0.62);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   
-  /* ✅ FIX: Remove padding so image touches the edges */
   padding: 0;
   overflow: hidden;
 }
@@ -1332,7 +1346,7 @@ details[open] > .faq-item__q::after {
 /* Grid Layout */
 .contact-card__grid {
   display: grid;
-  gap: 0; /* ✅ No gap, seamless design */
+  gap: 0; 
 }
 
 /* Left Column */
@@ -1344,14 +1358,13 @@ details[open] > .faq-item__q::after {
 .contact-card__media img {
   width: 100%;
   height: auto;
-  border-radius: 0; /* ✅ No radius, parent overflow handles it */
+  border-radius: 0;
   object-fit: cover;
   display: block;
 }
 
 /* Info Rows */
 .contact-card__info {
-  /* ✅ Add padding here since card has none */
   padding: 24px 24px 0 24px;
 }
 
@@ -1396,7 +1409,6 @@ details[open] > .faq-item__q::after {
 .contact-card__form {
   display: grid;
   gap: 12px;
-  /* ✅ Add padding here since card has none */
   padding: 24px;
 }
 
@@ -1445,13 +1457,12 @@ details[open] > .faq-item__q::after {
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
   
-  /* Remove card padding, let grid handle layout */
   .contact-card { padding: 0; }
 
   .contact-card__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 0; /* ✅ Seamless split */
-    align-items: stretch; /* ✅ Both columns same height */
+    gap: 0; 
+    align-items: stretch; 
   }
 
   .contact-card__left {
@@ -1460,7 +1471,7 @@ details[open] > .faq-item__q::after {
   }
 
   .contact-card__media {
-    flex: 1; /* ✅ Takes available space */
+    flex: 1; 
     position: relative;
     min-height: 300px;
   }
@@ -1741,64 +1752,4 @@ details[open] > .faq-item__q::after {
 
 @media (min-width: 920px) {
   .to-top { display: none; }
-}
-
-
-/* ---------------- MAP ---------------- */
-.map {
-  padding: 0 16px 34px;
-}
-
-.map__wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.map__head {
-  display: grid;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.map__title {
-  font-family: var(--serif);
-  margin: 0;
-  font-size: 22px;
-}
-
-.map__sub {
-  margin: 0;
-  color: rgba(31, 29, 24, 0.70);
-  line-height: 1.55;
-  font-size: 13.5px;
-  max-width: 80ch;
-}
-
-.map-card {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-.map__frame {
-  width: 100%;
-  height: 360px;
-  border: 0;
-  display: block;
-}
-
-@media (min-width: 920px) {
-  .map { padding: 0 24px 46px; }
-
-  .map__title {
-    font-size: 46px;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-  }
-
-  .map__sub { font-size: 14.5px; }
-
-  .map__frame { height: 420px; }
 }

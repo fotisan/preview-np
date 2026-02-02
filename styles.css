@@ -523,9 +523,9 @@ body::after {
   will-change: transform;
 }
 
-/* ΑΛΛΑΓΗ ΓΙΑ ΚΙΝΗΤΑ: Τα ζυγά (2, 4, 6) παίρνουν το μπεζ χρώμα */
+/* ΑΛΛΑΓΗ ΧΡΩΜΑΤΟΣ: Τα ζυγά (2, 4, 6) παίρνουν το ενδιάμεσο χρώμα */
 .svc:nth-child(even) {
-  background: #ebe0d1; 
+  background: #faf8f4; 
 }
 
 .svc.is-active {
@@ -651,9 +651,9 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     transition: transform 200ms ease;
   }
 
-  /* ΑΛΛΑΓΗ ΓΙΑ DESKTOP: Επαναφορά όλων των πλαισίων στο λευκό */
+  /* DESKTOP: Εφαρμογή του ίδιου ενδιάμεσου χρώματος */
   .svc:nth-child(even) {
-    background: #fff;
+    background: #faf8f4;
   }
   
   /* Επαναφορά του εικονιδίου στο κανονικό για desktop */

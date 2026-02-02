@@ -17,14 +17,14 @@
 }
 
 :root {
-  /* --- COLORS (UPDATED: Warm Beige / Solid) --- */
-  --bg: #fdfbf7; /* Πιο καθαρό, θερμό μπεζ (σαν την εικόνα 2) */
+  /* --- COLORS (UPDATED: Matched to Image Reference) --- */
+  --bg: #f9f6f2; /* Θερμό μπεζ όπως στην εικόνα */
   --bg-2: #f4f0e9;
   --ink: #1f1d1a;
   --muted: rgba(31, 29, 26, 0.68);
   --line: rgba(31, 29, 26, 0.12);
 
-  --card: #ffffff; /* Λευκές κάρτες για καθαρότητα */
+  --card: #ffffff;
   --card-solid: #ffffff;
   --shadow: 0 18px 50px rgba(31, 29, 26, 0.06);
 
@@ -32,10 +32,10 @@
   --mint: #7faea0;
 
   /* CTA palette */
-  --cta-bg: rgba(200, 165, 123, 0.9); /* Πιο συμπαγές χρώμα */
+  --cta-bg: rgba(200, 165, 123, 0.9);
   --cta-bg-hover: #bfa17d;
   --cta-border: rgba(200, 165, 123, 1);
-  --cta-text: #ffffff;
+  --cta-text: var(--ink); /* ΑΛΛΑΓΗ: Μαύρα γράμματα στα κουμπιά */
 
   /* Services alternating backgrounds */
   --svc-a: #ffffff;
@@ -50,7 +50,7 @@
   --serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
   --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
 
-  /* layout (UPDATED: Increased width for "airy" feel) */
+  /* layout */
   --wrap: 1080px;
 
   /* shared card width for desktop */
@@ -117,20 +117,18 @@ img {
   background: transparent;
 }
 
-/* --- UPDATED: REMOVED BLOBS (Clean Background) --- */
 body::before,
 body::after {
   display: none;
 }
 
-/* --- UPDATED: SOCIAL BUTTONS (Like Image 1) --- */
+/* --- SOCIAL BUTTONS --- */
 .social-btn{
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Απόλυτος κύκλος */
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  /* Πιο έντονο, σκούρο περίγραμμα */
   border: 1.5px solid rgba(31, 29, 24, 0.6); 
   background: transparent;
   color: rgba(31, 29, 24, 0.9);
@@ -154,7 +152,7 @@ body::after {
 
 /* ---------------- HERO ---------------- */
 .hero {
-  padding: 40px 16px 40px; /* Λίγο περισσότερο padding */
+  padding: 40px 16px 40px;
 }
 
 .hero__wrap {
@@ -193,7 +191,7 @@ body::after {
 }
 
 .brand__name {
-  font-family: var(--serif); /* UPDATED font */
+  font-family: var(--serif);
   font-weight: 700;
   letter-spacing: -0.01em;
   font-size: 18px;
@@ -232,7 +230,7 @@ body::after {
 .pill--primary {
   background: var(--cta-bg);
   border-color: var(--cta-border);
-  color: #fff;
+  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
 }
 
 .pill--primary:hover {
@@ -298,7 +296,7 @@ body::after {
 
 /* Buttons */
 .btn {
-  height: 48px; /* Λίγο πιο ψηλά κουμπιά */
+  height: 48px;
   padding: 0 20px;
   border-radius: 999px;
   display: inline-flex;
@@ -309,7 +307,7 @@ body::after {
 
   border: 1px solid var(--cta-border);
   background: var(--cta-bg);
-  color: var(--cta-text);
+  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα μέσω μεταβλητής */
 
   transition: transform 200ms ease, background 200ms ease;
 }
@@ -321,7 +319,7 @@ body::after {
 
 .btn--primary {
   background: var(--cta-bg);
-  color: var(--cta-text);
+  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
   border-color: var(--cta-border);
 }
 
@@ -372,7 +370,6 @@ body::after {
   gap: 12px;
 }
 
-/* HERO FIX */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -467,7 +464,7 @@ body::after {
 .services__title {
   font-family: var(--serif);
   margin: 0;
-  font-size: 26px; /* UPDATED Size */
+  font-size: 26px;
   letter-spacing: -0.01em;
   font-weight: 700;
 }
@@ -622,7 +619,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
   }
 
   .services__row {
-    display: contents; /* Changed for grid layout */
+    display: contents;
   }
 
   .svc {
@@ -664,7 +661,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
   }
 
   .svc__title {
-    font-family: var(--serif); /* Ensure Serif */
+    font-family: var(--serif);
     font-size: 20px;
     letter-spacing: -0.01em;
     margin: 0 0 8px;
@@ -730,7 +727,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 
 .soft-banner__title {
   margin: 0 0 6px;
-  font-family: var(--serif); /* Serif */
+  font-family: var(--serif);
   font-weight: 700;
   font-size: 20px;
   letter-spacing: -0.01em;
@@ -800,7 +797,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 
 .mode__title {
   margin: 0;
-  font-family: var(--serif); /* Serif */
+  font-family: var(--serif);
   font-weight: 700;
   font-size: 16px;
 }
@@ -983,7 +980,6 @@ details[open] .acc__icon::after {
   flex-wrap: wrap;
 }
 
-/* About image: no border/shadow */
 .portrait {
   margin: 0 auto;
   width: 100%;
@@ -1061,7 +1057,7 @@ details[open] .acc__icon::after {
   bottom: 6px;
   width: 2px;
   border-radius: 99px;
-  background: rgba(31, 29, 24, 0.1); /* Solid line */
+  background: rgba(31, 29, 24, 0.1);
 }
 
 .tl {
@@ -1076,7 +1072,7 @@ details[open] .acc__icon::after {
   height: 12px;
   border-radius: 999px;
   background: var(--warm);
-  box-shadow: 0 0 0 4px #fff; /* White ring for contrast */
+  box-shadow: 0 0 0 4px #fff;
 }
 
 .tl__dot--mint {
@@ -1401,7 +1397,11 @@ details[open] > .faq-item__q::after {
   margin-top: 8px;
 }
 
-.btn--outline { background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(31, 29, 24, 0.1); }
+.btn--outline {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 29, 24, 0.1);
+  color: var(--ink); /* Διατηρεί το σκούρο χρώμα */
+}
 
 .contact-form__note {
   margin: 0;
@@ -1536,7 +1536,7 @@ details[open] > .faq-item__q::after {
 
 .mnav__link--primary {
   background: var(--cta-bg);
-  color: #fff;
+  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
   border-color: var(--cta-border);
 }
 
@@ -1566,7 +1566,7 @@ details[open] > .faq-item__q::after {
 .site-footer__wrap {
   max-width: var(--wrap);
   margin: 0 auto;
-  border-radius: 0; /* Removing border/radius for cleaner footer */
+  border-radius: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -1594,7 +1594,7 @@ details[open] > .faq-item__q::after {
   color: rgba(31, 29, 24, 0.66);
   font-size: 13px;
   line-height: 1.45;
-  max-width: 70ch;
+  max-width: 100%; /* ΑΛΛΑΓΗ: Συνεχόμενο κείμενο (removed 70ch) */
 }
 
 .site-footer__social {
@@ -1685,9 +1685,9 @@ details[open] > .faq-item__q::after {
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  border: 1px solid rgba(31, 29, 24, 0.05);
-  background: var(--ink); /* Dark button for visibility */
-  color: #fff;
+  border: 1px solid rgba(31, 29, 24, 0.1); /* ΑΛΛΑΓΗ: Λεπτό περίγραμμα */
+  background: #ffffff; /* ΑΛΛΑΓΗ: Λευκό φόντο */
+  color: var(--ink);   /* ΑΛΛΑΓΗ: Μαύρο βελάκι */
   box-shadow: 0 10px 30px rgba(31, 29, 24, 0.15);
   display: grid;
   place-items: center;
@@ -1704,13 +1704,14 @@ details[open] > .faq-item__q::after {
   transform: translateY(0);
 }
 
-.to-top:hover { background: #000; }
+.to-top:hover { 
+  background: #fdfdfd; 
+}
 
-/* UPDATED: ENABLED ON DESKTOP */
 @media (min-width: 920px) {
   .to-top {
     right: 30px;
     bottom: 30px;
-    display: grid; /* Ensure it's not hidden */
+    display: grid;
   }
 }

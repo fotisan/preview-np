@@ -134,23 +134,27 @@ body::after {
   background: radial-gradient(closest-side, rgba(127, 174, 160, 0.22) 0%, rgba(127, 174, 160, 0) 70%);
 }
 
-/* ✅ Social buttons (modern, glassy) */
-.social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  color: rgba(31, 29, 24, 0.82);
-  transition: background 200ms ease, transform 200ms ease;
+/* ✅ Social buttons (minimal) */
+.social-btn{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(31, 29, 24, 0.12);
+  background: rgba(255, 255, 255, 0.35);
+  color: rgba(31, 29, 24, 0.78);
+  transition: background 180ms ease, border-color 180ms ease;
 }
-.social-btn:hover {
-  background: rgba(255, 255, 255, 0.75);
-  transform: translateY(-1px);
+.social-btn:hover{
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(31, 29, 24, 0.16);
 }
-.social-btn svg { display: block; }
+.social-btn:focus-visible{
+  outline: 2px solid rgba(200, 165, 123, 0.55);
+  outline-offset: 2px;
+}
+.social-btn svg{ display:block; }
 
 /* ---------------- HERO ---------------- */
 .hero {
@@ -718,6 +722,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 }
 
 .soft-banner {
+  text-align: left;
   border-radius: 26px;
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.62);
@@ -810,10 +815,10 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 @media (min-width: 920px) {
   .work-with { padding: 10px 24px 34px; }
 
-  /* ✅ ίδιο πλάτος με 2 cards (Προσωπική Ανάπτυξη + Ομαδικές Δράσεις) */
+  /* ✅ ίδιο πλάτος με 2 cards (Γονεϊκή Υποστήριξη + Προσωπική Ανάπτυξη) */
   .soft-banner {
     max-width: calc(var(--svc-w) + var(--svc-w) + 14px);
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
 
     grid-template-columns: 1.2fr 0.8fr;
@@ -1635,19 +1640,38 @@ details[open] > .faq-item__q::after {
   line-height: 1.5;
 }
 
-.site-footer__bottom {
+.site-footer__bottom{
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px solid rgba(31, 29, 24, 0.10);
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
   color: rgba(31, 29, 24, 0.60);
   font-size: 12px;
 }
 
-.site-footer__dot { opacity: 0.6; }
+.site-footer__copy{
+  font-weight: 700;
+  color: rgba(31, 29, 24, 0.64);
+}
+
+.site-footer__credit{
+  color: rgba(31, 29, 24, 0.56);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer__credit span{
+  font-weight: 900;
+  color: rgba(31, 29, 24, 0.74);
+}
+
+.site-footer__credit:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 @media (min-width: 920px) {
   .site-footer {

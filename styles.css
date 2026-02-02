@@ -37,9 +37,9 @@
   --cta-border: rgba(200, 165, 123, 0.85);
   --cta-text: rgba(31, 29, 26, 0.92);
 
-  /* Services alternating backgrounds (2 shades) */
-  --svc-a: rgba(255, 255, 255, 0.62);
-  --svc-b: rgba(255, 255, 255, 0.74);
+  /* ✅ Services alternating backgrounds (mobile) */
+  --svc-a: rgba(255, 255, 255, 0.66);         /* 1ο όπως ήταν */
+  --svc-b: rgba(235, 223, 206, 0.70);         /* 2ο: ανάμεσα στο card και στο CTA */
 
   /* radii */
   --r-lg: 22px;
@@ -515,12 +515,8 @@ body::after {
   will-change: transform;
 }
 
-/* ✅ Mobile: alternating card shades (1st stays as-is, 2nd is between card + CTA) */
+/* ✅ Mobile: alternating card shades (first = original, second = warm-mid between card & CTA) */
 @media (max-width: 919px) {
-  .services{
-    --svc-a: rgba(255, 255, 255, 0.66);  /* όπως ήταν */
-    --svc-b: rgba(228, 210, 189, 0.69);  /* ενδιάμεσο προς CTA */
-  }
   .services .svc { background: var(--svc-a); }
   .services .svc:nth-child(even) { background: var(--svc-b); }
 }
@@ -1726,3 +1722,6 @@ details[open] > .faq-item__q::after {
 @media (min-width: 920px) {
   .to-top { display: none; }
 }
+``` :contentReference[oaicite:1]{index=1}
+
+Αν θες το “ενδιάμεσο” χρώμα (το `--svc-b`) να είναι **λίγο πιο κοντά** στο CTA ή **πιο ουδέτερο**, πες μου “πιο ζεστό” ή “πιο ήσυχο” και στο φέρνω ακριβώς εκεί που το θες.

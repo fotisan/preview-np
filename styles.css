@@ -373,14 +373,13 @@ body::after {
   gap: 12px;
 }
 
-/* HERO FIX: Τετράγωνη αναλογία (1/1) και εστίαση κάτω */
+/* HERO FIX */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.54);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  
   aspect-ratio: 1 / 1;
 }
 
@@ -572,7 +571,6 @@ body::after {
   font-size: 13.5px;
 }
 
-/* Accordion shell (mobile) */
 .svc__more {
   border-radius: 18px;
   border: 1px solid rgba(31, 29, 24, 0.10);
@@ -1254,7 +1252,6 @@ details[open] > .faq-item__q::after {
   line-height: 1.62;
 }
 
-/* FAQ Fix: No frame, auto height */
 .faq__media {
   border: 0;
   background: transparent;
@@ -1290,7 +1287,7 @@ details[open] > .faq-item__q::after {
   .faq__media img { height: auto; min-height: 0; }
 }
 
-/* ---------------- CONTACT (Option 2: Unified Card) ---------------- */
+/* ---------------- CONTACT (Option 2: Unified Card - FULL BLEED FIX) ---------------- */
 .contact {
   padding: 6px 16px 34px;
 }
@@ -1326,31 +1323,38 @@ details[open] > .faq-item__q::after {
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.62);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 16px;
+  
+  /* ✅ FIX: Remove padding so image touches the edges */
+  padding: 0;
   overflow: hidden;
 }
 
 /* Grid Layout */
 .contact-card__grid {
   display: grid;
-  gap: 22px;
+  gap: 0; /* ✅ No gap, seamless design */
 }
 
 /* Left Column */
 .contact-card__left {
   display: grid;
-  gap: 16px;
+  gap: 0;
 }
 
 .contact-card__media img {
   width: 100%;
   height: auto;
-  border-radius: 18px; /* Slightly smaller radius for inner image */
+  border-radius: 0; /* ✅ No radius, parent overflow handles it */
   object-fit: cover;
   display: block;
 }
 
-/* Info Rows (Clean style) */
+/* Info Rows */
+.contact-card__info {
+  /* ✅ Add padding here since card has none */
+  padding: 24px 24px 0 24px;
+}
+
 .ci-row {
   padding: 12px 0;
   border-top: 1px solid rgba(31, 29, 24, 0.10);
@@ -1388,10 +1392,12 @@ details[open] > .faq-item__q::after {
   padding-top: 4px;
 }
 
-/* Form (Clean style) */
+/* Form */
 .contact-card__form {
   display: grid;
   gap: 12px;
+  /* ✅ Add padding here since card has none */
+  padding: 24px;
 }
 
 .field { display: grid; gap: 8px; }
@@ -1439,12 +1445,32 @@ details[open] > .faq-item__q::after {
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
   
-  .contact-card { padding: 24px; }
+  /* Remove card padding, let grid handle layout */
+  .contact-card { padding: 0; }
 
   .contact-card__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: start;
+    gap: 0; /* ✅ Seamless split */
+    align-items: stretch; /* ✅ Both columns same height */
+  }
+
+  .contact-card__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-card__media {
+    flex: 1; /* ✅ Takes available space */
+    position: relative;
+    min-height: 300px;
+  }
+
+  .contact-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

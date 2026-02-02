@@ -837,6 +837,12 @@
       svc.forEach((c) => io.observe(c));
     }
 
+    // ✅ Focus accordions: start closed on mobile
+    const focusAcc = Array.from(document.querySelectorAll(".focus .acc"));
+    if (focusAcc.length && window.matchMedia("(max-width: 919px)").matches) {
+      focusAcc.forEach((d) => d.removeAttribute("open"));
+    }
+
     // ✅ Scroll-to-top button (mobile only)
     const toTop = document.querySelector(".to-top");
     let ticking = false;

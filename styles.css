@@ -515,6 +515,12 @@ body::after {
   will-change: transform;
 }
 
+/* ✅ Mobile: alternating card shades (light / slightly darker) */
+@media (max-width: 919px) {
+  .services .svc { background: rgba(255, 255, 255, 0.66); }
+  .services .svc:nth-child(even) { background: rgba(255, 255, 255, 0.58); }
+}
+
 .svc.is-active {
   transform: scale(0.96) translateY(0);
   opacity: 1;

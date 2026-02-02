@@ -53,7 +53,7 @@
   /* layout */
   --wrap: 980px;
 
-  /* shared card width for desktop (used also by banner width calc) */
+  /* shared card width for desktop */
   --svc-w: clamp(280px, 28vw, 340px);
 }
 
@@ -373,7 +373,7 @@ body::after {
   gap: 12px;
 }
 
-/* ✅ 1. HERO FIX: Τετράγωνη αναλογία (1/1) για περισσότερο ύψος */
+/* Hero media fix (square 1/1 + focus bottom) */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -381,15 +381,14 @@ body::after {
   background: rgba(255, 255, 255, 0.54);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   
-  aspect-ratio: 1 / 1; /* Πιο ψηλό από το 4/3 */
+  aspect-ratio: 1 / 1;
 }
 
-/* ✅ 1. HERO FIX: Εστίαση στο ΚΑΤΩ μέρος για να μη χάνονται τα κάδρα */
 .media__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom center; /* <-- Σημαντικό για να φαίνονται τα αντικείμενα κάτω */
+  object-position: bottom center;
   display: block;
 }
 
@@ -994,7 +993,7 @@ details[open] .acc__icon::after {
   flex-wrap: wrap;
 }
 
-/* ✅ 2. ABOUT FIX: Αφαίρεση περιγράμματος/σκιών */
+/* About image: no border/shadow */
 .portrait {
   margin: 0 auto;
   width: 100%;
@@ -1255,15 +1254,14 @@ details[open] > .faq-item__q::after {
   line-height: 1.62;
 }
 
-/* ✅ 3. FAQ FIX: Αφαίρεση του container frame */
+/* FAQ Fix: No frame, auto height */
 .faq__media {
   border: 0;
   background: transparent;
   box-shadow: none;
-  overflow: visible; /* Για να μην κόβει σκιές αν χρειαστεί */
+  overflow: visible;
 }
 
-/* ✅ 3. FAQ FIX: Η εικόνα είναι ελεύθερη και ολόκληρη (auto height) */
 .faq__media img {
   width: 100%;
   height: auto;
@@ -1289,7 +1287,6 @@ details[open] > .faq-item__q::after {
     align-items: start;
   }
 
-  /* Αφαιρούμε το min-height για να πάρει το φυσικό της μέγεθος */
   .faq__media img { height: auto; min-height: 0; }
 }
 
@@ -1328,24 +1325,23 @@ details[open] > .faq-item__q::after {
   margin-top: 18px;
 }
 
-/* ✅ 4. CONTACT FIX: Αφαίρεση στυλ κάρτας από το γενικό wrapper */
+/* Contact Fix: No frame on wrapper */
 .contact-info {
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-/* ✅ 4. CONTACT FIX: Εικόνα ολόκληρη και "ελεύθερη" */
 .contact-info__media img {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
   border-radius: 26px;
-  margin-bottom: 14px; /* Απόσταση από τα στοιχεία επικοινωνίας */
+  margin-bottom: 14px;
 }
 
-/* ✅ 4. CONTACT FIX: Το στυλ "κάρτας" μπαίνει ΜΟΝΟ στα κείμενα από κάτω */
+/* Contact info box styling */
 .contact-info__rows { 
   padding: 14px; 
   border-radius: 26px;
@@ -1458,11 +1454,14 @@ details[open] > .faq-item__q::after {
 
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
+
+  /* ✅ ΤΕΛΕΥΤΑΙΑ ΑΛΛΑΓΗ: align-items center */
   .contact__layout {
     grid-template-columns: 1.05fr 0.95fr;
     gap: 18px;
-    align-items: stretch;
+    align-items: center; /* <-- Εδώ είναι το μυστικό για να μη μένει κενό */
   }
+
   .contact-info__media img { height: auto; }
   .contact-form { padding: 16px; }
 }

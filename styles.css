@@ -53,7 +53,7 @@
   /* layout */
   --wrap: 980px;
 
-  /* shared card width for desktop */
+  /* shared card width for desktop (used also by banner width calc) */
   --svc-w: clamp(280px, 28vw, 340px);
 }
 
@@ -240,6 +240,7 @@ body::after {
   background: rgba(200, 165, 123, 0.82);
 }
 
+/* Nav social group */
 .nav-social {
   display: none;
   gap: 10px;
@@ -372,7 +373,7 @@ body::after {
   gap: 12px;
 }
 
-/* --- HERO IMAGE FIX --- */
+/* ✅ 1. HERO FIX: Τετράγωνη αναλογία (1/1) για περισσότερο ύψος */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -380,17 +381,15 @@ body::after {
   background: rgba(255, 255, 255, 0.54);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   
-  /* Σταθερή αναλογία 4:3 */
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1; /* Πιο ψηλό από το 4/3 */
 }
 
+/* ✅ 1. HERO FIX: Εστίαση στο ΚΑΤΩ μέρος για να μη χάνονται τα κάδρα */
 .media__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
-  /* ΑΛΛΑΓΗ 1: Εστίαση πιο ψηλά για να φανεί το θέμα */
-  object-position: center 25%;
+  object-position: bottom center; /* <-- Σημαντικό για να φαίνονται τα αντικείμενα κάτω */
   display: block;
 }
 
@@ -483,6 +482,7 @@ body::after {
   max-width: 70ch;
 }
 
+/* Mobile-first: horizontal scroll */
 .services__pyramid {
   display: flex;
   gap: 16px;
@@ -573,6 +573,7 @@ body::after {
   font-size: 13.5px;
 }
 
+/* Accordion shell (mobile) */
 .svc__more {
   border-radius: 18px;
   border: 1px solid rgba(31, 29, 24, 0.10);
@@ -993,18 +994,17 @@ details[open] .acc__icon::after {
   flex-wrap: wrap;
 }
 
+/* ✅ 2. ABOUT FIX: Αφαίρεση περιγράμματος/σκιών */
 .portrait {
   margin: 0 auto;
   width: 100%;
-  
-  /* ΑΛΛΑΓΗ 2: Μείωση πλάτους από 390px σε 388px */
-  max-width: 388px;
-  
+  max-width: 390px;
   border-radius: 26px;
   overflow: hidden;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .portrait__img {
@@ -1022,7 +1022,7 @@ details[open] .acc__icon::after {
   }
 
   .about__media { display: flex; justify-content: center; }
-  .portrait { width: 100%; max-width: 388px; }
+  .portrait { width: 100%; max-width: 390px; }
 }
 
 /* ---------------- TIMELINE ---------------- */
@@ -1255,23 +1255,20 @@ details[open] > .faq-item__q::after {
   line-height: 1.62;
 }
 
-/* ΑΛΛΑΓΗ 3: FAQ Εικόνα - Ολόκληρη και "αεράτη" */
+/* ✅ 3. FAQ FIX: Αφαίρεση του container frame */
 .faq__media {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: var(--bg-2); /* Φόντο για να μη φαίνεται κενό αν περισσεύει χώρος */
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible; /* Για να μην κόβει σκιές αν χρειαστεί */
 }
 
+/* ✅ 3. FAQ FIX: Η εικόνα είναι ελεύθερη και ολόκληρη (auto height) */
 .faq__media img {
   width: 100%;
   height: auto;
-  object-fit: contain; /* Δείχνει όλη την εικόνα */
-  max-height: 450px;   /* Περιορισμός ύψους για να μη γίνει τεράστια */
+  border-radius: 26px;
+  object-fit: cover;
   display: block;
 }
 
@@ -1291,6 +1288,9 @@ details[open] > .faq-item__q::after {
     gap: 18px;
     align-items: start;
   }
+
+  /* Αφαιρούμε το min-height για να πάρει το φυσικό της μέγεθος */
+  .faq__media img { height: auto; min-height: 0; }
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -1328,30 +1328,31 @@ details[open] > .faq-item__q::after {
   margin-top: 18px;
 }
 
+/* ✅ 4. CONTACT FIX: Αφαίρεση στυλ κάρτας από το γενικό wrapper */
 .contact-info {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  overflow: hidden;
-}
-
-/* ΑΛΛΑΓΗ 4: Contact Εικόνα - Ολόκληρη, όπως στο FAQ */
-.contact-info__media {
   background: transparent;
-  display: block;
-  text-align: center;
+  border: 0;
+  box-shadow: none;
 }
 
+/* ✅ 4. CONTACT FIX: Εικόνα ολόκληρη και "ελεύθερη" */
 .contact-info__media img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  max-height: 400px; /* Ελαφρώς μικρότερο όριο για να δένει με τη φόρμα */
   display: block;
+  border-radius: 26px;
+  margin-bottom: 14px; /* Απόσταση από τα στοιχεία επικοινωνίας */
 }
 
-.contact-info__rows { padding: 14px; }
+/* ✅ 4. CONTACT FIX: Το στυλ "κάρτας" μπαίνει ΜΟΝΟ στα κείμενα από κάτω */
+.contact-info__rows { 
+  padding: 14px; 
+  border-radius: 26px;
+  border: 1px solid rgba(31, 29, 24, 0.10);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
 
 .ci-row {
   padding: 12px 0;
@@ -1462,6 +1463,7 @@ details[open] > .faq-item__q::after {
     gap: 18px;
     align-items: stretch;
   }
+  .contact-info__media img { height: auto; }
   .contact-form { padding: 16px; }
 }
 

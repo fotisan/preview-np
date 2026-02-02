@@ -17,9 +17,10 @@
 }
 
 :root {
-  /* --- COLORS (UPDATED: Matched to Image Reference) --- */
-  --bg: #f9f6f2; /* Θερμό μπεζ όπως στην εικόνα */
-  --bg-2: #f4f0e9;
+  /* --- COLORS (UPDATED) --- */
+  --bg: #f6f1ea; /* Απαλό εκρού/μπεζ */
+  --bg-2: #f1ebe3; /* Ελαφρώς πιο σκούρο μπεζ */
+  
   --ink: #1f1d1a;
   --muted: rgba(31, 29, 26, 0.68);
   --line: rgba(31, 29, 26, 0.12);
@@ -35,7 +36,7 @@
   --cta-bg: rgba(200, 165, 123, 0.9);
   --cta-bg-hover: #bfa17d;
   --cta-border: rgba(200, 165, 123, 1);
-  --cta-text: var(--ink); /* ΑΛΛΑΓΗ: Μαύρα γράμματα στα κουμπιά */
+  --cta-text: var(--ink);
 
   /* Services alternating backgrounds */
   --svc-a: #ffffff;
@@ -75,12 +76,19 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--bg);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+
+  /* --- ΝΕΟ BACKGROUND --- */
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(200,165,123,.18), transparent 45%),
+    radial-gradient(circle at 100% 0%, rgba(230,193,177,.18), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(127,174,160,.14), transparent 50%),
+    var(--bg);
+  background-attachment: fixed; /* Κρατάει τα gradients σταθερά στο scroll */
 }
 
 /* --- REVEAL EFFECTS --- */
@@ -230,7 +238,7 @@ body::after {
 .pill--primary {
   background: var(--cta-bg);
   border-color: var(--cta-border);
-  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
+  color: var(--cta-text);
 }
 
 .pill--primary:hover {
@@ -307,7 +315,7 @@ body::after {
 
   border: 1px solid var(--cta-border);
   background: var(--cta-bg);
-  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα μέσω μεταβλητής */
+  color: var(--cta-text);
 
   transition: transform 200ms ease, background 200ms ease;
 }
@@ -319,7 +327,7 @@ body::after {
 
 .btn--primary {
   background: var(--cta-bg);
-  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
+  color: var(--cta-text);
   border-color: var(--cta-border);
 }
 
@@ -514,6 +522,11 @@ body::after {
   will-change: transform;
 }
 
+/* ΑΛΛΑΓΗ: Η δεύτερη κάρτα σε κάθε σειρά παίρνει χρώμα mix (White + CTA) */
+.svc:nth-child(2) {
+  background: #ebe0d1; 
+}
+
 .svc.is-active {
   transform: scale(1) translateY(0);
   opacity: 1;
@@ -537,6 +550,11 @@ body::after {
   background: #fcfcfc;
   box-shadow: 0 10px 22px rgba(31, 29, 24, 0.03);
   font-size: 24px;
+}
+
+/* Διαφανές background στο εικονίδιο της 2ης κάρτας για να ταιριάζει με το φόντο */
+.svc:nth-child(2) .svc__icon {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .svc__num { display: none; }
@@ -698,7 +716,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     top: 0.55em;
     width: 6px;
     height: 6px;
-    border-radius: 999px;
+    border-radius: 99px;
     background: var(--warm);
     transform: translateY(-50%);
   }
@@ -1400,7 +1418,7 @@ details[open] > .faq-item__q::after {
 .btn--outline {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(31, 29, 24, 0.1);
-  color: var(--ink); /* Διατηρεί το σκούρο χρώμα */
+  color: var(--ink);
 }
 
 .contact-form__note {
@@ -1536,7 +1554,7 @@ details[open] > .faq-item__q::after {
 
 .mnav__link--primary {
   background: var(--cta-bg);
-  color: var(--cta-text); /* ΑΛΛΑΓΗ: Μαύρα γράμματα */
+  color: var(--cta-text);
   border-color: var(--cta-border);
 }
 
@@ -1594,7 +1612,7 @@ details[open] > .faq-item__q::after {
   color: rgba(31, 29, 24, 0.66);
   font-size: 13px;
   line-height: 1.45;
-  max-width: 100%; /* ΑΛΛΑΓΗ: Συνεχόμενο κείμενο (removed 70ch) */
+  max-width: 100%;
 }
 
 .site-footer__social {
@@ -1677,7 +1695,7 @@ details[open] > .faq-item__q::after {
   }
 }
 
-/* ---------------- SCROLL TO TOP (UPDATED FOR DESKTOP) ---------------- */
+/* ---------------- SCROLL TO TOP ---------------- */
 .to-top {
   position: fixed;
   right: 16px;
@@ -1685,9 +1703,9 @@ details[open] > .faq-item__q::after {
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  border: 1px solid rgba(31, 29, 24, 0.1); /* ΑΛΛΑΓΗ: Λεπτό περίγραμμα */
-  background: #ffffff; /* ΑΛΛΑΓΗ: Λευκό φόντο */
-  color: var(--ink);   /* ΑΛΛΑΓΗ: Μαύρο βελάκι */
+  border: 1px solid rgba(31, 29, 24, 0.1);
+  background: #ffffff;
+  color: var(--ink);
   box-shadow: 0 10px 30px rgba(31, 29, 24, 0.15);
   display: grid;
   place-items: center;

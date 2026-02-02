@@ -373,7 +373,7 @@ body::after {
   gap: 12px;
 }
 
-/* Hero media fix (square 1/1 + focus bottom) */
+/* HERO FIX: Τετράγωνη αναλογία (1/1) και εστίαση κάτω */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -1455,11 +1455,12 @@ details[open] > .faq-item__q::after {
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
 
-  /* ✅ ΤΕΛΕΥΤΑΙΑ ΑΛΛΑΓΗ: align-items center */
+  /* ✅ ΤΕΛΙΚΗ ΔΙΟΡΘΩΣΗ: align-items: center αντί για stretch */
+  /* Αυτό είναι το κλειδί για να μην έχει κενά η φόρμα */
   .contact__layout {
     grid-template-columns: 1.05fr 0.95fr;
     gap: 18px;
-    align-items: center; /* <-- Εδώ είναι το μυστικό για να μη μένει κενό */
+    align-items: center; 
   }
 
   .contact-info__media img { height: auto; }

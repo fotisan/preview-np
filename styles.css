@@ -372,7 +372,7 @@ body::after {
   gap: 12px;
 }
 
-/* ✅ ΔΙΟΡΘΩΣΗ HERO: Πιο φυσική αναλογία 4/3 για κάδρα */
+/* --- HERO IMAGE FIX --- */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -380,13 +380,17 @@ body::after {
   background: rgba(255, 255, 255, 0.54);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   
-  aspect-ratio: 4 / 3; /* Αλλαγή από 3/2 για να δώσει περισσότερο ύψος */
+  /* Σταθερή αναλογία 4:3 */
+  aspect-ratio: 4 / 3;
 }
 
 .media__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
+  /* ΑΛΛΑΓΗ 1: Εστίαση πιο ψηλά για να φανεί το θέμα */
+  object-position: center 25%;
   display: block;
 }
 
@@ -992,7 +996,10 @@ details[open] .acc__icon::after {
 .portrait {
   margin: 0 auto;
   width: 100%;
-  max-width: 390px;
+  
+  /* ΑΛΛΑΓΗ 2: Μείωση πλάτους από 390px σε 388px */
+  max-width: 388px;
+  
   border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(31, 29, 24, 0.10);
@@ -1015,7 +1022,7 @@ details[open] .acc__icon::after {
   }
 
   .about__media { display: flex; justify-content: center; }
-  .portrait { width: 100%; max-width: 390px; }
+  .portrait { width: 100%; max-width: 388px; }
 }
 
 /* ---------------- TIMELINE ---------------- */
@@ -1248,18 +1255,23 @@ details[open] > .faq-item__q::after {
   line-height: 1.62;
 }
 
+/* ΑΛΛΑΓΗ 3: FAQ Εικόνα - Ολόκληρη και "αεράτη" */
 .faq__media {
   border-radius: 26px;
   border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.58);
+  background: var(--bg-2); /* Φόντο για να μη φαίνεται κενό αν περισσεύει χώρος */
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .faq__media img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain; /* Δείχνει όλη την εικόνα */
+  max-height: 450px;   /* Περιορισμός ύψους για να μη γίνει τεράστια */
   display: block;
 }
 
@@ -1279,8 +1291,6 @@ details[open] > .faq-item__q::after {
     gap: 18px;
     align-items: start;
   }
-
-  .faq__media img { height: 100%; min-height: 360px; }
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -1326,16 +1336,18 @@ details[open] > .faq-item__q::after {
   overflow: hidden;
 }
 
-/* ✅ ΔΙΟΡΘΩΣΗ CONTACT: Αφαίρεση σταθερού ύψους και χρώματος */
+/* ΑΛΛΑΓΗ 4: Contact Εικόνα - Ολόκληρη, όπως στο FAQ */
 .contact-info__media {
   background: transparent;
   display: block;
+  text-align: center;
 }
 
 .contact-info__media img {
   width: 100%;
-  height: auto; /* Αφήνει την εικόνα να πάρει το φυσικό της ύψος */
+  height: auto;
   object-fit: contain;
+  max-height: 400px; /* Ελαφρώς μικρότερο όριο για να δένει με τη φόρμα */
   display: block;
 }
 
@@ -1450,12 +1462,6 @@ details[open] > .faq-item__q::after {
     gap: 18px;
     align-items: stretch;
   }
-  
-  /* Στο desktop δεν χρειάζεται σταθερό ύψος */
-  .contact-info__media img { 
-    height: auto; 
-  }
-  
   .contact-form { padding: 16px; }
 }
 

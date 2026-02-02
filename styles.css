@@ -37,7 +37,7 @@
   --cta-border: rgba(200, 165, 123, 0.85);
   --cta-text: rgba(31, 29, 26, 0.92);
 
-  /* Services alternating backgrounds */
+  /* Services alternating backgrounds (2 shades) */
   --svc-a: rgba(255, 255, 255, 0.62);
   --svc-b: rgba(255, 255, 255, 0.74);
 
@@ -52,6 +52,8 @@
 
   /* layout */
   --wrap: 980px;
+
+  /* shared card width for desktop */
   --svc-w: clamp(280px, 28vw, 340px);
 }
 
@@ -104,7 +106,7 @@ img {
   background: transparent;
 }
 
-/* Global “one-section” feel background blobs */
+/* Global “one-section” feel */
 body::before,
 body::after {
   content: "";
@@ -187,14 +189,6 @@ body::after {
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.70);
   box-shadow: 0 10px 18px rgba(31, 29, 24, 0.06);
-  overflow: hidden; /* Ensures image stays in circle */
-}
-
-/* Fix for logo crispness */
-.brand__avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .brand__text {
@@ -378,7 +372,7 @@ body::after {
   gap: 12px;
 }
 
-/* ✅ UPDATED: Hero Image Fix */
+/* ✅ ΔΙΟΡΘΩΣΗ HERO: Πιο φυσική αναλογία 4/3 για κάδρα */
 .media__frame {
   border-radius: 26px;
   overflow: hidden;
@@ -386,17 +380,13 @@ body::after {
   background: rgba(255, 255, 255, 0.54);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   
-  /* Forces a nice 3:2 landscape shape regardless of the uploaded image */
-  aspect-ratio: 3 / 2; 
-  position: relative;
+  aspect-ratio: 4 / 3; /* Αλλαγή από 3/2 για να δώσει περισσότερο ύψος */
 }
 
-/* ✅ UPDATED: Hero Image Object Fit */
 .media__img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crops the image to fill the container nicely */
-  object-position: center 30%; /* Focus slightly higher than center */
+  object-fit: cover;
   display: block;
 }
 
@@ -489,7 +479,6 @@ body::after {
   max-width: 70ch;
 }
 
-/* Mobile-first: horizontal scroll */
 .services__pyramid {
   display: flex;
   gap: 16px;
@@ -580,7 +569,6 @@ body::after {
   font-size: 13.5px;
 }
 
-/* Accordion shell (mobile) */
 .svc__more {
   border-radius: 18px;
   border: 1px solid rgba(31, 29, 24, 0.10);
@@ -1010,14 +998,10 @@ details[open] .acc__icon::after {
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.58);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  
-  /* Ensure consistent display */
-  display: grid;
 }
 
 .portrait__img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -1270,13 +1254,12 @@ details[open] > .faq-item__q::after {
   background: rgba(255, 255, 255, 0.58);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   overflow: hidden;
-  position: relative;
 }
 
 .faq__media img {
   width: 100%;
   height: 260px;
-  object-fit: cover; /* Cover is fine for abstract/furniture */
+  object-fit: cover;
   display: block;
 }
 
@@ -1343,22 +1326,16 @@ details[open] > .faq-item__q::after {
   overflow: hidden;
 }
 
-/* ✅ UPDATED: Contact Image Fix */
+/* ✅ ΔΙΟΡΘΩΣΗ CONTACT: Αφαίρεση σταθερού ύψους και χρώματος */
 .contact-info__media {
-  /* Added a background color so "contain" doesn't look empty on sides */
-  background-color: #f1ebe3; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  background: transparent;
+  display: block;
 }
 
 .contact-info__media img {
   width: 100%;
-  height: 250px;
-  
-  /* CRITICAL: Changed to contain so the text in the picture isn't cut off */
-  object-fit: contain; 
+  height: auto; /* Αφήνει την εικόνα να πάρει το φυσικό της ύψος */
+  object-fit: contain;
   display: block;
 }
 
@@ -1474,10 +1451,9 @@ details[open] > .faq-item__q::after {
     align-items: stretch;
   }
   
-  /* UPDATED: Ensure consistency on desktop */
+  /* Στο desktop δεν χρειάζεται σταθερό ύψος */
   .contact-info__media img { 
-    height: 280px; 
-    object-fit: contain;
+    height: auto; 
   }
   
   .contact-form { padding: 16px; }

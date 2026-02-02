@@ -1290,7 +1290,7 @@ details[open] > .faq-item__q::after {
   .faq__media img { height: auto; min-height: 0; }
 }
 
-/* ---------------- CONTACT ---------------- */
+/* ---------------- CONTACT (Option 2: Unified Card) ---------------- */
 .contact {
   padding: 6px 16px 34px;
 }
@@ -1303,6 +1303,7 @@ details[open] > .faq-item__q::after {
 .contact__head {
   display: grid;
   gap: 8px;
+  margin-bottom: 22px;
 }
 
 .contact__title {
@@ -1319,37 +1320,37 @@ details[open] > .faq-item__q::after {
   max-width: 70ch;
 }
 
-.contact__layout {
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-/* Contact Fix: No frame on wrapper */
-.contact-info {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-.contact-info__media img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 26px;
-  margin-bottom: 14px;
-}
-
-/* Contact info box styling */
-.contact-info__rows { 
-  padding: 14px; 
+/* Unified Card Container */
+.contact-card {
   border-radius: 26px;
   border: 1px solid rgba(31, 29, 24, 0.10);
   background: rgba(255, 255, 255, 0.62);
   box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  padding: 16px;
+  overflow: hidden;
 }
 
+/* Grid Layout */
+.contact-card__grid {
+  display: grid;
+  gap: 22px;
+}
+
+/* Left Column */
+.contact-card__left {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-card__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px; /* Slightly smaller radius for inner image */
+  object-fit: cover;
+  display: block;
+}
+
+/* Info Rows (Clean style) */
 .ci-row {
   padding: 12px 0;
   border-top: 1px solid rgba(31, 29, 24, 0.10);
@@ -1387,12 +1388,8 @@ details[open] > .faq-item__q::after {
   padding-top: 4px;
 }
 
-.contact-form {
-  border-radius: 26px;
-  border: 1px solid rgba(31, 29, 24, 0.10);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
-  padding: 14px;
+/* Form (Clean style) */
+.contact-card__form {
   display: grid;
   gap: 12px;
 }
@@ -1403,14 +1400,16 @@ details[open] > .faq-item__q::after {
   font-size: 12px;
   font-weight: 700;
   color: rgba(31, 29, 24, 0.70);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
 }
 
 .field__input {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(31, 29, 24, 0.12);
-  background: rgba(255, 255, 255, 0.76);
-  padding: 12px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 13px 14px;
   font: inherit;
   color: rgba(31, 29, 24, 0.90);
   outline: none;
@@ -1418,23 +1417,7 @@ details[open] > .faq-item__q::after {
 
 .field__input:focus { border-color: rgba(31, 29, 24, 0.22); }
 
-.field__textarea { resize: vertical; min-height: 140px; }
-
-.contact-form .field__label {
-  text-transform: uppercase;
-  letter-spacing: 0.10em;
-  font-size: 11px;
-  font-weight: 900;
-  color: rgba(31, 29, 24, 0.60);
-}
-
-.contact-form .field__input {
-  border-radius: 16px;
-  padding: 13px 14px;
-  background: rgba(255, 255, 255, 0.82);
-}
-
-.contact-form .field__textarea { min-height: 170px; }
+.field__textarea { resize: vertical; min-height: 170px; }
 
 .contact-form__actions {
   display: flex;
@@ -1452,19 +1435,17 @@ details[open] > .faq-item__q::after {
   line-height: 1.55;
 }
 
+/* Adjustments for Desktop */
 @media (min-width: 920px) {
   .contact { padding: 10px 24px 46px; }
+  
+  .contact-card { padding: 24px; }
 
-  /* ✅ ΤΕΛΙΚΗ ΔΙΟΡΘΩΣΗ: align-items: center αντί για stretch */
-  /* Αυτό είναι το κλειδί για να μην έχει κενά η φόρμα */
-  .contact__layout {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 18px;
-    align-items: center; 
+  .contact-card__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
   }
-
-  .contact-info__media img { height: auto; }
-  .contact-form { padding: 16px; }
 }
 
 /* ---------------- MOBILE NAV (HAMBURGER) ---------------- */

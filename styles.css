@@ -17,9 +17,9 @@
 }
 
 :root {
-  /* --- COLORS (UPDATED) --- */
-  --bg: #f6f1ea; /* Απαλό εκρού/μπεζ */
-  --bg-2: #f1ebe3; /* Ελαφρώς πιο σκούρο μπεζ */
+  /* --- COLORS --- */
+  --bg: #f6f1ea;
+  --bg-2: #f1ebe3;
   
   --ink: #1f1d1a;
   --muted: rgba(31, 29, 26, 0.68);
@@ -38,7 +38,7 @@
   --cta-border: rgba(200, 165, 123, 1);
   --cta-text: var(--ink);
 
-  /* Services alternating backgrounds */
+  /* Services colors */
   --svc-a: #ffffff;
   --svc-b: #fcfcfc;
 
@@ -58,14 +58,11 @@
   --svc-w: clamp(280px, 28vw, 340px);
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -82,13 +79,13 @@ body {
   overflow-x: hidden;
   position: relative;
 
-  /* --- ΝΕΟ BACKGROUND --- */
+  /* --- BACKGROUND GRADIENTS --- */
   background: 
     radial-gradient(circle at 0% 0%, rgba(200,165,123,.18), transparent 45%),
     radial-gradient(circle at 100% 0%, rgba(230,193,177,.18), transparent 40%),
     radial-gradient(circle at 100% 100%, rgba(127,174,160,.14), transparent 50%),
     var(--bg);
-  background-attachment: fixed; /* Κρατάει τα gradients σταθερά στο scroll */
+  background-attachment: fixed;
 }
 
 /* --- REVEAL EFFECTS --- */
@@ -112,26 +109,18 @@ img {
   height: auto;
 }
 
-.hero,
-.services,
-.work-with,
-.focus,
-.about,
-.timeline,
-.faq,
-.contact {
+.hero, .services, .work-with, .focus, .about, .timeline, .faq, .contact, .map {
   position: relative;
   z-index: 1;
   background: transparent;
 }
 
-body::before,
-body::after {
+body::before, body::after {
   display: none;
 }
 
 /* --- SOCIAL BUTTONS --- */
-.social-btn{
+.social-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -142,7 +131,7 @@ body::after {
   color: rgba(31, 29, 24, 0.9);
   transition: all 0.2s ease;
 }
-.social-btn:hover{
+.social-btn:hover {
   background: var(--ink);
   color: #fff;
   border-color: var(--ink);
@@ -152,8 +141,7 @@ body::after {
   display: block;
   stroke-width: 1.5px;
 }
-
-.social-btn:focus-visible{
+.social-btn:focus-visible {
   outline: 2px solid rgba(200, 165, 123, 0.55);
   outline-offset: 2px;
 }
@@ -245,13 +233,6 @@ body::after {
   background: var(--cta-bg-hover);
 }
 
-/* Nav social group */
-.nav-social {
-  display: none;
-  gap: 10px;
-  align-items: center;
-}
-
 .divider {
   height: 1px;
   margin: 20px 0 30px;
@@ -313,11 +294,9 @@ body::after {
   justify-content: center;
   font-weight: 700;
   font-size: 14px;
-
   border: 1px solid var(--cta-border);
   background: var(--cta-bg);
   color: var(--cta-text);
-
   transition: transform 200ms ease, background 200ms ease;
 }
 
@@ -437,19 +416,16 @@ body::after {
 
 @media (min-width: 920px) {
   .hero { padding: 40px 24px 60px; }
-
   .hero__grid {
     grid-template-columns: 1.05fr 0.95fr;
     gap: 40px;
     align-items: start;
   }
-
   .hero__title {
     font-size: 54px;
     line-height: 0.98;
     letter-spacing: -0.03em;
   }
-
   .hero__lead { font-size: 16px; }
 }
 
@@ -522,10 +498,8 @@ body::after {
 
 /* --- ΕΙΔΙΚΗ ΚΛΑΣΗ ΓΙΑ ΤΙΣ ΣΚΟΥΡΕΣ ΚΑΡΤΕΣ (2, 4, 6) --- */
 .svc.svc--highlight {
-  /* Μπεζ που πλησιάζει το χρώμα του CTA αλλά κάνει αντίθεση με το λευκό */
   background: #dac5ad; 
   border-color: #d1bba2;
-  /* Ελαφρώς πιο έντονη σκιά για να ξεχωρίζει */
   box-shadow: 0 18px 40px rgba(31, 29, 24, 0.09);
 }
 
@@ -554,7 +528,7 @@ body::after {
   font-size: 24px;
 }
 
-/* Στις σκούρες κάρτες, κάνουμε το εικονίδιο λευκό για έντονη αντίθεση */
+/* Στις σκούρες κάρτες, λευκό εικονίδιο */
 .svc.svc--highlight .svc__icon {
   background: #ffffff;
   border-color: rgba(255,255,255, 0.6);
@@ -578,7 +552,7 @@ body::after {
   font-size: 14px;
 }
 
-/* Στις σκούρες κάρτες, το κείμενο πρέπει να είναι ευανάγνωστο */
+/* Κείμενο στις σκούρες κάρτες */
 .svc.svc--highlight .svc__desc {
   color: rgba(31, 29, 24, 0.85);
 }
@@ -591,7 +565,7 @@ body::after {
   text-align: left;
 }
 
-/* Το κουμπί 'περισσότερα' στις σκούρες κάρτες */
+/* Κουμπί 'περισσότερα' στις σκούρες κάρτες */
 .svc.svc--highlight .svc__more {
   background: rgba(255, 255, 255, 0.5);
   border-color: rgba(31, 29, 24, 0.05);
@@ -633,7 +607,6 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 
 @media (min-width: 920px) {
   .services { padding: 40px 24px 60px; }
-
   .services__head { margin-bottom: 30px; }
   .services__title {
     font-size: 48px;
@@ -651,9 +624,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .services__row {
-    display: contents;
-  }
+  .services__row { display: contents; }
 
   .svc {
     flex: auto;
@@ -665,7 +636,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     transition: transform 200ms ease;
   }
 
-  /* Στο Desktop, διατηρούμε το highlight για συνέπεια */
+  /* Desktop Highlight */
   .svc.svc--highlight {
     background: #dac5ad;
   }
@@ -713,7 +684,6 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     background: transparent;
   }
   
-  /* Διαφανές background στο desktop 'more' για τις highlight */
   .svc.svc--highlight .svc__more {
      background: transparent;
   }
@@ -855,8 +825,6 @@ details[open] .svc__chev { transform: rotate(-135deg); }
 
 @media (min-width: 920px) {
   .work-with { padding: 40px 24px 60px; }
-
-  /* FULL WIDTH FOR SOFT BANNER */
   .soft-banner {
     width: 100%;
     max-width: none;
@@ -864,9 +832,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     align-items: center;
     padding: 32px;
   }
-  
   .soft-banner__title { font-size: 24px; }
-
   .soft-banner__actions { justify-content: flex-end; }
   .work-with__head { margin-top: 50px; }
   .modes { grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -941,8 +907,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
   opacity: 0.7;
 }
 
-.acc__icon::before,
-.acc__icon::after {
+.acc__icon::before, .acc__icon::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -951,11 +916,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
   border-radius: 99px;
 }
 
-.acc__icon::before {
-  width: 12px;
-  height: 2px;
-}
-
+.acc__icon::before { width: 12px; height: 2px; }
 .acc__icon::after {
   width: 2px;
   height: 12px;
@@ -979,10 +940,7 @@ details[open] .acc__icon::after {
 
 @media (min-width: 920px) {
   .focus { padding: 40px 24px 60px; }
-  .focus__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
+  .focus__grid { grid-template-columns: 1fr 1fr; gap: 20px; }
 }
 
 /* ---------------- ABOUT ---------------- */
@@ -1030,7 +988,6 @@ details[open] .acc__icon::after {
   max-width: 450px;
   border-radius: 26px;
   overflow: hidden;
-  
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -1043,13 +1000,7 @@ details[open] .acc__icon::after {
 
 @media (min-width: 920px) {
   .about { padding: 40px 24px 60px; }
-
-  .about__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-
+  .about__grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
   .about__media { display: flex; justify-content: center; }
 }
 
@@ -1119,9 +1070,7 @@ details[open] .acc__icon::after {
   box-shadow: 0 0 0 4px #fff;
 }
 
-.tl__dot--mint {
-  background: var(--mint);
-}
+.tl__dot--mint { background: var(--mint); }
 
 .tl__card {
   border-radius: 26px;
@@ -1156,31 +1105,15 @@ details[open] .acc__icon::after {
 
 @media (min-width: 920px) {
   .timeline { padding: 40px 24px 60px; }
-
   .timeline__title {
     font-size: 46px;
     line-height: 0.98;
     letter-spacing: -0.03em;
   }
-
-  .timeline__list {
-    gap: 20px;
-    padding-left: 40px;
-  }
-
-  .timeline__list::before {
-    left: 18px;
-  }
-
-  .tl__dot {
-    left: -28px;
-    top: 20px;
-  }
-
-  .tl__card {
-    padding: 20px;
-  }
-
+  .timeline__list { gap: 20px; padding-left: 40px; }
+  .timeline__list::before { left: 18px; }
+  .tl__dot { left: -28px; top: 20px; }
+  .tl__card { padding: 20px; }
   .tl__title { font-size: 18px; }
 }
 
@@ -1241,7 +1174,6 @@ details[open] .acc__icon::after {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-
   font-weight: 700;
   font-size: 14.5px;
   color: rgba(31, 29, 24, 0.9);
@@ -1258,9 +1190,7 @@ details[open] .acc__icon::after {
   transform: translateY(-1px);
 }
 
-details[open] > .faq-item__q::after {
-  content: "–";
-}
+details[open] > .faq-item__q::after { content: "–"; }
 
 .faq-item__a {
   padding: 0 18px 16px;
@@ -1286,16 +1216,8 @@ details[open] > .faq-item__q::after {
 
 @media (min-width: 920px) {
   .faq { padding: 40px 24px 60px; }
-
-  .faq__title {
-    font-size: 46px;
-  }
-
-  .faq__grid {
-    grid-template-columns: 1.12fr 0.88fr;
-    gap: 30px;
-    align-items: start;
-  }
+  .faq__title { font-size: 46px; }
+  .faq__grid { grid-template-columns: 1.12fr 0.88fr; gap: 30px; align-items: start; }
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -1329,24 +1251,20 @@ details[open] > .faq-item__q::after {
   max-width: 70ch;
 }
 
-/* Unified Card Container */
 .contact-card {
   border-radius: 26px;
   border: 1px solid rgba(31, 29, 24, 0.06);
   background: #fff;
   box-shadow: var(--shadow);
-  
   padding: 0;
   overflow: hidden;
 }
 
-/* Grid Layout */
 .contact-card__grid {
   display: grid;
   gap: 0; 
 }
 
-/* Left Column */
 .contact-card__left {
   display: grid;
   gap: 0;
@@ -1360,7 +1278,6 @@ details[open] > .faq-item__q::after {
   display: block;
 }
 
-/* Info Rows */
 .contact-card__info {
   padding: 24px 24px 0 24px;
 }
@@ -1372,10 +1289,7 @@ details[open] > .faq-item__q::after {
   gap: 6px;
 }
 
-.ci-row:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
+.ci-row:first-child { border-top: 0; padding-top: 0; }
 
 .ci-k {
   font-size: 11px;
@@ -1402,7 +1316,6 @@ details[open] > .faq-item__q::after {
   padding-top: 4px;
 }
 
-/* Form */
 .contact-card__form {
   display: grid;
   gap: 14px;
@@ -1454,29 +1367,23 @@ details[open] > .faq-item__q::after {
   line-height: 1.55;
 }
 
-/* Adjustments for Desktop */
 @media (min-width: 920px) {
   .contact { padding: 40px 24px 60px; }
-  
   .contact-card { padding: 0; }
-
   .contact-card__grid {
     grid-template-columns: 1fr 1fr;
     gap: 0; 
     align-items: stretch; 
   }
-
   .contact-card__left {
     display: flex;
     flex-direction: column;
   }
-
   .contact-card__media {
     flex: 1; 
     position: relative;
     min-height: 300px;
   }
-
   .contact-card__media img {
     position: absolute;
     inset: 0;
@@ -1484,6 +1391,34 @@ details[open] > .faq-item__q::after {
     height: 100%;
     object-fit: cover;
     object-position: 50% 20%; 
+  }
+}
+
+/* ---------------- MAP SECTION ---------------- */
+.map {
+  padding: 0 16px 40px;
+}
+
+.map__frame {
+  max-width: 980px;
+  margin: 0 auto;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(31, 29, 24, 0.10);
+  box-shadow: 0 18px 50px rgba(31, 29, 26, 0.10);
+  background: #fff;
+}
+
+.map__frame iframe {
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 450px;
+}
+
+@media (min-width: 920px) {
+  .map {
+    padding: 0 24px 60px;
   }
 }
 
@@ -1549,7 +1484,6 @@ details[open] > .faq-item__q::after {
   padding: 12px;
   display: grid;
   gap: 10px;
-
   overflow: hidden;
   max-height: 0;
   opacity: 0;
@@ -1620,10 +1554,7 @@ details[open] > .faq-item__q::after {
   overflow: visible;
 }
 
-.site-footer__wrap::before {
-  display: none;
-}
-
+.site-footer__wrap::before { display: none; }
 .site-footer__wrap > * { position: relative; z-index: 1; }
 
 .site-footer__brand { display: grid; gap: 10px; margin-bottom: 24px; }
@@ -1649,7 +1580,6 @@ details[open] > .faq-item__q::after {
 }
 
 .site-footer__cols { display: grid; gap: 24px; }
-
 .site-footer__col { display: grid; gap: 8px; }
 
 .site-footer__k {
@@ -1659,15 +1589,13 @@ details[open] > .faq-item__q::after {
   margin-bottom: 2px;
 }
 
-.site-footer__link,
-.site-footer__legal {
+.site-footer__link, .site-footer__legal {
   font-weight: 800;
   font-size: 13.5px;
   color: rgba(31, 29, 24, 0.82);
 }
 
-.site-footer__link:hover,
-.site-footer__legal:hover {
+.site-footer__link:hover, .site-footer__legal:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1712,14 +1640,8 @@ details[open] > .faq-item__q::after {
 }
 
 @media (min-width: 920px) {
-  .site-footer {
-    padding: 60px 24px;
-  }
-
-  .site-footer__cols {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-  }
+  .site-footer { padding: 60px 24px; }
+  .site-footer__cols { grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
 }
 
 /* ---------------- SCROLL TO TOP ---------------- */
@@ -1771,30 +1693,32 @@ details[open] > .faq-item__q::after {
 }
 
 .svc-nav__btn {
-  background: transparent; /* Κανένα background */
-  border: none; /* Κανένα border */
-  box-shadow: none; /* Καμία σκιά */
-  color: rgba(31, 29, 24, 0.65); /* Σκούρο διακριτικό χρώμα βέλους */
+  /* No background, no border */
+  background: transparent;
+  border: none;
+  box-shadow: none;
   
-  width: 48px; /* Λίγο μεγαλύτερη περιοχή αφής */
+  color: rgba(31, 29, 24, 0.65); /* Darker arrow color */
+  
+  width: 48px;
   height: 48px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 24px; /* Λίγο μεγαλύτερο εικονίδιο */
+  font-size: 24px; /* Larger icon size */
   cursor: pointer;
+  padding: 0;
   
   transition: opacity 0.3s ease, transform 0.2s ease, color 0.2s ease;
-  padding: 0;
 }
 
 .svc-nav__btn:hover {
   background: transparent;
   color: var(--ink);
-  transform: scale(1.1); /* Ελαφριά μεγέθυνση στο πάτημα */
+  transform: scale(1.1);
 }
 
-/* Κλάση για να κρύβουμε τα βελάκια όταν δεν χρειάζονται */
+/* Class to hide arrows when at start/end */
 .svc-nav__btn.is-hidden {
   opacity: 0;
   pointer-events: none;

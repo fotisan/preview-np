@@ -1760,3 +1760,26 @@ details[open] > .faq-item__q::after {
     display: grid;
   }
 }
+
+/* ---------------- MOBILE SWIPE HINT ---------------- */
+.mobile-swipe-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--warm);
+  font-size: 20px;
+  /* Animation to nudge right */
+  animation: swipeBounce 1.5s infinite;
+}
+
+@keyframes swipeBounce {
+  0%, 100% { transform: translateX(0); opacity: 0.8; }
+  50% { transform: translateX(6px); opacity: 1; }
+}
+
+@media (min-width: 920px) {
+  .mobile-swipe-hint {
+    display: none;
+  }
+}

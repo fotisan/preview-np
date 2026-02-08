@@ -293,11 +293,18 @@
           </div>
         </div>
 
-        <div class="mobile-swipe-hint" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+        <div class="svc-nav" aria-label="Πλοήγηση υπηρεσιών">
+          <button class="svc-nav__btn svc-nav__prev" type="button" aria-label="Προηγούμενο">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <button class="svc-nav__btn svc-nav__next" type="button" aria-label="Επόμενο">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
 
       </div>
@@ -844,10 +851,14 @@
       });
     }
 
-    // Services active card (mobile)
+    // Services active card (mobile) & Arrows Logic
     const svc = Array.from(document.querySelectorAll(".svc"));
     const scroller = document.querySelector(".services__pyramid");
+    const btnPrev = document.querySelector(".svc-nav__prev");
+    const btnNext = document.querySelector(".svc-nav__next");
+
     if (svc.length && scroller) {
+      // 1. Observer for 'active' effect
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -860,6 +871,53 @@
         { root: scroller, threshold: 0.6 }
       );
       svc.forEach((c) => io.observe(c));
+
+      // 2. Logic for Arrow Buttons
+      if (btnPrev && btnNext) {
+        
+        // Function to scroll
+        const scrollAmount = () => {
+          // Scroll by approx one card width + gap
+          const cardW = svc[0].offsetWidth;
+          return cardW + 16;
+        };
+
+        btnPrev.addEventListener("click", () => {
+          scroller.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+        });
+
+        btnNext.addEventListener("click", () => {
+          scroller.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+        });
+
+        // Function to update visibility
+        const updateArrows = () => {
+          // Tolerance of a few pixels
+          const maxScroll = scroller.scrollWidth - scroller.clientWidth - 5;
+          const current = scroller.scrollLeft;
+
+          // At start -> Hide Prev
+          if (current <= 5) {
+            btnPrev.classList.add("is-hidden");
+          } else {
+            btnPrev.classList.remove("is-hidden");
+          }
+
+          // At end -> Hide Next
+          if (current >= maxScroll) {
+            btnNext.classList.add("is-hidden");
+          } else {
+            btnNext.classList.remove("is-hidden");
+          }
+        };
+
+        // Listen to scroll events
+        scroller.addEventListener("scroll", updateArrows);
+        // Initial check
+        updateArrows();
+        // Check on resize too
+        window.addEventListener("resize", updateArrows);
+      }
     }
 
     // Scroll-to-top button
@@ -889,7 +947,6 @@
 
     // --- SCRIPT ΓΙΑ ΑΦΑΙΡΕΣΗ ΤΟΝΩΝ ΣΤΑ ΚΕΦΑΛΑΙΑ ---
     document.addEventListener("DOMContentLoaded", () => {
-      // Λίστα αντικατάστασης χαρακτήρων
       const map = {
         'ά': 'α', 'έ': 'ε', 'ή': 'η', 'ί': 'ι', 'ό': 'ο', 'ύ': 'υ', 'ώ': 'ω',
         'Ά': 'Α', 'Έ': 'Ε', 'Ή': 'Η', 'Ί': 'Ι', 'Ό': 'Ο', 'Ύ': 'Υ', 'Ώ': 'Ω'
@@ -899,14 +956,11 @@
         return str.replace(/[άέήίόύώΆΈΉΊΌΎΏ]/g, m => map[m]);
       }
 
-      // 1. Βρες όλα τα στοιχεία που έχουν CSS text-transform: uppercase
       const allElements = document.querySelectorAll('*');
       
       allElements.forEach(el => {
         const style = window.getComputedStyle(el);
-        // Ελέγχουμε αν το CSS το κάνει uppercase
         if (style.textTransform === 'uppercase') {
-          // Αν το στοιχείο έχει μόνο κείμενο (όχι άλλα nested tags), αφαιρούμε τόνους
           if (el.children.length === 0 && el.textContent.trim().length > 0) {
             el.textContent = stripAccents(el.textContent);
           }

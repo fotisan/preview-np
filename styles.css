@@ -451,8 +451,6 @@ body::after {
 
   .hero__lead { font-size: 16px; }
   
-  /* Σημείωση: Αφαιρέσαμε τα socials από το desktop nav στο HTML, 
-     οπότε εδώ δεν χρειάζεται extra display: none/block */
 }
 
 /* ---------------- SERVICES ---------------- */
@@ -523,9 +521,9 @@ body::after {
   will-change: transform;
 }
 
-/* ΑΛΛΑΓΗ ΧΡΩΜΑΤΟΣ: Τα ζυγά (2, 4, 6) παίρνουν το ενδιάμεσο χρώμα */
+/* ΑΛΛΑΓΗ ΧΡΩΜΑΤΟΣ ΓΙΑ MOBILE: Πιο σκούρο μπεζ για αντίθεση */
 .svc:nth-child(even) {
-  background: #faf8f4; 
+  background: #ebe5dc; 
 }
 
 .svc.is-active {
@@ -651,7 +649,7 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     transition: transform 200ms ease;
   }
 
-  /* DESKTOP: Εφαρμογή του ίδιου ενδιάμεσου χρώματος */
+  /* DESKTOP: Επαναφορά στο πολύ ανοιχτό χρώμα για desktop, όπως ήταν */
   .svc:nth-child(even) {
     background: #faf8f4;
   }

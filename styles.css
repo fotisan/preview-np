@@ -1771,9 +1771,9 @@ details[open] > .faq-item__q::after {
 }
 
 .svc-nav__btn {
-  background: #fff;
-  border: 1px solid rgba(31, 29, 24, 0.1);
-  color: var(--warm);
+  background: transparent; /* Διάφανο background */
+  border: 1px solid rgba(31, 29, 24, 0.2); /* Λεπτό περίγραμμα */
+  color: rgba(31, 29, 24, 0.75); /* Χρώμα βέλους */
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -1781,12 +1781,13 @@ details[open] > .faq-item__q::after {
   place-items: center;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(31, 29, 24, 0.05);
-  transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease;
+  box-shadow: none; /* Καμία σκιά */
+  transition: opacity 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .svc-nav__btn:hover {
-  background: #fcfcfc;
+  border-color: rgba(31, 29, 24, 0.4);
+  color: var(--ink);
   transform: translateY(-2px);
 }
 

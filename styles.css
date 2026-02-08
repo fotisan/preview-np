@@ -1761,25 +1761,47 @@ details[open] > .faq-item__q::after {
   }
 }
 
-/* ---------------- MOBILE SWIPE HINT ---------------- */
-.mobile-swipe-hint {
+/* ---------------- MOBILE NAV ARROWS (SERVICES) ---------------- */
+.svc-nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 16px;
   margin-top: 10px;
-  color: var(--warm);
-  font-size: 20px;
-  /* Animation to nudge right */
-  animation: swipeBounce 1.5s infinite;
+  padding: 0 16px;
 }
 
-@keyframes swipeBounce {
-  0%, 100% { transform: translateX(0); opacity: 0.8; }
-  50% { transform: translateX(6px); opacity: 1; }
+.svc-nav__btn {
+  background: #fff;
+  border: 1px solid rgba(31, 29, 24, 0.1);
+  color: var(--warm);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(31, 29, 24, 0.05);
+  transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.svc-nav__btn:hover {
+  background: #fcfcfc;
+  transform: translateY(-2px);
+}
+
+.svc-nav__btn:active {
+  transform: translateY(0);
+}
+
+/* Κλάση για να κρύβουμε τα βελάκια όταν δεν χρειάζονται */
+.svc-nav__btn.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (min-width: 920px) {
-  .mobile-swipe-hint {
+  .svc-nav {
     display: none;
   }
 }

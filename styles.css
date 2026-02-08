@@ -275,6 +275,9 @@ body::after {
   letter-spacing: 0.09em;
   font-weight: 900;
   color: rgba(31, 29, 24, 0.55);
+  /* Αν είναι στατικά στο HTML κεφαλαία, τα χειρίζεται το JS. 
+     Αν είναι πεζά και γίνονται κεφαλαία εδώ, χρειάζεται text-transform */
+  text-transform: uppercase; 
 }
 
 .hero__title {
@@ -450,7 +453,6 @@ body::after {
   }
 
   .hero__lead { font-size: 16px; }
-  
 }
 
 /* ---------------- SERVICES ---------------- */
@@ -521,9 +523,11 @@ body::after {
   will-change: transform;
 }
 
-/* ΑΛΛΑΓΗ ΧΡΩΜΑΤΟΣ ΓΙΑ MOBILE: Πιο σκούρο μπεζ για αντίθεση */
+/* --- ΑΛΛΑΓΗ ΓΙΑ ΤΙΣ ΖΥΓΕΣ ΚΑΡΤΕΣ (ΣΚΟΥΡΟ/ΕΝΤΟΝΟ ΜΠΕΖ) --- */
 .svc:nth-child(even) {
-  background: #ebe5dc; 
+  /* Χρώμα ανάμεσα στο λευκό και το CTA (#c8a57b) */
+  background: #e8dbc9; 
+  border-color: #dccab5;
 }
 
 .svc.is-active {
@@ -551,9 +555,11 @@ body::after {
   font-size: 24px;
 }
 
-/* Διαφανές background στο εικονίδιο για τα ζυγά πλαίσια */
+/* Στις σκούρες κάρτες, κάνουμε το εικονίδιο λευκό για αντίθεση */
 .svc:nth-child(even) .svc__icon {
-  background: rgba(255, 255, 255, 0.6);
+  background: #ffffff;
+  border-color: rgba(255,255,255, 0.6);
+  box-shadow: 0 8px 20px rgba(31, 29, 24, 0.08);
 }
 
 .svc__num { display: none; }
@@ -573,12 +579,23 @@ body::after {
   font-size: 14px;
 }
 
+/* Μικρή ενίσχυση του text contrast στις σκούρες κάρτες */
+.svc:nth-child(even) .svc__desc {
+  color: rgba(31, 29, 24, 0.80);
+}
+
 .svc__more {
   border-radius: 18px;
   border: 1px solid rgba(31, 29, 24, 0.06);
   background: #fdfdfd;
   overflow: hidden;
   text-align: left;
+}
+
+/* Στις σκούρες κάρτες, το κουμπί 'περισσότερα' πρέπει να ταιριάζει */
+.svc:nth-child(even) .svc__more {
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(31, 29, 24, 0.05);
 }
 
 .svc__summary {
@@ -649,16 +666,11 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     transition: transform 200ms ease;
   }
 
-  /* DESKTOP: Επαναφορά στο πολύ ανοιχτό χρώμα για desktop, όπως ήταν */
+  /* DESKTOP: Εφαρμογή του ίδιου χρώματος για συνοχή */
   .svc:nth-child(even) {
-    background: #faf8f4;
+    background: #e8dbc9;
   }
   
-  /* Επαναφορά του εικονιδίου στο κανονικό για desktop */
-  .svc:nth-child(even) .svc__icon {
-    background: #fcfcfc;
-  }
-
   .svc:hover { transform: translateY(-3px); }
 
   .svc__top {
@@ -701,6 +713,11 @@ details[open] .svc__chev { transform: rotate(-135deg); }
     border: 0;
     background: transparent;
   }
+  /* Διαφανές background στο desktop 'more' για τις ζυγές */
+  .svc:nth-child(even) .svc__more {
+     background: transparent;
+  }
+
   .svc__summary { display: none; }
   details.svc__more:not([open]) > :not(summary) { display: block; }
 

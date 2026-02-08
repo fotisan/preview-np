@@ -1771,28 +1771,27 @@ details[open] > .faq-item__q::after {
 }
 
 .svc-nav__btn {
-  background: transparent; /* Διάφανο background */
-  border: 1px solid rgba(31, 29, 24, 0.2); /* Λεπτό περίγραμμα */
-  color: rgba(31, 29, 24, 0.75); /* Χρώμα βέλους */
-  width: 44px;
-  height: 44px;
+  background: transparent; /* Κανένα background */
+  border: none; /* Κανένα border */
+  box-shadow: none; /* Καμία σκιά */
+  color: rgba(31, 29, 24, 0.65); /* Σκούρο διακριτικό χρώμα βέλους */
+  
+  width: 48px; /* Λίγο μεγαλύτερη περιοχή αφής */
+  height: 48px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 20px;
+  font-size: 24px; /* Λίγο μεγαλύτερο εικονίδιο */
   cursor: pointer;
-  box-shadow: none; /* Καμία σκιά */
-  transition: opacity 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+  
+  transition: opacity 0.3s ease, transform 0.2s ease, color 0.2s ease;
+  padding: 0;
 }
 
 .svc-nav__btn:hover {
-  border-color: rgba(31, 29, 24, 0.4);
+  background: transparent;
   color: var(--ink);
-  transform: translateY(-2px);
-}
-
-.svc-nav__btn:active {
-  transform: translateY(0);
+  transform: scale(1.1); /* Ελαφριά μεγέθυνση στο πάτημα */
 }
 
 /* Κλάση για να κρύβουμε τα βελάκια όταν δεν χρειάζονται */
